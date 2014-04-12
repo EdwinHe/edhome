@@ -1,0 +1,130 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- ----------------------------- HTML HEAD ----------------------------- -->
+<head>
+	<title>{% block title %} Ed & Co. {% endblock %}</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="description" content="Ed's homepage implemented in Django" />
+	<meta name="author" content="Holbrook(http://hi.csdn.net/space-2668.html)" />
+	
+	<!-- ---------------- HEAD CSS  ----------------- -->
+	<link rel="stylesheet" href="{% static 'css/jquery-ui-1.10.4.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.flatly.css' %}" media="screen">
+	<link rel="stylesheet" href="{% static 'css/bootswatch.flatly.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/variables.flatly.css' %}">
+	<link rel="stylesheet" href="{% static 'css/custom.css' %}">
+	<!-- ---------------- /HEAD CSS  ----------------- -->
+	
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+      <script src="../bower_components/respond/dest/respond.min.js"></script>
+    <![endif]-->
+
+	<!-- ---------------- HEAD JAVA SCRIPTS ----------------- -->
+	<script src="{% static 'js/jquery-2.1.0.js' %}"></script>
+	<script src="{% static 'js/jquery-ui-1.10.4.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/bootswatch.js' %}"></script>
+    
+	<script>
+     var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-23019901-1']);
+      _gaq.push(['_setDomainName', "bootswatch.com"]);
+        _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    </script>
+    
+    <script>
+	    // Adding CSRF  
+	    function csrfSafeMethod(method) {
+		    // these HTTP methods do not require CSRF protection
+		    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+		}
+	
+		$.ajaxSetup({
+		    crossDomain: false, // obviates need for sameOrigin test
+		    beforeSend: function(xhr, settings) {
+		        if (!csrfSafeMethod(settings.type)) {
+		            xhr.setRequestHeader("X-CSRFToken", '{{csrf_token}}');
+		        }
+		    }
+		});
+    </script>
+    
+    {% block head_js %}{% endblock %}
+    <!-- -------------- /HEAD JAVA SCRIPTS ---------------- -->
+</head>
+<!-- ----------------------------- /HTML HEAD ----------------------------- -->
+
+<!-- ----------------------------- HTML BODY ----------------------------- -->
+<body style>
+	<!-- -------------- BODY NAV BAR ---------------- -->
+	<div class="navbar navbar-default navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="{% url 'home' %}" class="navbar-brand">HOME</a>
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+					<span class="icon-bar"></span> <span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			
+			<div class="navbar-collapse collapse" id="navbar-main">
+				{% block navbar %}
+				...
+				{% endblock %}
+				{% if request.user.is_authenticated %}
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="#"> Welcome, {{request.user}}</a></li>
+					<li><a class="btn btn-default" href="{% url 'logout' %}">Sign out</a></li>
+				</ul>
+				{% else %}
+				<form action="{% url 'login' %}" method='post' class="navbar-form navbar-right" role="form">
+					{% csrf_token %}
+					<input id='username' class="form-control input-sm" type="text" placeholder="User">
+					<input id='password' class="form-control input-sm" type="password" placeholder="Password">
+					<button class="btn btn-primary" type="submit">Sign in</button>
+				</form>
+				{% endif %}
+			</div>
+			
+		</div>
+	</div>
+	<!-- -------------- /BODY NAV BAR ---------------- -->
+
+	<!-- -------------- BODY CONTAINER ---------------- -->
+	<div class="container">
+		<div class="page-header" id="banner">
+	        <div class="row">
+	          	{% block content1 %} Content1 {% endblock %}
+	        </div>
+	        <div class="row">
+	        	{% block content2 %} Content2 {% endblock %}
+	        </div>
+		</div>
+	</div>
+	<!-- -------------- /BODY CONTAINER ---------------- -->
+	
+	<!-- -------------- BODY EXTRA CONTENT ---------------- -->
+	{% block content_raw %}
+	{% endblock %}
+	<!-- -------------- /BODY EXTRA CONTENT ---------------- -->
+	
+	<!-- -------------- BODY EXTRA JS ---------------- -->
+	{% block js %}
+	{% endblock %}
+	<!-- -------------- /BODY EXTRA JS ---------------- -->
+	
+	<!-- ----------------------------- /BODY ----------------------------- -->
+</body>
+</html>

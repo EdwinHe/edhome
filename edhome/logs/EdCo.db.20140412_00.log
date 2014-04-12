@@ -1,0 +1,254 @@
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.004) SHOW TABLES; args=None
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'logentry'  AND `django_content_type`.`app_label` = 'admin' ); args=('logentry', 'admin')
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.002) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (1) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1,)
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'admin'  ORDER BY `django_content_type`.`name` ASC; args=('admin',)
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'permission'  AND `django_content_type`.`app_label` = 'auth' ); args=('permission', 'auth')
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'group'  AND `django_content_type`.`app_label` = 'auth' ); args=('group', 'auth')
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'user'  AND `django_content_type`.`app_label` = 'auth' ); args=('user', 'auth')
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (2, 3, 4) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2, 3, 4)
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'  ORDER BY `django_content_type`.`name` ASC; args=('auth',)
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'contenttype'  AND `django_content_type`.`app_label` = 'contenttypes' ); args=('contenttype', 'contenttypes')
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(5,)
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'  ORDER BY `django_content_type`.`name` ASC; args=('contenttypes',)
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'session'  AND `django_content_type`.`app_label` = 'sessions' ); args=('session', 'sessions')
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'  ORDER BY `django_content_type`.`name` ASC; args=('sessions',)
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'type'  AND `django_content_type`.`app_label` = 'ozio' ); args=('type', 'ozio')
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'cate'  AND `django_content_type`.`app_label` = 'ozio' ); args=('cate', 'ozio')
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'subcate'  AND `django_content_type`.`app_label` = 'ozio' ); args=('subcate', 'ozio')
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'keyword'  AND `django_content_type`.`app_label` = 'ozio' ); args=('keyword', 'ozio')
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'sourcefile'  AND `django_content_type`.`app_label` = 'ozio' ); args=('sourcefile', 'ozio')
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'transaction'  AND `django_content_type`.`app_label` = 'ozio' ); args=('transaction', 'ozio')
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'transactionfilter'  AND `django_content_type`.`app_label` = 'ozio' ); args=('transactionfilter', 'ozio')
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'filtersql'  AND `django_content_type`.`app_label` = 'ozio' ); args=('filtersql', 'ozio')
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (7, 8, 9, 10, 11, 12, 13, 14) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(7, 8, 9, 10, 11, 12, 13, 14)
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'ozio'  ORDER BY `django_content_type`.`name` ASC; args=('ozio',)
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SET foreign_key_checks=0; args=None
+[12/Apr/2014 00:10:08] DEBUG [django.db.backends:79] (0.000) SET foreign_key_checks=1; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.004) SHOW TABLES; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.031) CREATE TABLE `ozio_type` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `type` varchar(40) NOT NULL,
+    `span_days` integer UNSIGNED NOT NULL,
+    `description` varchar(60) NOT NULL
+)
+;; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.008) CREATE TABLE `ozio_cate` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `cate` varchar(40) NOT NULL,
+    `description` varchar(60) NOT NULL
+)
+;; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.009) CREATE TABLE `ozio_subcate` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `cate_id` integer NOT NULL,
+    `sub_cate` varchar(40) NOT NULL,
+    `description` varchar(60) NOT NULL
+)
+;; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.017) ALTER TABLE `ozio_subcate` ADD CONSTRAINT `cate_id_refs_id_cd2cf7bc` FOREIGN KEY (`cate_id`) REFERENCES `ozio_cate` (`id`);; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.011) CREATE TABLE `ozio_keyword` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `keyword` varchar(100) NOT NULL,
+    `type_id` integer NOT NULL,
+    `cate_id` integer NOT NULL,
+    `sub_cate_id` integer NOT NULL,
+    `priority` integer UNSIGNED NOT NULL,
+    `description` varchar(60) NOT NULL
+)
+;; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.017) ALTER TABLE `ozio_keyword` ADD CONSTRAINT `sub_cate_id_refs_id_3f84da0e` FOREIGN KEY (`sub_cate_id`) REFERENCES `ozio_subcate` (`id`);; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.019) ALTER TABLE `ozio_keyword` ADD CONSTRAINT `cate_id_refs_id_59107b95` FOREIGN KEY (`cate_id`) REFERENCES `ozio_cate` (`id`);; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.021) ALTER TABLE `ozio_keyword` ADD CONSTRAINT `type_id_refs_id_edc46002` FOREIGN KEY (`type_id`) REFERENCES `ozio_type` (`id`);; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.010) CREATE TABLE `ozio_sourcefile` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `file_name` varchar(100) NOT NULL,
+    `import_time` datetime NOT NULL,
+    `local_link` varchar(100) NOT NULL
+)
+;; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.009) CREATE TABLE `ozio_transaction` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `date` date NOT NULL,
+    `amount` double precision NOT NULL,
+    `info` varchar(100) NOT NULL,
+    `original_info` varchar(100) NOT NULL,
+    `source_file_id` integer NOT NULL,
+    `keyword_id` integer
+)
+;; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.019) ALTER TABLE `ozio_transaction` ADD CONSTRAINT `keyword_id_refs_id_3b5a175f` FOREIGN KEY (`keyword_id`) REFERENCES `ozio_keyword` (`id`);; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.020) ALTER TABLE `ozio_transaction` ADD CONSTRAINT `source_file_id_refs_id_eb59ee7c` FOREIGN KEY (`source_file_id`) REFERENCES `ozio_sourcefile` (`id`);; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.010) CREATE TABLE `ozio_transactionfilter` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `filter_name` varchar(60) NOT NULL,
+    `description` varchar(100) NOT NULL
+)
+;; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.009) CREATE TABLE `ozio_filtersql` (
+    `id` integer AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    `filter_id` integer NOT NULL,
+    `filter_sql` varchar(100) NOT NULL
+)
+;; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.017) ALTER TABLE `ozio_filtersql` ADD CONSTRAINT `filter_id_refs_id_438caace` FOREIGN KEY (`filter_id`) REFERENCES `ozio_transactionfilter` (`id`);; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'logentry'  AND `django_content_type`.`app_label` = 'admin' ); args=('logentry', 'admin')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (1) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(1,)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'admin'  ORDER BY `django_content_type`.`name` ASC; args=('admin',)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'permission'  AND `django_content_type`.`app_label` = 'auth' ); args=('permission', 'auth')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'group'  AND `django_content_type`.`app_label` = 'auth' ); args=('group', 'auth')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'user'  AND `django_content_type`.`app_label` = 'auth' ); args=('user', 'auth')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (2, 3, 4) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(2, 3, 4)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'auth'  ORDER BY `django_content_type`.`name` ASC; args=('auth',)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'contenttype'  AND `django_content_type`.`app_label` = 'contenttypes' ); args=('contenttype', 'contenttypes')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (5) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(5,)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'contenttypes'  ORDER BY `django_content_type`.`name` ASC; args=('contenttypes',)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'session'  AND `django_content_type`.`app_label` = 'sessions' ); args=('session', 'sessions')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (6) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(6,)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'sessions'  ORDER BY `django_content_type`.`name` ASC; args=('sessions',)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'type'  AND `django_content_type`.`app_label` = 'ozio' ); args=('type', 'ozio')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'cate'  AND `django_content_type`.`app_label` = 'ozio' ); args=('cate', 'ozio')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'subcate'  AND `django_content_type`.`app_label` = 'ozio' ); args=('subcate', 'ozio')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'keyword'  AND `django_content_type`.`app_label` = 'ozio' ); args=('keyword', 'ozio')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'sourcefile'  AND `django_content_type`.`app_label` = 'ozio' ); args=('sourcefile', 'ozio')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'transaction'  AND `django_content_type`.`app_label` = 'ozio' ); args=('transaction', 'ozio')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'transactionfilter'  AND `django_content_type`.`app_label` = 'ozio' ); args=('transactionfilter', 'ozio')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE (`django_content_type`.`model` = 'filtersql'  AND `django_content_type`.`app_label` = 'ozio' ); args=('filtersql', 'ozio')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.001) SELECT `auth_permission`.`content_type_id`, `auth_permission`.`codename` FROM `auth_permission` INNER JOIN `django_content_type` ON ( `auth_permission`.`content_type_id` = `django_content_type`.`id` ) WHERE `auth_permission`.`content_type_id` IN (7, 8, 9, 10, 11, 12, 13, 14) ORDER BY `django_content_type`.`app_label` ASC, `django_content_type`.`model` ASC, `auth_permission`.`codename` ASC; args=(7, 8, 9, 10, 11, 12, 13, 14)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.001) SELECT `django_content_type`.`id`, `django_content_type`.`name`, `django_content_type`.`app_label`, `django_content_type`.`model` FROM `django_content_type` WHERE `django_content_type`.`app_label` = 'ozio'  ORDER BY `django_content_type`.`name` ASC; args=('ozio',)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.022) CREATE INDEX `ozio_subcate_cfa4e5ec` ON `ozio_subcate` (`cate_id`);; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.013) CREATE INDEX `ozio_keyword_403d8ff3` ON `ozio_keyword` (`type_id`);; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.013) CREATE INDEX `ozio_keyword_cfa4e5ec` ON `ozio_keyword` (`cate_id`);; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.020) CREATE INDEX `ozio_keyword_9c28f7e0` ON `ozio_keyword` (`sub_cate_id`);; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.020) CREATE INDEX `ozio_transaction_f8a0e7a2` ON `ozio_transaction` (`source_file_id`);; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.017) CREATE INDEX `ozio_transaction_0e202173` ON `ozio_transaction` (`keyword_id`);; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.022) CREATE INDEX `ozio_filtersql_4adbc251` ON `ozio_filtersql` (`filter_id`);; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SET foreign_key_checks=0; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.001) UPDATE `ozio_type` SET `type` = 'Off Balance', `span_days` = 1, `description` = 'Off Balance Transactions.' WHERE `ozio_type`.`id` = 1 ; args=('Off Balance', 1, 'Off Balance Transactions.', 1)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) INSERT INTO `ozio_type` (`id`, `type`, `span_days`, `description`) VALUES (1, 'Off Balance', 1, 'Off Balance Transactions.'); args=(1, 'Off Balance', 1, 'Off Balance Transactions.')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) UPDATE `ozio_type` SET `type` = 'Span 1 Year', `span_days` = 365, `description` = 'Transactions that span a year, 365 days.' WHERE `ozio_type`.`id` = 2 ; args=('Span 1 Year', 365, 'Transactions that span a year, 365 days.', 2)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) INSERT INTO `ozio_type` (`id`, `type`, `span_days`, `description`) VALUES (2, 'Span 1 Year', 365, 'Transactions that span a year, 365 days.'); args=(2, 'Span 1 Year', 365, 'Transactions that span a year, 365 days.')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) UPDATE `ozio_type` SET `type` = 'One Off', `span_days` = 1, `description` = 'Transactions do not span.' WHERE `ozio_type`.`id` = 3 ; args=('One Off', 1, 'Transactions do not span.', 3)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) INSERT INTO `ozio_type` (`id`, `type`, `span_days`, `description`) VALUES (3, 'One Off', 1, 'Transactions do not span.'); args=(3, 'One Off', 1, 'Transactions do not span.')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) UPDATE `ozio_type` SET `type` = 'Span 1 Month', `span_days` = 30, `description` = 'Transactions that span a month, 30 days.' WHERE `ozio_type`.`id` = 4 ; args=('Span 1 Month', 30, 'Transactions that span a month, 30 days.', 4)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) INSERT INTO `ozio_type` (`id`, `type`, `span_days`, `description`) VALUES (4, 'Span 1 Month', 30, 'Transactions that span a month, 30 days.'); args=(4, 'Span 1 Month', 30, 'Transactions that span a month, 30 days.')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.001) UPDATE `ozio_cate` SET `cate` = 'Living', `description` = 'Living Expense' WHERE `ozio_cate`.`id` = 2 ; args=('Living', 'Living Expense', 2)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) INSERT INTO `ozio_cate` (`id`, `cate`, `description`) VALUES (2, 'Living', 'Living Expense'); args=(2, 'Living', 'Living Expense')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) UPDATE `ozio_cate` SET `cate` = 'Transport', `description` = '' WHERE `ozio_cate`.`id` = 3 ; args=('Transport', '', 3)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) INSERT INTO `ozio_cate` (`id`, `cate`, `description`) VALUES (3, 'Transport', ''); args=(3, 'Transport', '')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) UPDATE `ozio_subcate` SET `cate_id` = 2, `sub_cate` = 'Food & Drink', `description` = '' WHERE `ozio_subcate`.`id` = 2 ; args=(2, 'Food & Drink', '', 2)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) INSERT INTO `ozio_subcate` (`id`, `cate_id`, `sub_cate`, `description`) VALUES (2, 2, 'Food & Drink', ''); args=(2, 2, 'Food & Drink', '')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) UPDATE `ozio_subcate` SET `cate_id` = 2, `sub_cate` = 'Houseware', `description` = '' WHERE `ozio_subcate`.`id` = 3 ; args=(2, 'Houseware', '', 3)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) INSERT INTO `ozio_subcate` (`id`, `cate_id`, `sub_cate`, `description`) VALUES (3, 2, 'Houseware', ''); args=(3, 2, 'Houseware', '')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) UPDATE `ozio_subcate` SET `cate_id` = 2, `sub_cate` = 'Misc', `description` = '' WHERE `ozio_subcate`.`id` = 4 ; args=(2, 'Misc', '', 4)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) INSERT INTO `ozio_subcate` (`id`, `cate_id`, `sub_cate`, `description`) VALUES (4, 2, 'Misc', ''); args=(4, 2, 'Misc', '')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) UPDATE `ozio_subcate` SET `cate_id` = 3, `sub_cate` = 'Petrol', `description` = '' WHERE `ozio_subcate`.`id` = 5 ; args=(3, 'Petrol', '', 5)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) INSERT INTO `ozio_subcate` (`id`, `cate_id`, `sub_cate`, `description`) VALUES (5, 3, 'Petrol', ''); args=(5, 3, 'Petrol', '')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) UPDATE `ozio_subcate` SET `cate_id` = 3, `sub_cate` = 'Train', `description` = '' WHERE `ozio_subcate`.`id` = 6 ; args=(3, 'Train', '', 6)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) INSERT INTO `ozio_subcate` (`id`, `cate_id`, `sub_cate`, `description`) VALUES (6, 3, 'Train', ''); args=(6, 3, 'Train', '')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) UPDATE `ozio_subcate` SET `cate_id` = 3, `sub_cate` = 'Opal Card', `description` = '' WHERE `ozio_subcate`.`id` = 7 ; args=(3, 'Opal Card', '', 7)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) INSERT INTO `ozio_subcate` (`id`, `cate_id`, `sub_cate`, `description`) VALUES (7, 3, 'Opal Card', ''); args=(7, 3, 'Opal Card', '')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) UPDATE `ozio_keyword` SET `keyword` = 'COLES', `type_id` = 3, `cate_id` = 2, `sub_cate_id` = 2, `priority` = 4, `description` = '' WHERE `ozio_keyword`.`id` = 1 ; args=('COLES', 3, 2, 2, 4, '', 1)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) INSERT INTO `ozio_keyword` (`id`, `keyword`, `type_id`, `cate_id`, `sub_cate_id`, `priority`, `description`) VALUES (1, 'COLES', 3, 2, 2, 4, ''); args=(1, 'COLES', 3, 2, 2, 4, '')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) UPDATE `ozio_keyword` SET `keyword` = 'KMART', `type_id` = 3, `cate_id` = 2, `sub_cate_id` = 3, `priority` = 4, `description` = '' WHERE `ozio_keyword`.`id` = 2 ; args=('KMART', 3, 2, 3, 4, '', 2)
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) INSERT INTO `ozio_keyword` (`id`, `keyword`, `type_id`, `cate_id`, `sub_cate_id`, `priority`, `description`) VALUES (2, 'KMART', 3, 2, 3, 4, ''); args=(2, 'KMART', 3, 2, 3, 4, '')
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SET foreign_key_checks=1; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SHOW INDEX FROM `ozio_subcate`; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.001) 
+            SELECT column_name, referenced_table_name, referenced_column_name
+            FROM information_schema.key_column_usage
+            WHERE table_name = 'ozio_subcate'
+                AND table_schema = DATABASE()
+                AND referenced_table_name IS NOT NULL
+                AND referenced_column_name IS NOT NULL; args=['ozio_subcate']
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) 
+                    SELECT REFERRING.`id`, REFERRING.`cate_id` FROM `ozio_subcate` as REFERRING
+                    LEFT JOIN `ozio_cate` as REFERRED
+                    ON (REFERRING.`cate_id` = REFERRED.`id`)
+                    WHERE REFERRING.`cate_id` IS NOT NULL AND REFERRED.`id` IS NULL; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SHOW INDEX FROM `ozio_cate`; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) 
+            SELECT column_name, referenced_table_name, referenced_column_name
+            FROM information_schema.key_column_usage
+            WHERE table_name = 'ozio_cate'
+                AND table_schema = DATABASE()
+                AND referenced_table_name IS NOT NULL
+                AND referenced_column_name IS NOT NULL; args=['ozio_cate']
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) SHOW INDEX FROM `ozio_type`; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) 
+            SELECT column_name, referenced_table_name, referenced_column_name
+            FROM information_schema.key_column_usage
+            WHERE table_name = 'ozio_type'
+                AND table_schema = DATABASE()
+                AND referenced_table_name IS NOT NULL
+                AND referenced_column_name IS NOT NULL; args=['ozio_type']
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.001) SHOW INDEX FROM `ozio_keyword`; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.001) 
+            SELECT column_name, referenced_table_name, referenced_column_name
+            FROM information_schema.key_column_usage
+            WHERE table_name = 'ozio_keyword'
+                AND table_schema = DATABASE()
+                AND referenced_table_name IS NOT NULL
+                AND referenced_column_name IS NOT NULL; args=['ozio_keyword']
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) 
+                    SELECT REFERRING.`id`, REFERRING.`type_id` FROM `ozio_keyword` as REFERRING
+                    LEFT JOIN `ozio_type` as REFERRED
+                    ON (REFERRING.`type_id` = REFERRED.`id`)
+                    WHERE REFERRING.`type_id` IS NOT NULL AND REFERRED.`id` IS NULL; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) 
+                    SELECT REFERRING.`id`, REFERRING.`cate_id` FROM `ozio_keyword` as REFERRING
+                    LEFT JOIN `ozio_cate` as REFERRED
+                    ON (REFERRING.`cate_id` = REFERRED.`id`)
+                    WHERE REFERRING.`cate_id` IS NOT NULL AND REFERRED.`id` IS NULL; args=None
+[12/Apr/2014 00:11:34] DEBUG [django.db.backends:79] (0.000) 
+                    SELECT REFERRING.`id`, REFERRING.`sub_cate_id` FROM `ozio_keyword` as REFERRING
+                    LEFT JOIN `ozio_subcate` as REFERRED
+                    ON (REFERRING.`sub_cate_id` = REFERRED.`id`)
+                    WHERE REFERRING.`sub_cate_id` IS NOT NULL AND REFERRED.`id` IS NULL; args=None
+[12/Apr/2014 00:11:41] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_transaction`.`id`, `ozio_transaction`.`date`, `ozio_transaction`.`amount`, `ozio_transaction`.`info`, `ozio_transaction`.`original_info`, `ozio_transaction`.`source_file_id`, `ozio_transaction`.`keyword_id` FROM `ozio_transaction` ORDER BY `ozio_transaction`.`date` ASC; args=()
+[12/Apr/2014 00:11:41] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type`; args=()
+[12/Apr/2014 00:11:41] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_keyword`.`id`, `ozio_keyword`.`keyword`, `ozio_keyword`.`type_id`, `ozio_keyword`.`cate_id`, `ozio_keyword`.`sub_cate_id`, `ozio_keyword`.`priority`, `ozio_keyword`.`description` FROM `ozio_keyword`; args=()
+[12/Apr/2014 00:11:41] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type` WHERE `ozio_type`.`id` = 3 ; args=(3,)
+[12/Apr/2014 00:12:52] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_transaction`.`id`, `ozio_transaction`.`date`, `ozio_transaction`.`amount`, `ozio_transaction`.`info`, `ozio_transaction`.`original_info`, `ozio_transaction`.`source_file_id`, `ozio_transaction`.`keyword_id` FROM `ozio_transaction` ORDER BY `ozio_transaction`.`date` ASC; args=()
+[12/Apr/2014 00:12:52] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type`; args=()
+[12/Apr/2014 00:12:52] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_keyword`.`id`, `ozio_keyword`.`keyword`, `ozio_keyword`.`type_id`, `ozio_keyword`.`cate_id`, `ozio_keyword`.`sub_cate_id`, `ozio_keyword`.`priority`, `ozio_keyword`.`description` FROM `ozio_keyword`; args=()
+[12/Apr/2014 00:12:52] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type` WHERE `ozio_type`.`id` = 3 ; args=(3,)
+[12/Apr/2014 00:13:02] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_transaction`.`id`, `ozio_transaction`.`date`, `ozio_transaction`.`amount`, `ozio_transaction`.`info`, `ozio_transaction`.`original_info`, `ozio_transaction`.`source_file_id`, `ozio_transaction`.`keyword_id` FROM `ozio_transaction` ORDER BY `ozio_transaction`.`date` ASC; args=()
+[12/Apr/2014 00:13:02] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type`; args=()
+[12/Apr/2014 00:13:02] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_keyword`.`id`, `ozio_keyword`.`keyword`, `ozio_keyword`.`type_id`, `ozio_keyword`.`cate_id`, `ozio_keyword`.`sub_cate_id`, `ozio_keyword`.`priority`, `ozio_keyword`.`description` FROM `ozio_keyword`; args=()
+[12/Apr/2014 00:13:02] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type` WHERE `ozio_type`.`id` = 3 ; args=(3,)
+[12/Apr/2014 00:13:37] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_transaction`.`id`, `ozio_transaction`.`date`, `ozio_transaction`.`amount`, `ozio_transaction`.`info`, `ozio_transaction`.`original_info`, `ozio_transaction`.`source_file_id`, `ozio_transaction`.`keyword_id` FROM `ozio_transaction` ORDER BY `ozio_transaction`.`date` ASC; args=()
+[12/Apr/2014 00:13:37] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type`; args=()
+[12/Apr/2014 00:13:37] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_keyword`.`id`, `ozio_keyword`.`keyword`, `ozio_keyword`.`type_id`, `ozio_keyword`.`cate_id`, `ozio_keyword`.`sub_cate_id`, `ozio_keyword`.`priority`, `ozio_keyword`.`description` FROM `ozio_keyword`; args=()
+[12/Apr/2014 00:13:37] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type` WHERE `ozio_type`.`id` = 3 ; args=(3,)
+[12/Apr/2014 00:13:43] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_transaction`.`id`, `ozio_transaction`.`date`, `ozio_transaction`.`amount`, `ozio_transaction`.`info`, `ozio_transaction`.`original_info`, `ozio_transaction`.`source_file_id`, `ozio_transaction`.`keyword_id` FROM `ozio_transaction` ORDER BY `ozio_transaction`.`date` ASC; args=()
+[12/Apr/2014 00:13:43] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type`; args=()
+[12/Apr/2014 00:13:43] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_keyword`.`id`, `ozio_keyword`.`keyword`, `ozio_keyword`.`type_id`, `ozio_keyword`.`cate_id`, `ozio_keyword`.`sub_cate_id`, `ozio_keyword`.`priority`, `ozio_keyword`.`description` FROM `ozio_keyword`; args=()
+[12/Apr/2014 00:13:43] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type` WHERE `ozio_type`.`id` = 3 ; args=(3,)
+[12/Apr/2014 00:14:15] DEBUG [django.db.backends:79] (0.001) SELECT `ozio_transaction`.`id`, `ozio_transaction`.`date`, `ozio_transaction`.`amount`, `ozio_transaction`.`info`, `ozio_transaction`.`original_info`, `ozio_transaction`.`source_file_id`, `ozio_transaction`.`keyword_id` FROM `ozio_transaction` ORDER BY `ozio_transaction`.`date` ASC; args=()
+[12/Apr/2014 00:14:15] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type`; args=()
+[12/Apr/2014 00:14:15] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_keyword`.`id`, `ozio_keyword`.`keyword`, `ozio_keyword`.`type_id`, `ozio_keyword`.`cate_id`, `ozio_keyword`.`sub_cate_id`, `ozio_keyword`.`priority`, `ozio_keyword`.`description` FROM `ozio_keyword`; args=()
+[12/Apr/2014 00:14:15] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type` WHERE `ozio_type`.`id` = 3 ; args=(3,)
+[12/Apr/2014 00:14:15] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_cate`.`id`, `ozio_cate`.`cate`, `ozio_cate`.`description` FROM `ozio_cate` WHERE `ozio_cate`.`id` = 2 ; args=(2,)
+[12/Apr/2014 00:14:15] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type` WHERE `ozio_type`.`id` = 3 ; args=(3,)
+[12/Apr/2014 00:14:15] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_cate`.`id`, `ozio_cate`.`cate`, `ozio_cate`.`description` FROM `ozio_cate` WHERE `ozio_cate`.`id` = 2 ; args=(2,)
+[12/Apr/2014 00:14:39] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_cate`.`id`, `ozio_cate`.`cate`, `ozio_cate`.`description` FROM `ozio_cate`; args=()
+[12/Apr/2014 00:14:49] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_cate`.`id`, `ozio_cate`.`cate`, `ozio_cate`.`description` FROM `ozio_cate`; args=()
+[12/Apr/2014 10:08:44] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_cate`.`id`, `ozio_cate`.`cate`, `ozio_cate`.`description` FROM `ozio_cate`; args=()
+[12/Apr/2014 10:09:11] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_cate`.`id`, `ozio_cate`.`cate`, `ozio_cate`.`description` FROM `ozio_cate`; args=()
+[12/Apr/2014 11:23:28] DEBUG [django.db.backends:79] (0.001) SELECT `ozio_transaction`.`id`, `ozio_transaction`.`date`, `ozio_transaction`.`amount`, `ozio_transaction`.`info`, `ozio_transaction`.`original_info`, `ozio_transaction`.`source_file_id`, `ozio_transaction`.`keyword_id` FROM `ozio_transaction` ORDER BY `ozio_transaction`.`date` ASC; args=()
+[12/Apr/2014 11:23:28] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type`; args=()
+[12/Apr/2014 11:23:28] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_keyword`.`id`, `ozio_keyword`.`keyword`, `ozio_keyword`.`type_id`, `ozio_keyword`.`cate_id`, `ozio_keyword`.`sub_cate_id`, `ozio_keyword`.`priority`, `ozio_keyword`.`description` FROM `ozio_keyword`; args=()
+[12/Apr/2014 11:23:28] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type` WHERE `ozio_type`.`id` = 3 ; args=(3,)
+[12/Apr/2014 11:23:28] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_cate`.`id`, `ozio_cate`.`cate`, `ozio_cate`.`description` FROM `ozio_cate` WHERE `ozio_cate`.`id` = 2 ; args=(2,)
+[12/Apr/2014 11:23:28] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type` WHERE `ozio_type`.`id` = 3 ; args=(3,)
+[12/Apr/2014 11:23:28] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_cate`.`id`, `ozio_cate`.`cate`, `ozio_cate`.`description` FROM `ozio_cate` WHERE `ozio_cate`.`id` = 2 ; args=(2,)
+[12/Apr/2014 11:23:35] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_transaction`.`id`, `ozio_transaction`.`date`, `ozio_transaction`.`amount`, `ozio_transaction`.`info`, `ozio_transaction`.`original_info`, `ozio_transaction`.`source_file_id`, `ozio_transaction`.`keyword_id` FROM `ozio_transaction` ORDER BY `ozio_transaction`.`date` ASC; args=()
+[12/Apr/2014 11:23:35] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type`; args=()
+[12/Apr/2014 11:23:35] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_keyword`.`id`, `ozio_keyword`.`keyword`, `ozio_keyword`.`type_id`, `ozio_keyword`.`cate_id`, `ozio_keyword`.`sub_cate_id`, `ozio_keyword`.`priority`, `ozio_keyword`.`description` FROM `ozio_keyword`; args=()
+[12/Apr/2014 11:23:35] DEBUG [django.db.backends:79] (0.001) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type` WHERE `ozio_type`.`id` = 3 ; args=(3,)
+[12/Apr/2014 11:23:35] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_cate`.`id`, `ozio_cate`.`cate`, `ozio_cate`.`description` FROM `ozio_cate` WHERE `ozio_cate`.`id` = 2 ; args=(2,)
+[12/Apr/2014 11:23:35] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_type`.`id`, `ozio_type`.`type`, `ozio_type`.`span_days`, `ozio_type`.`description` FROM `ozio_type` WHERE `ozio_type`.`id` = 3 ; args=(3,)
+[12/Apr/2014 11:23:35] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_cate`.`id`, `ozio_cate`.`cate`, `ozio_cate`.`description` FROM `ozio_cate` WHERE `ozio_cate`.`id` = 2 ; args=(2,)
+[12/Apr/2014 11:46:29] DEBUG [django.db.backends:79] (0.017) SELECT `ozio_cate`.`id`, `ozio_cate`.`cate`, `ozio_cate`.`description` FROM `ozio_cate`; args=()
+[12/Apr/2014 11:46:59] DEBUG [django.db.backends:79] (0.000) SELECT `ozio_cate`.`id`, `ozio_cate`.`cate`, `ozio_cate`.`description` FROM `ozio_cate`; args=()

@@ -1,0 +1,16 @@
+<div id="import_cba_csv_dialog">
+	<p id="file_name">Please choose a csv file...</p>
+	
+	<form class="form-inline" action="." method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		<input type="file" id="id_import_csv" accept=".csv" style="visibility: hidden" onchange="fileChosen()" name="chosen_file"  >
+		<form class="form-horizontal">
+		<fieldset>
+      		<div class="col-lg-10 col-lg-offset-2">
+				<button type="button" class="btn btn-success" onclick="chooseFile();">Browse CSV</button>
+        		<button type="submit" id="id_submit_csv" class="btn btn-primary" onclick="importFile();">Import</button>
+        	</div>
+        </fieldset>
+		</form>
+	</form>
+</div>

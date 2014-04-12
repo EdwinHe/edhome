@@ -1,0 +1,24 @@
+<div id="transactions_dialog">
+	<div class="ed-scrollable-y400">
+		<table class="table table-striped table-hover">
+			<thead>
+				<tr class="success">
+					<th>Date</th>
+					<th>Amount</th>
+					<th>Info</th>
+					<th>Source File</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for tran in transactions %}
+				<tr>
+					<td>{{ tran.date | date:"Y-m-d" }}</td>
+					<td>{{ tran.amount }}</td>
+					<td>{{ tran.info }}</td>
+					<td>{{ tran.source_file }}</td>
+				</tr>
+			</tbody>
+			{% endfor %}
+		</table>
+	</div>
+</div>

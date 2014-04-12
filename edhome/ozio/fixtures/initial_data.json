@@ -1,0 +1,132 @@
+[
+{
+    "pk": 1, 
+    "model": "ozio.type", 
+    "fields": {
+        "type": "Off Balance", 
+        "span_days": 1, 
+        "description": "Off Balance Transactions."
+    }
+},
+{
+    "pk": 2, 
+    "model": "ozio.type", 
+    "fields": {
+        "type": "Span 1 Year", 
+        "span_days": 365, 
+        "description": "Transactions that span a year, 365 days."
+    }
+},
+{
+    "pk": 3, 
+    "model": "ozio.type", 
+    "fields": {
+        "type": "One Off", 
+        "span_days": 1, 
+        "description": "Transactions do not span."
+    }
+},
+{
+    "pk": 4, 
+    "model": "ozio.type", 
+    "fields": {
+        "type": "Span 1 Month", 
+        "span_days": 30, 
+        "description": "Transactions that span a month, 30 days."
+    }
+},
+{
+    "pk": 2, 
+    "model": "ozio.cate", 
+    "fields": {
+        "cate": "Living", 
+        "description": "Living Expense"
+    }
+},
+{
+    "pk": 3, 
+    "model": "ozio.cate", 
+    "fields": {
+        "cate": "Transport", 
+        "description": ""
+    }
+},
+{
+    "pk": 2, 
+    "model": "ozio.subcate", 
+    "fields": {
+        "cate": 2, 
+        "description": "", 
+        "sub_cate": "Food & Drink"
+    }
+},
+{
+    "pk": 3, 
+    "model": "ozio.subcate", 
+    "fields": {
+        "cate": 2, 
+        "description": "", 
+        "sub_cate": "Houseware"
+    }
+},
+{
+    "pk": 4, 
+    "model": "ozio.subcate", 
+    "fields": {
+        "cate": 2, 
+        "description": "", 
+        "sub_cate": "Misc"
+    }
+},
+{
+    "pk": 5, 
+    "model": "ozio.subcate", 
+    "fields": {
+        "cate": 3, 
+        "description": "", 
+        "sub_cate": "Petrol"
+    }
+},
+{
+    "pk": 6, 
+    "model": "ozio.subcate", 
+    "fields": {
+        "cate": 3, 
+        "description": "", 
+        "sub_cate": "Train"
+    }
+},
+{
+    "pk": 7, 
+    "model": "ozio.subcate", 
+    "fields": {
+        "cate": 3, 
+        "description": "", 
+        "sub_cate": "Opal Card"
+    }
+},
+{
+    "pk": 1, 
+    "model": "ozio.keyword", 
+    "fields": {
+        "sub_cate": 2, 
+        "description": "", 
+        "priority": 4, 
+        "cate": 2, 
+        "keyword": "COLES", 
+        "type": 3
+    }
+},
+{
+    "pk": 2, 
+    "model": "ozio.keyword", 
+    "fields": {
+        "sub_cate": 3, 
+        "description": "", 
+        "priority": 4, 
+        "cate": 2, 
+        "keyword": "KMART", 
+        "type": 3
+    }
+}
+]

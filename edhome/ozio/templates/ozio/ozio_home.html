@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block navbar %}
+<ul class="nav navbar-nav">
+	<li><a href="{% url 'ozio:home' %}">OZIO</a></li>
+	<li><a href="{% url 'ozio:test' %}">TEST</a></li>
+	<li class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="about_us">DropDown<span class="caret"></span></a>
+		<ul class="dropdown-menu" aria-labelledby="about_us">
+			<li><a href="#">Op1</a></li>
+			<li class="divider"></li>
+			<li><a href="#">Op2</a></li>
+		</ul>
+	</li>
+</ul>
+{% endblock %}
+
+<!--------------------- BLOCK content1 --------------------->
+{% block content1 %}
+<!----------- MESSAGES ----------->
+{% if messages %}
+	{% for msg in messages %}
+	<div class="alert alert-dismissable alert-{{msg.tags}}">
+	  <button type="button" class="close" data-dismiss="alert">×</button>
+	  <strong>MESSAGE:</strong> <span>&nbsp;&nbsp;&nbsp;</span> {{ msg }}
+	</div>
+	{% endfor %}
+{% endif %}
+<!----------- /MESSAGE ----------->
+
+<div class="col-lg-6">
+	<h1>OZIO</h1>
+	<p class="lead">Under Construction...</p>
+</div>
+<div class="col-lg-4 pull-right">
+	<div class="list-group">
+		<a class="list-group-item active"> Functionalities</a>
+		<a href="#" class="list-group-item" id="import_cba_csv">Import CommBank CSV</a> 
+		<a href="#" class="list-group-item" id="transactions">Transactions</a>
+		<a href="#" class="list-group-item" id="configurations">Configurations</a>
+	</div>
+</div>
+{% endblock %}
+<!--------------------- /BLOCK content1 --------------------->
+
+<!--------------------- BLOCK content2 --------------------->
+{% block content2 %}
+{% endblock %}
+<!--------------------- /BLOCK content2 --------------------->
+
+<!--------------------- BLOCK head_js --------------------->
+{% block head_js %}
+<link rel="stylesheet" href="{% static 'ozio/css/custom_dialog.css' %}">
+<script src="{% static 'ozio/js/ozio_dialog_import_csv.js' %}"></script>
+<script src="{% static 'ozio/js/ozio_dialog_trans.js' %}"></script>
+<script src="{% static 'ozio/js/ozio_dialog_configs.js' %}"></script>    
+{% endblock %}
+<!--------------------- /BLOCK head_js --------------------->
+
+<!--------------------- BLOCK content_raw --------------------->
+{% block content_raw %}
+{% include "ozio/ozio_dialog_import_csv.html" %}
+{% include "ozio/ozio_dialog_trans.html" %}
+{% include "ozio/ozio_dialog_configs.html" %}
+{% endblock %}
+<!--------------------- /BLOCK content_raw --------------------->

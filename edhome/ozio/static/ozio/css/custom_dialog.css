@@ -1,0 +1,13 @@
+.ui-widget-content {
+	border: 1px solid #dddddd;
+	background: #ffffff;
+}
+
+.ui-widget-content a {
+	color: #18bc9c;
+}
+
+.ui-widget {
+	font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 15px;
+}

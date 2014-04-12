@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block navbar %}
+				<ul class="nav navbar-nav">
+					<li><a href="{% url 'ozio:home' %}">OZIO</a></li>
+					<li><a href="http://news.bootswatch.com">Blog</a></li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="#" id="about_us">About Us<span class="caret"></span></a>
+						<ul class="dropdown-menu" aria-labelledby="about_us">
+							<li><a href="#">Connie</a></li>
+							<li class="divider"></li>
+							<li><a href="#">Edwin</a></li>
+						</ul>
+					</li>
+				</ul>
+{% endblock %}
+
+{% block content1 %}
+<div class="col-lg-6">
+	            <h1>Ed & Co.</h1>
+	            <p class="lead">Web Site Under Construction...</p>
+</div>
+<div class="col-lg-6">
+	<blockquote class="pull-right">
+	  <p class="text-info">A good plan today is better than a perfect plan tomorrow.</p>
+	  <small>Latin Proverb<cite title="Source Title"></cite></small>
+	</blockquote>
+	<blockquote class="pull-right">
+	  <p class="text-success">A wise man in times of peace prepares for war.</p>
+	  <small>Horace<cite title="Source Title"></cite></small>
+	</blockquote>
+	<blockquote class="pull-right">
+	  <p class="text-info">The man who runs away will fight again.</p>
+	  <small>Latin Proverb<cite title="Source Title"></cite></small>
+	</blockquote>
+</div>
+{% endblock %}
+
+{% block content2 %} {% endblock %}
+
