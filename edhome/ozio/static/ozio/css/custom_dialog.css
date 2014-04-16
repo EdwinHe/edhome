@@ -11,3 +11,18 @@
 	font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-size: 15px;
 }
+
+.addlink {
+    padding-left: 12px;
+    background: url(../img/icon_addlink.gif) 0 .2em no-repeat;
+}
+
+.deletelink {
+    padding-left: 12px;
+    background: url(../img/icon_deletelink.gif) 0 .25em no-repeat;
+}
+
+.changelink {
+    padding-left: 12px;
+    background: url(../img/icon_changelink.gif) 0 .2em no-repeat;
+}

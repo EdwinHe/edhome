@@ -44,9 +44,9 @@ class SourceFile(models.Model):
 		return self.file_name
 
 class Transaction(models.Model):
-	date = models.DateField('Transaction Date')
+	date = models.DateField('Date')
 	amount = models.FloatField('Amount')
-	info = models.CharField('Transaction Info', max_length = 100)
+	info = models.CharField('Info', max_length = 100)
 	original_info = models.CharField('Raw Info', max_length = 100)
 	source_file = models.ForeignKey(SourceFile)
 	keyword = models.ForeignKey(Keyword, blank = True, null = True)

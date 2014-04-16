@@ -1,4 +1,0 @@
-[10/Apr/2014 18:56:31] INFO [ozio.ozioUtils:13] Handling uploaded file:Co_GoldSaver_2013-03-07.csv id: 17
-[10/Apr/2014 18:56:31] INFO [ozio.ozioUtils:48] Processing: 03/03/2014,"+55000.00","Transfer from xx8088 NetBank for goalsaver","+55000.00"
-[10/Apr/2014 18:56:31] DEBUG [ozio.ozioUtils:27] Handling transaction: ['2014-03-03', '+55000.00', 'TRANSFER FROM XX8088 NETBANK FOR GOALSAVER', 'Transfer from xx8088 NetBank for goalsaver Balance:+55000.00\r']
-[10/Apr/2014 18:56:31] INFO [ozio.ozioUtils:42] Finished processing file: Co_GoldSaver_2013-03-07.csv

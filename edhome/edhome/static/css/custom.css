@@ -10,4 +10,16 @@
   overflow-y: scroll;
 }
 
+.ed-scrollable-y600 {
+  max-height: 600px;
+  overflow-y: scroll;
+}
+
+
+.ed-scrollable-y80percent {
+  max-height: 80%;
+  overflow-y: scroll;
+}
+
+
 

@@ -1,19 +1,17 @@
-$(function() {
-    $( "#import_cba_csv_dialog" ).dialog({
-      autoOpen: false,
-      title: 'IMPORT CSV',
-      dialogClass: 'ed-dialog-flatly',
-      width: 'auto',
-      modal: true,
-      show: {
-        duration: 300
-      },
-    });
- 
-    $( "#import_cba_csv" ).click(function() {
-        $( "#import_cba_csv_dialog" ).dialog( "open" );
-      });
-  });
+$( "#import_cba_csv_dialog" ).dialog({
+	autoOpen: false,
+	title: 'IMPORT CSV',
+	dialogClass: 'ed-dialog-flatly',
+	width: 'auto',
+	modal: true,
+	show: {
+		duration: 300
+	},
+});
+
+$( "#import_cba_csv" ).click(function() {
+	$( "#import_cba_csv_dialog" ).dialog( "open" );
+});
 
 function chooseFile() {
 	$("#id_import_csv").click();

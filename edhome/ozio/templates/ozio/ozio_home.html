@@ -37,8 +37,8 @@
 	<div class="list-group">
 		<a class="list-group-item active"> Functionalities</a>
 		<a href="#" class="list-group-item" id="import_cba_csv">Import CommBank CSV</a> 
-		<a href="#" class="list-group-item" id="transactions">Transactions</a>
-		<a href="#" class="list-group-item" id="configurations">Configurations</a>
+		<a href="#" class="list-group-item" id="transactions">Transactions<span class="badge">3</span></a>
+		<a href="{% url 'ozio:config' %}" class="list-group-item" id="configurations">Configurations</a>
 	</div>
 </div>
 {% endblock %}
@@ -52,16 +52,19 @@
 <!--------------------- BLOCK head_js --------------------->
 {% block head_js %}
 <link rel="stylesheet" href="{% static 'ozio/css/custom_dialog.css' %}">
-<script src="{% static 'ozio/js/ozio_dialog_import_csv.js' %}"></script>
-<script src="{% static 'ozio/js/ozio_dialog_trans.js' %}"></script>
-<script src="{% static 'ozio/js/ozio_dialog_configs.js' %}"></script>    
 {% endblock %}
 <!--------------------- /BLOCK head_js --------------------->
+
+<!--------------------- BLOCK body_js --------------------->
+{% block body_js %}
+<script src="{% static 'ozio/js/ozio_dialog_import_csv.js' %}"></script>
+<script src="{% static 'ozio/js/ozio_dialog_trans.js' %}"></script>
+{% endblock %}
+<!--------------------- /BLOCK body_js --------------------->
 
 <!--------------------- BLOCK content_raw --------------------->
 {% block content_raw %}
 {% include "ozio/ozio_dialog_import_csv.html" %}
 {% include "ozio/ozio_dialog_trans.html" %}
-{% include "ozio/ozio_dialog_configs.html" %}
 {% endblock %}
 <!--------------------- /BLOCK content_raw --------------------->
