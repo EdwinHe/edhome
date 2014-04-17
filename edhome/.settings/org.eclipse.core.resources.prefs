@@ -1,4 +1,6 @@
 eclipse.preferences.version=1
 encoding//edhome/templates/edhome.html=UTF-8
 encoding//ozio/static/ozio/js/ozio_config.js=UTF-8
+encoding//ozio/static/ozio/js/ozio_dialog_configs_add.js=UTF-8
+encoding//ozio/templates/ozio/ozio_dialog_configs_add.html=UTF-8
 encoding//ozio/templates/ozio/ozio_home.html=UTF-8

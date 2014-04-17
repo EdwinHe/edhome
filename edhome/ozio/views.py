@@ -51,7 +51,7 @@ def ozio_config(request):
     filtersql_form = FilterSQLForm(prefix='filtersql')
     open_dialog_name = ''
     
-    import pdb;pdb.set_trace()
+    #import pdb;pdb.set_trace()
     if request.method == 'POST':
         if 'submit_type' in request.POST:
             type_form = TypeForm(request.POST, prefix='type')

@@ -1,0 +1,146 @@
+<div id="configs_dialog_add">
+	<form method="POST" action="/API/type/" class="form-horizontal" id="type_add_form" style="display:none">
+		{% csrf_token %}
+		<fieldset>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<table id="config_dialog_add_form">
+						{{ type_form }}
+					</table>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<button type="button" class="btn btn-default" onclick="onClick_Cancel('type')">Cancel</button>
+					<button type="submit" name="submit_type" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<form method="POST" action="/API/cate/" class="form-horizontal" id="cate_add_form" style="display:none">
+	{% csrf_token %}
+		<fieldset>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<table id="config_dialog_add_form">
+						{{ cate_form }}
+					</table>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<button type="button" class="btn btn-default" onclick="onClick_Cancel('cate')">Cancel</button>
+					<button type="submit" name="submit_cate" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<form method="POST" action="/API/subcate/" class="form-horizontal" id="subcate_add_form" style="display:none">
+	{% csrf_token %}
+		<fieldset>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<table id="config_dialog_add_form">
+						{{ subcate_form }}
+					</table>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<button type="button" class="btn btn-default" onclick="onClick_Cancel('subcate')">Cancel</button>
+					<button type="submit" name="submit_subcate" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<form method="POST" action="/API/keyword/" class="form-horizontal" id="keyword_add_form" style="display:none">
+	{% csrf_token %}
+		<fieldset>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<table id="config_dialog_add_form">
+						{{ keyword_form }}
+					</table>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<button type="button" class="btn btn-default" onclick="onClick_Cancel('keyword')">Cancel</button>
+					<button type="submit" name="submit_keyword" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<form method="POST" action="/API/sourcefile/" class="form-horizontal" id="sourcefile_add_form" style="display:none">
+	{% csrf_token %}
+		<fieldset>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<table id="config_dialog_add_form">
+						{{ sourcefile_form }}
+					</table>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<button type="button" class="btn btn-default" onclick="onClick_Cancel('sourcefile')">Cancel</button>
+					<button type="submit" name="submit_sourcefile" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<form method="POST" action="/API/transaction/" class="form-horizontal" id="transaction_add_form" style="display:none">
+	{% csrf_token %}
+		<fieldset>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<table id="config_dialog_add_form">
+						{{ transaction_form }}
+					</table>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<button type="button" class="btn btn-default" onclick="onClick_Cancel(transaction'')">Cancel</button>
+					<button type="submit" name="submit_transaction" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<form method="POST" action="/API/transaction_filter/" class="form-horizontal" id="transaction_filter_add_form" style="display:none">
+	{% csrf_token %}
+		<fieldset>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<table id="config_dialog_add_form">
+						{{ transactionfilter_form }}
+					</table>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<button type="button" class="btn btn-default" onclick="onClick_Cancel('transaction_filter')">Cancel</button>
+					<button type="submit" name="submit_transactionfilter" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+	<form method="POST" action="/API/filter_sql/" class="form-horizontal" id="filter_sql_add_form" style="display:none">
+	{% csrf_token %}
+		<fieldset>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<table id="config_dialog_add_form">
+						{{ filtersql_form }}
+					</table>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<button type="button" class="btn btn-default" onclick="onClick_Cancel('filter_sql')">Cancel</button>
+					<button type="submit" name="submit_filtersql" class="btn btn-primary">Submit</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>

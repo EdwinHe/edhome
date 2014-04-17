@@ -94,13 +94,21 @@ function onClick_Delete(obj_type, obj_id) {
 			{	type: "DELETE", 
 				async: false, 
 				url: "/API/" + obj_type + "/" + obj_id + "/", 
-				//success: refreshTable_caller(obj_type),
 			}
 		);
 	refreshTable_caller(obj_type);
 }
 
 function onClick_Change(obj_type, obj_id) {
+	$.ajax(
+			{	type: "GET", 
+				async: false, 
+				url: "/API/" + obj_type + "/" + obj_id + "/",
+				success: function(obj) {
+					alert(obj);
+				}
+			}
+		);
 }
 
 function onClick_Add(obj_type) {

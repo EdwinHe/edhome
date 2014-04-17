@@ -1,0 +1,631 @@
+[17/Apr/2014 10:05:52] WARNING [django.request:145] Not Found: /API/transactionfilter/
+[17/Apr/2014 10:11:32] ERROR [django.request:226] Internal Server Error: /API/subcate/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+_mysql_exceptions.OperationalError: (1048, "Column 'cate_id' cannot be null")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/viewsets.py", line 78, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/views/decorators/csrf.py", line 57, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 400, in dispatch
+    response = self.handle_exception(exc)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 397, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/mixins.py", line 54, in create
+    self.object = serializer.save(force_insert=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 596, in save
+    self.save_object(self.object, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 991, in save_object
+    obj.save(**kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 545, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 573, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 654, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 687, in _do_insert
+    using=using, raw=raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 232, in _insert
+    return insert_query(self.model, objs, fields, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 1511, in insert_query
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/compiler.py", line 899, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 129, in execute
+    six.reraise(utils.IntegrityError, utils.IntegrityError(*tuple(e.args)), sys.exc_info()[2])
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/utils/six.py", line 535, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+django.db.utils.IntegrityError: (1048, "Column 'cate_id' cannot be null")
+[17/Apr/2014 10:13:01] ERROR [django.request:226] Internal Server Error: /API/subcate/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+_mysql_exceptions.OperationalError: (1048, "Column 'cate_id' cannot be null")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/viewsets.py", line 78, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/views/decorators/csrf.py", line 57, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 400, in dispatch
+    response = self.handle_exception(exc)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 397, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/mixins.py", line 54, in create
+    self.object = serializer.save(force_insert=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 596, in save
+    self.save_object(self.object, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 991, in save_object
+    obj.save(**kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 545, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 573, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 654, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 687, in _do_insert
+    using=using, raw=raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 232, in _insert
+    return insert_query(self.model, objs, fields, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 1511, in insert_query
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/compiler.py", line 899, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 129, in execute
+    six.reraise(utils.IntegrityError, utils.IntegrityError(*tuple(e.args)), sys.exc_info()[2])
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/utils/six.py", line 535, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+django.db.utils.IntegrityError: (1048, "Column 'cate_id' cannot be null")
+[17/Apr/2014 10:13:04] ERROR [django.request:226] Internal Server Error: /API/subcate/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+_mysql_exceptions.OperationalError: (1048, "Column 'cate_id' cannot be null")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/viewsets.py", line 78, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/views/decorators/csrf.py", line 57, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 400, in dispatch
+    response = self.handle_exception(exc)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 397, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/mixins.py", line 54, in create
+    self.object = serializer.save(force_insert=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 596, in save
+    self.save_object(self.object, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 991, in save_object
+    obj.save(**kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 545, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 573, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 654, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 687, in _do_insert
+    using=using, raw=raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 232, in _insert
+    return insert_query(self.model, objs, fields, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 1511, in insert_query
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/compiler.py", line 899, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 129, in execute
+    six.reraise(utils.IntegrityError, utils.IntegrityError(*tuple(e.args)), sys.exc_info()[2])
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/utils/six.py", line 535, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+django.db.utils.IntegrityError: (1048, "Column 'cate_id' cannot be null")
+[17/Apr/2014 10:13:19] ERROR [django.request:226] Internal Server Error: /API/subcate/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+_mysql_exceptions.OperationalError: (1048, "Column 'cate_id' cannot be null")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/viewsets.py", line 78, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/views/decorators/csrf.py", line 57, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 400, in dispatch
+    response = self.handle_exception(exc)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 397, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/mixins.py", line 54, in create
+    self.object = serializer.save(force_insert=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 596, in save
+    self.save_object(self.object, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 991, in save_object
+    obj.save(**kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 545, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 573, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 654, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 687, in _do_insert
+    using=using, raw=raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 232, in _insert
+    return insert_query(self.model, objs, fields, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 1511, in insert_query
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/compiler.py", line 899, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 129, in execute
+    six.reraise(utils.IntegrityError, utils.IntegrityError(*tuple(e.args)), sys.exc_info()[2])
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/utils/six.py", line 535, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+django.db.utils.IntegrityError: (1048, "Column 'cate_id' cannot be null")
+[17/Apr/2014 10:17:04] ERROR [django.request:226] Internal Server Error: /API/transaction/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+_mysql_exceptions.OperationalError: (1048, "Column 'source_file_id' cannot be null")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/viewsets.py", line 78, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/views/decorators/csrf.py", line 57, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 400, in dispatch
+    response = self.handle_exception(exc)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 397, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/mixins.py", line 54, in create
+    self.object = serializer.save(force_insert=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 596, in save
+    self.save_object(self.object, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 991, in save_object
+    obj.save(**kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 545, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 573, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 654, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 687, in _do_insert
+    using=using, raw=raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 232, in _insert
+    return insert_query(self.model, objs, fields, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 1511, in insert_query
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/compiler.py", line 899, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 129, in execute
+    six.reraise(utils.IntegrityError, utils.IntegrityError(*tuple(e.args)), sys.exc_info()[2])
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/utils/six.py", line 535, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+django.db.utils.IntegrityError: (1048, "Column 'source_file_id' cannot be null")
+[17/Apr/2014 10:17:06] ERROR [django.request:226] Internal Server Error: /API/transaction/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+_mysql_exceptions.OperationalError: (1048, "Column 'source_file_id' cannot be null")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/viewsets.py", line 78, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/views/decorators/csrf.py", line 57, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 400, in dispatch
+    response = self.handle_exception(exc)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 397, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/mixins.py", line 54, in create
+    self.object = serializer.save(force_insert=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 596, in save
+    self.save_object(self.object, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 991, in save_object
+    obj.save(**kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 545, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 573, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 654, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 687, in _do_insert
+    using=using, raw=raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 232, in _insert
+    return insert_query(self.model, objs, fields, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 1511, in insert_query
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/compiler.py", line 899, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 129, in execute
+    six.reraise(utils.IntegrityError, utils.IntegrityError(*tuple(e.args)), sys.exc_info()[2])
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/utils/six.py", line 535, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+django.db.utils.IntegrityError: (1048, "Column 'source_file_id' cannot be null")
+[17/Apr/2014 10:17:07] ERROR [django.request:226] Internal Server Error: /API/transaction/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+_mysql_exceptions.OperationalError: (1048, "Column 'source_file_id' cannot be null")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/viewsets.py", line 78, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/views/decorators/csrf.py", line 57, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 400, in dispatch
+    response = self.handle_exception(exc)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 397, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/mixins.py", line 54, in create
+    self.object = serializer.save(force_insert=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 596, in save
+    self.save_object(self.object, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 991, in save_object
+    obj.save(**kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 545, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 573, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 654, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 687, in _do_insert
+    using=using, raw=raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 232, in _insert
+    return insert_query(self.model, objs, fields, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 1511, in insert_query
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/compiler.py", line 899, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 129, in execute
+    six.reraise(utils.IntegrityError, utils.IntegrityError(*tuple(e.args)), sys.exc_info()[2])
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/utils/six.py", line 535, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+django.db.utils.IntegrityError: (1048, "Column 'source_file_id' cannot be null")
+[17/Apr/2014 10:18:00] ERROR [django.request:226] Internal Server Error: /API/transaction/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+_mysql_exceptions.OperationalError: (1048, "Column 'source_file_id' cannot be null")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/viewsets.py", line 78, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/views/decorators/csrf.py", line 57, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 400, in dispatch
+    response = self.handle_exception(exc)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 397, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/mixins.py", line 54, in create
+    self.object = serializer.save(force_insert=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 596, in save
+    self.save_object(self.object, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 991, in save_object
+    obj.save(**kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 545, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 573, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 654, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 687, in _do_insert
+    using=using, raw=raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 232, in _insert
+    return insert_query(self.model, objs, fields, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 1511, in insert_query
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/compiler.py", line 899, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 129, in execute
+    six.reraise(utils.IntegrityError, utils.IntegrityError(*tuple(e.args)), sys.exc_info()[2])
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/utils/six.py", line 535, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+django.db.utils.IntegrityError: (1048, "Column 'source_file_id' cannot be null")
+[17/Apr/2014 10:18:43] ERROR [django.request:226] Internal Server Error: /API/transaction/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+_mysql_exceptions.OperationalError: (1048, "Column 'source_file_id' cannot be null")
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/viewsets.py", line 78, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/views/decorators/csrf.py", line 57, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 400, in dispatch
+    response = self.handle_exception(exc)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/views.py", line 397, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/mixins.py", line 54, in create
+    self.object = serializer.save(force_insert=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 596, in save
+    self.save_object(self.object, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/rest_framework/serializers.py", line 991, in save_object
+    obj.save(**kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 545, in save
+    force_update=force_update, update_fields=update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 573, in save_base
+    updated = self._save_table(raw, cls, force_insert, force_update, using, update_fields)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 654, in _save_table
+    result = self._do_insert(cls._base_manager, using, fields, update_pk, raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/base.py", line 687, in _do_insert
+    using=using, raw=raw)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 232, in _insert
+    return insert_query(self.model, objs, fields, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 1511, in insert_query
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/compiler.py", line 899, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 129, in execute
+    six.reraise(utils.IntegrityError, utils.IntegrityError(*tuple(e.args)), sys.exc_info()[2])
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/utils/six.py", line 535, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+django.db.utils.IntegrityError: (1048, "Column 'source_file_id' cannot be null")
