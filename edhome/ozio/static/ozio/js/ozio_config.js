@@ -3,7 +3,7 @@ function buildHeader(objs, obj_name){
 	
 	var li_class = '';
 	var div_class = ' class="tab-pane fade"';
-	if ( $('ul#config_tabs').html() == "" ) {
+	if ( active_tab == obj_name.toLowerCase() ) {
 		li_class = ' class="active"';
 		div_class = ' class="tab-pane fade active in"';
 	}
@@ -12,7 +12,7 @@ function buildHeader(objs, obj_name){
 	var rest_obj_name = objs.name.replace(" List","");
 	
 	//Add list item: <li class="active"><a href="#type" data-toggle="tab">Types</a></li>
-	$('ul#config_tabs').append('<li' + li_class + '><a href="#' + obj_name.toLowerCase() + 
+	$('ul#config_tabs').append('<li' + li_class + ' id="' + obj_name.toLowerCase() + '_tab"><a href="#' + obj_name.toLowerCase() + 
 			'" data-toggle="tab">' + rest_obj_name + '</a></li>');
 	
 	// Add <div class="tab-pane fade active in" id="type">
@@ -100,15 +100,7 @@ function onClick_Delete(obj_type, obj_id) {
 }
 
 function onClick_Change(obj_type, obj_id) {
-	$.ajax(
-			{	type: "GET", 
-				async: false, 
-				url: "/API/" + obj_type + "/" + obj_id + "/",
-				success: function(obj) {
-					alert(obj);
-				}
-			}
-		);
+	
 }
 
 function onClick_Add(obj_type) {

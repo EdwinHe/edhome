@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block navbar %}
+<ul class="nav navbar-nav">
+	<li><a href="{% url 'ozio:home' %}">OZIO</a></li>
+	<li><a href="{% url 'ozio:transaction' %}">TRANSACTION</a></li>
+	<li><a href="{% url 'ozio:config' %}">CONFIG</a></li>
+</ul>
+{% endblock %}
+
+<!--------------------- BLOCK content1 --------------------->
+{% block content1 %}
+<div id="transaction">
+	<form action="{% url 'ozio:map_transaction' %}">
+		<button type="submit" class="btn btn-danger pull-right">Map Transactions</button>
+	</form>
+	<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+		<li class="active"><a href="#outstanding" data-toggle="tab">Oustanding&nbsp;&nbsp;&nbsp;<span class="badge">{{outstanding_tran_num}}</span></a></li>
+		<li><a href="#all" data-toggle="tab">All&nbsp;&nbsp;&nbsp;<span class="badge">{{tran_num}}</span></a></li>
+	</ul>
+	<div class="tab-content">
+		<div class="tab-pane fade" id="all">
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr class="success">
+						<th>Date</th>
+						<th>Amount</th>
+						<th>Info</th>
+						<th>Source File</th>
+						<th>Keyword</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for tran in transactions %}
+					<tr>
+						<td>{{ tran.date | date:"Y-m-d" }}</td>
+						<td>{{ tran.amount }}</td>
+						<td>{{ tran.info }}</td>
+						<td>{{ tran.source_file }}</td>
+						<td>{{ tran.keyword }}</td>
+					</tr>
+				</tbody>
+				{% endfor %}
+			</table>
+		</div>
+		<div class="tab-pane fade active in" id="outstanding">
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr class="success">
+						<th>Date</th>
+						<th>Amount</th>
+						<th>Info</th>
+						<th>Source File</th>
+						<th>Keyword</th>
+					</tr>
+				</thead>
+				<tbody>
+				{% for tran in outstanding_transactions %}
+					<tr>
+						<td>{{ tran.date | date:"Y-m-d" }}</td>
+						<td>{{ tran.amount }}</td>
+						<td>{{ tran.info }}</td>
+						<td>{{ tran.source_file }}</td>
+						<td>{{ tran.keyword }}</td>
+					</tr>
+				</tbody>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+	
+</div>
+{% endblock %}
+
+<!--------------------- BLOCK content2 --------------------->
+{% block content2 %}
+{% endblock %}
+<!--------------------- /BLOCK content2 --------------------->
+
+
+<!--------------------- BLOCK head_js --------------------->
+{% block head_js %}
+<link rel="stylesheet" href="{% static 'ozio/css/custom_dialog.css' %}">
+{% endblock %}
+<!--------------------- /BLOCK head_js --------------------->
+
+
+<!--------------------- BLOCK body_js --------------------->
+{% block body_js %}
+<script src="{% static 'ozio/js/ozio_transaction.js' %}"></script>
+{% endblock %}
+<!--------------------- /BLOCK body_js --------------------->
+
+
+<!--------------------- BLOCK content_raw --------------------->
+{% block content_raw %}
+{% endblock %}
+<!--------------------- /BLOCK content_raw --------------------->

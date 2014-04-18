@@ -1,0 +1,199 @@
+[17/Apr/2014 15:01:45] ERROR [django.request:226] Internal Server Error: /ozio/test/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/views.py", line 36, in ozio_test
+    return render(request, 'ozio/ozio_dialog_configs.html')
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/shortcuts/__init__.py", line 53, in render
+    return HttpResponse(loader.render_to_string(*args, **kwargs),
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/loader.py", line 162, in render_to_string
+    t = get_template(template_name)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/loader.py", line 131, in find_template
+    raise TemplateDoesNotExist(name)
+django.template.base.TemplateDoesNotExist: ozio/ozio_dialog_configs.html
+[17/Apr/2014 15:02:15] ERROR [django.request:226] Internal Server Error: /ozio/test/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/views.py", line 36, in ozio_test
+    return render(request, 'ozio/ozio_dialog_configs.html')
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/shortcuts/__init__.py", line 53, in render
+    return HttpResponse(loader.render_to_string(*args, **kwargs),
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/loader.py", line 162, in render_to_string
+    t = get_template(template_name)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/loader.py", line 138, in get_template
+    template, origin = find_template(template_name)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/loader.py", line 131, in find_template
+    raise TemplateDoesNotExist(name)
+django.template.base.TemplateDoesNotExist: ozio/ozio_dialog_configs.html
+[17/Apr/2014 15:04:56] ERROR [django.request:226] Internal Server Error: /ozio/transaction/map/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/urlresolvers.py", line 495, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'edhome.ozio'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/defaulttags.py", line 441, in render
+    current_app=context.current_app)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/urlresolvers.py", line 505, in reverse
+    key)
+django.core.urlresolvers.NoReverseMatch: 'edhome.ozio' is not a registered namespace
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/views.py", line 48, in ozio_transaction
+    return render(request, 'ozio/ozio_transaction.html', context)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/shortcuts/__init__.py", line 53, in render
+    return HttpResponse(loader.render_to_string(*args, **kwargs),
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/loader.py", line 169, in render_to_string
+    return t.render(context_instance)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/base.py", line 840, in render
+    bit = self.render_node(node, context)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/debug.py", line 78, in render_node
+    return node.render(context)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/defaulttags.py", line 447, in render
+    six.reraise(*exc_info)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/utils/six.py", line 536, in reraise
+    raise value
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/template/defaulttags.py", line 433, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=context.current_app)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/urlresolvers.py", line 509, in reverse
+    return iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs))
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/urlresolvers.py", line 429, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+django.core.urlresolvers.NoReverseMatch: Reverse for 'map_transactio' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+[17/Apr/2014 15:12:09] ERROR [django.request:226] Internal Server Error: /ozio/map_transaction/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/views.py", line 40, in ozio_map_transaction
+    map_transactions()
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/ozioUtils.py", line 17, in map_transactions
+    rows_match = Transaction.objects.filter( Q(info__icontain = keyword_mapping.keyword &\
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 163, in filter
+    return self.get_queryset().filter(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/query.py", line 1234, in _add_q
+    current_negated=current_negated)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/query.py", line 1100, in build_filter
+    allow_explicit_fk=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/query.py", line 1357, in setup_joins
+    names, opts, allow_many, allow_explicit_fk)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/query.py", line 1320, in names_to_path
+    "the lookup type?" % (name, names[pos + 1]))
+django.core.exceptions.FieldError: Join on field 'info' not permitted. Did you misspell 'like' for the lookup type?
+[17/Apr/2014 15:12:38] ERROR [django.request:226] Internal Server Error: /ozio/map_transaction/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/urlresolvers.py", line 339, in urlconf_module
+    return self._urlconf_module
+AttributeError: 'RegexURLResolver' object has no attribute '_urlconf_module'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 101, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/urlresolvers.py", line 318, in resolve
+    for pattern in self.url_patterns:
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/urlresolvers.py", line 346, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/urlresolvers.py", line 341, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1584, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1565, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1532, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 584, in _check_name_wrapper
+  File "<frozen importlib._bootstrap>", line 1022, in load_module
+  File "<frozen importlib._bootstrap>", line 1003, in load_module
+  File "<frozen importlib._bootstrap>", line 560, in module_for_loader_wrapper
+  File "<frozen importlib._bootstrap>", line 868, in _load_module
+  File "<frozen importlib._bootstrap>", line 313, in _call_with_frames_removed
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/edhome/urls.py", line 31, in <module>
+    url(r'^ozio/', include('ozio.urls', namespace='ozio')),
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/conf/urls/__init__.py", line 26, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1584, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1565, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1532, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 584, in _check_name_wrapper
+  File "<frozen importlib._bootstrap>", line 1022, in load_module
+  File "<frozen importlib._bootstrap>", line 1003, in load_module
+  File "<frozen importlib._bootstrap>", line 560, in module_for_loader_wrapper
+  File "<frozen importlib._bootstrap>", line 868, in _load_module
+  File "<frozen importlib._bootstrap>", line 313, in _call_with_frames_removed
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/urls.py", line 3, in <module>
+    from ozio import views
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/views.py", line 8, in <module>
+    from ozio.ozioUtils import *
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/ozioUtils.py", line 27
+    def handle_uploaded_file(file_id, uploaded_file):
+      ^
+SyntaxError: invalid syntax
+[17/Apr/2014 15:13:33] ERROR [django.request:226] Internal Server Error: /ozio/map_transaction/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/views.py", line 39, in ozio_map_transaction
+    map_transactions()
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/ozioUtils.py", line 14, in map_transactions
+    keyword_mappings = Keyword.objects.all()
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 163, in filter
+    return self.get_queryset().filter(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 590, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 608, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/query.py", line 1198, in add_q
+    clause = self._add_q(where_part, used_aliases)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/query.py", line 1230, in _add_q
+    current_negated)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/query.py", line 1234, in _add_q
+    current_negated=current_negated)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/query.py", line 1100, in build_filter
+    allow_explicit_fk=True)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/query.py", line 1357, in setup_joins
+    names, opts, allow_many, allow_explicit_fk)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/query.py", line 1320, in names_to_path
+    "the lookup type?" % (name, names[pos + 1]))
+django.core.exceptions.FieldError: Join on field 'info' not permitted. Did you misspell 'icontain' for the lookup type?
+[17/Apr/2014 15:35:37] ERROR [django.request:226] Internal Server Error: /ozio/transaction/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/views.py", line 49, in ozio_transaction
+    tran_num = Transaction.objects.all.count()
+AttributeError: 'function' object has no attribute 'count'

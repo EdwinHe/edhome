@@ -32,12 +32,13 @@
 <div class="col-lg-6">
 	<h1>OZIO</h1>
 	<p class="lead">Under Construction...</p>
+	<img src="http://chart.apis.google.com/chart?chtt=Pie+Chart&amp;chts=000000,12&amp;chs=300x150&amp;chf=bg,s,ffffff&amp;cht=p3&amp;chd=t:77.77,22.22&amp;chl=Label+1|Label+2&amp;chco=0000ff,999966" alt="Google Chart"/>
 </div>
 <div class="col-lg-4 pull-right">
 	<div class="list-group">
 		<a class="list-group-item active"> Functionalities</a>
-		<a href="#" class="list-group-item" id="import_cba_csv">Import CommBank CSV</a> 
-		<a href="#" class="list-group-item" id="transactions">Transactions<span class="badge">3</span></a>
+		<a href="#" class="list-group-item" id="import_cba_csv">Import CommBank CSV</a>
+		<a href="{% url 'ozio:transaction' %}" class="list-group-item" id="transactions">Transactions<span class="badge">{{outstanding_tran_num}}</span></a>
 		<a href="{% url 'ozio:config' %}" class="list-group-item" id="configurations">Configurations</a>
 	</div>
 </div>
@@ -58,13 +59,11 @@
 <!--------------------- BLOCK body_js --------------------->
 {% block body_js %}
 <script src="{% static 'ozio/js/ozio_dialog_import_csv.js' %}"></script>
-<script src="{% static 'ozio/js/ozio_dialog_trans.js' %}"></script>
 {% endblock %}
 <!--------------------- /BLOCK body_js --------------------->
 
 <!--------------------- BLOCK content_raw --------------------->
 {% block content_raw %}
 {% include "ozio/ozio_dialog_import_csv.html" %}
-{% include "ozio/ozio_dialog_trans.html" %}
 {% endblock %}
 <!--------------------- /BLOCK content_raw --------------------->

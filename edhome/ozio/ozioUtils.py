@@ -1,8 +1,56 @@
 from django.db.models import Q
-from ozio.models import Transaction, SourceFile
+from ozio.models import *
 import logging, re
 logger = logging.getLogger(__name__)
 
+def map_transactions():
+    '''
+    Resolve Keyword field in several ways:
+    1. By mappings defined in configs.py
+    2. By pairing up internal transfer made between Ed and Co
+    '''
+    # 1
+    #import pdb;pdb.set_trace()
+    keyword_mappings = Keyword.objects.all()
+    
+    for keyword_mapping in keyword_mappings:
+        logging.debug("Updating records with key words: " + keyword_mapping.keyword)
+        rows_match = Transaction.objects.filter( Q(info__icontains = keyword_mapping.keyword) &\
+                                    Q(keyword__isnull = True) \
+                                     ).update(keyword = keyword_mapping.id)
+                                            
+      
+    # 2
+    keyword = Keyword.objects.get(keyword__exact = 'INTERNALS')
+    internals = Transaction.objects.filter( Q(keyword__isnull = True) & \
+                                             ( Q(info__icontains = "TRANSFER FROM SHUQIN") | \
+                                               Q(info__icontains = "TRANSFER FROM WENZHEN") \
+                                             ) \
+                                           )
+    for internal in internals:
+        # 0   1     2       3     4          5            6  
+        #[id, date, amount, info, orig_info, source_file, keyword] = internal
+        logging.info("Pairing internal transfer: " + ',' + str(internal.date) + ',' + str(internal.amount) + ',' + str(internal.info))
+           
+        lookfor_pattern = 'TRANSFER TO CBA A/C NETBANK ' + re.sub('TRANSFER FROM (.)+ NETBANK ','',internal.info)
+        neg_amount = -1 * internal.amount
+        paired_internals = Transaction.objects.filter( Q(keyword__isnull = True) & \
+                                                       Q(amount__exact = neg_amount) & \
+                                                       Q(info__icontains = lookfor_pattern) \
+                                                     )
+        
+        if len(paired_internals) != 1:
+            logging.warning("Failed to pair. " + str(len(paired_internals)) + " pairs found! Keyword not updated for record id = " + str(internal.id))
+        else:
+            #import pdb;pdb.set_trace()
+            [paired_internal] = paired_internals
+            logging.info("Paired: " + ',' + str(paired_internal.date) + ',' + str(paired_internal.amount) + ',' + str(paired_internal.info))
+            internal.keyword = keyword
+            internal.save()
+            paired_internal.keyword = keyword
+            paired_internal.save()
+            
+    
 def handle_uploaded_file(file_id, uploaded_file):
     #import pdb; pdb.set_trace()
     line_counter=0

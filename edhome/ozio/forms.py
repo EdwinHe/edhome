@@ -49,6 +49,7 @@ class KeywordForm(forms.ModelForm):
         for f in self.fields.keys():
             self.fields[f].widget.attrs.update({'class' : form_style})
         
+        
 class SourceFileForm(forms.ModelForm):
     class Meta:
         model = SourceFile    

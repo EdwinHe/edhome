@@ -5,6 +5,7 @@
 <ul class="nav navbar-nav">
 	<li><a href="{% url 'ozio:home' %}">OZIO</a></li>
 	<li><a href="{% url 'ozio:config' %}">CONFIG</a></li>
+	<li><a href="{% url 'ozio:transaction' %}">TRANSACTION</a></li>
 </ul>
 {% endblock %}
 
@@ -45,6 +46,7 @@
 <!--------------------- BLOCK body_js --------------------->
 {% block body_js %}
 <script>var open_dialog_name="{{open_dialog_name}}";</script>
+<script>var active_tab="{{active_tab}}";</script>
 <script src="{% static 'ozio/js/ozio_config.js' %}"></script>
 <script src="{% static 'ozio/js/ozio_dialog_configs_add.js' %}"></script>
 {% endblock %}

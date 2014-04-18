@@ -15,6 +15,12 @@ function onClick_Cancel(obj_name){
 	return false;
 }
 
+function onClick_Cancel(obj_name){
+	$('#' + obj_name + '_add_msg').remove();
+	$("#configs_dialog_add").dialog("close");
+	return false;
+}
+
 $( "#configs_dialog_add" ).dialog({
 	autoOpen: false,
 	title: 'ADD',

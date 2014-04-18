@@ -1,0 +1,179 @@
+[17/Apr/2014 22:32:16] ERROR [django.request:226] Internal Server Error: /ozio/config/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+_mysql_exceptions.ProgrammingError: (1146, "Table 'edhome.ozio_type' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/views.py", line 60, in ozio_config
+    type_form = TypeForm(prefix='type', instance = Type.objects.get(pk=1))
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/compiler.py", line 709, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/compiler.py", line 782, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/utils/six.py", line 535, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+django.db.utils.ProgrammingError: (1146, "Table 'edhome.ozio_type' doesn't exist")
+[17/Apr/2014 22:32:17] ERROR [django.request:226] Internal Server Error: /ozio/config/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+_mysql_exceptions.ProgrammingError: (1146, "Table 'edhome.ozio_type' doesn't exist")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/views.py", line 60, in ozio_config
+    type_form = TypeForm(prefix='type', instance = Type.objects.get(pk=1))
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 301, in get
+    num = len(clone)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 77, in __len__
+    self._fetch_all()
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 854, in _fetch_all
+    self._result_cache = list(self.iterator())
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 220, in iterator
+    for row in compiler.results_iter():
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/compiler.py", line 709, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/sql/compiler.py", line 782, in execute_sql
+    cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 69, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/utils.py", line 99, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/utils/six.py", line 535, in reraise
+    raise value.with_traceback(tb)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/util.py", line 53, in execute
+    return self.cursor.execute(sql, params)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/backends/mysql/base.py", line 124, in execute
+    return self.cursor.execute(query, args)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 185, in execute
+    self.errorhandler(self, exc, value)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/connections.py", line 37, in defaulterrorhandler
+    raise errorvalue
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 172, in execute
+    r = self._query(query)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 332, in _query
+    rowcount = self._do_query(q)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/MySQL_python-1.2.3-py3.3-macosx-10.6-intel.egg/MySQLdb/cursors.py", line 296, in _do_query
+    db.query(q)
+django.db.utils.ProgrammingError: (1146, "Table 'edhome.ozio_type' doesn't exist")
+[17/Apr/2014 22:33:28] ERROR [django.request:226] Internal Server Error: /ozio/config/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/views.py", line 60, in ozio_config
+    type_form = TypeForm(prefix='type', instance = Type.objects.get(pk=1))
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 307, in get
+    self.model._meta.object_name)
+ozio.models.DoesNotExist: Type matching query does not exist.
+[17/Apr/2014 22:33:31] ERROR [django.request:226] Internal Server Error: /ozio/config/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/views.py", line 60, in ozio_config
+    type_form = TypeForm(prefix='type', instance = Type.objects.get(pk=1))
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 307, in get
+    self.model._meta.object_name)
+ozio.models.DoesNotExist: Type matching query does not exist.
+[17/Apr/2014 22:33:44] ERROR [django.request:226] Internal Server Error: /ozio/config/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/views.py", line 60, in ozio_config
+    type_form = TypeForm(prefix='type', instance = Type.objects.get(pk=1))
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 307, in get
+    self.model._meta.object_name)
+ozio.models.DoesNotExist: Type matching query does not exist.
+[17/Apr/2014 22:34:11] ERROR [django.request:226] Internal Server Error: /ozio/config/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/views.py", line 60, in ozio_config
+    type_form = TypeForm(prefix='type', instance = Type.objects.get(pk=1))
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 307, in get
+    self.model._meta.object_name)
+ozio.models.DoesNotExist: Type matching query does not exist.
+[17/Apr/2014 22:34:15] ERROR [django.request:226] Internal Server Error: /ozio/config/
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/core/handlers/base.py", line 114, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/Users/edwin/Programming/git-repo/edhome/edhome/ozio/views.py", line 60, in ozio_config
+    type_form = TypeForm(prefix='type', instance = Type.objects.get(pk=1))
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/manager.py", line 151, in get
+    return self.get_queryset().get(*args, **kwargs)
+  File "/Library/Frameworks/Python.framework/Versions/3.3/lib/python3.3/site-packages/django/db/models/query.py", line 307, in get
+    self.model._meta.object_name)
+ozio.models.DoesNotExist: Type matching query does not exist.
