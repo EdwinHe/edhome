@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 
 from ozio import views
+from ozio import views_chart
 
 urlpatterns = patterns('',
     url(r'^$', views.ozio_home, name = 'home'),

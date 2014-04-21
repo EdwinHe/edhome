@@ -18,7 +18,8 @@ class SubCateSerializer(serializers.HyperlinkedModelSerializer):
 		model = SubCate
 		fields = ('id', 'cate', 'sub_cate', 'description')
 	
-	cate = serializers.PrimaryKeyRelatedField(label = 'Category')
+	#cate = serializers.PrimaryKeyRelatedField(label = 'Category')
+	cate = serializers.RelatedField(source = 'cate', label = 'Category')
 	#===========================================================================
 	# cate = serializers.SerializerMethodField('id_and_cate')
 	# cate.label = 'Category'
@@ -34,19 +35,22 @@ class KeywordSerializer(serializers.HyperlinkedModelSerializer):
 		model = Keyword
 		fields = ('id', 'keyword', 'type', 'cate', 'sub_cate', 'priority', 'description')
 	
-	type = serializers.PrimaryKeyRelatedField(label = 'Type')
+	#type = serializers.PrimaryKeyRelatedField(label = 'Type')
+	type = serializers.RelatedField(source='type',label = 'Type')
 	#===========================================================================
 	# type = serializers.SerializerMethodField('id_and_type')
 	# type.label = 'Type'
 	#===========================================================================
 	
-	cate = serializers.PrimaryKeyRelatedField(label = 'Category')
+	#cate = serializers.PrimaryKeyRelatedField(label = 'Category')
+	cate = serializers.RelatedField(source='cate',label = 'Category')
 	#===========================================================================
 	# cate = serializers.SerializerMethodField('id_and_cate')
 	# cate.label = 'Category'
 	#===========================================================================
 	
-	sub_cate = serializers.PrimaryKeyRelatedField(label = 'Sub Category')
+	#sub_cate = serializers.PrimaryKeyRelatedField(label = 'Sub Category')
+	sub_cate = serializers.RelatedField(source='sub_cate',label = 'Sub Category')
 	#===========================================================================
 	# sub_cate = serializers.SerializerMethodField('id_and_subcate')
 	# sub_cate.label = 'Sub Category'
@@ -74,13 +78,15 @@ class TransactionSerializer(serializers.HyperlinkedModelSerializer):
 		model = Transaction
 		fields = ('id', 'date', 'amount', 'info', 'original_info', 'source_file', 'keyword')
 		
-	source_file = serializers.PrimaryKeyRelatedField(label = 'Source File')
+	#source_file = serializers.PrimaryKeyRelatedField(label = 'Source File')
+	source_file = serializers.RelatedField(source = 'source_file', label = 'Source File')
 	#===========================================================================
 	# source_file = serializers.SerializerMethodField('id_and_source_file')
 	# source_file.label = 'Source File'
 	#===========================================================================
 	
-	keyword = serializers.PrimaryKeyRelatedField(label = 'Keyword')
+	#keyword = serializers.PrimaryKeyRelatedField(label = 'Keyword')
+	keyword = serializers.RelatedField(source = 'keyword', label = 'Keyword')
 	#===========================================================================
 	# keyword = serializers.SerializerMethodField('id_and_keyword')
 	# keyword.label = 'Keyword'

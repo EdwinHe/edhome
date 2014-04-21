@@ -30,6 +30,29 @@ class TransactionViewSet(viewsets.ModelViewSet):
     queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer   
     
+    def get_queryset(self):
+        #import pdb;pdb.set_trace()
+        # Ideally, cart is linked with user and user is retrieved by self.request.user
+        queryset = Transaction.objects.select_related()
+        
+        yyyymm = self.request.QUERY_PARAMS.get('yyyymm', None)
+        cate = self.request.QUERY_PARAMS.get('cate', None)
+        subcate = self.request.QUERY_PARAMS.get('subcate', None)
+        
+        #import pdb;pdb.set_trace()
+        if yyyymm:
+            yyyy = yyyymm.split('-')[0]
+            mm =  yyyymm.split('-')[1]
+            queryset = queryset.filter(Q(date__year = yyyy) & Q(date__month = mm))
+        
+        if cate:
+            queryset = queryset.filter(keyword__cate__cate = cate)
+        
+        if subcate:
+            queryset = queryset.filter(keyword__sub_cate__sub_cate = subcate)
+        
+        return queryset
+    
 class TransactionFilterViewSet(viewsets.ModelViewSet):
     queryset = TransactionFilter.objects.all()
     serializer_class = TransactionFilterSerializer   

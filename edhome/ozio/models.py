@@ -50,7 +50,7 @@ class Transaction(models.Model):
 	info = models.CharField('Info', max_length = 100)
 	original_info = models.CharField('Raw Info', max_length = 100)
 	source_file = models.ForeignKey(SourceFile)
-	keyword = models.ForeignKey(Keyword, blank = True, null = True)
+	keyword = models.ForeignKey(Keyword, blank = True, null = True, on_delete=models.SET_NULL)
 	
 	def __str__(self):
 		return self.info

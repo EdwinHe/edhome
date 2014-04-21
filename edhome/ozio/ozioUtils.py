@@ -1,7 +1,11 @@
 from django.db.models import Q
+from django.db.models import Sum
+
 from ozio.models import *
+
 import logging, re
 logger = logging.getLogger(__name__)
+
 
 def map_transactions():
     '''
@@ -136,3 +140,124 @@ def parse_transaction(line):
         transactions.append([date, amount, desc, orig_desc])
     
     return transactions
+
+
+### FOR CHARTS ###
+
+def get_pie_chart_data():
+    # Excluse 'Off Balance' and 'Income' from Type 
+    types=Type.objects.filter(~Q(type__exact = 'Off Balance') & ~Q(type__exact = 'Income') )
+    
+    # Excluse 'Properties' and 'Off Balance' from Cates
+    cates=Cate.objects.filter(~Q(cate__exact = 'Properties') & ~Q(cate__exact = 'Off Balance'))
+    
+    # Loop up keywords whose types in filtered types and cates
+    keywords=Keyword.objects.filter(Q(type__in = types) & Q(cate__in = cates))
+    
+    monthly_total = Transaction.objects \
+                    .filter(Q(keyword__in = keywords)) \
+                    .extra(select={'YYYY-MM':"date_format(date,'%%Y-%%m')"}, order_by = ['YYYY-MM']) \
+                    .values('YYYY-MM') \
+                    .annotate(month_total=Sum('amount'))
+                    
+    #return [ ['Firefox',  45.0], ['IE',    26.8], ['Safari',  8.5], ['Opera',   6.2],['Others',  0.7]]
+    return [[m['YYYY-MM'],m['month_total'] * -1.0] for m in list(monthly_total)]
+
+    
+def get_bar_chart_data():
+    
+    # ------------------------ FILTERS ------------------------  
+    # Excluse 'Off Balance' and 'Income' from Type 
+    types=Type.objects.filter(~Q(type__exact = 'Off Balance') & ~Q(type__exact = 'Income') )
+    
+    # Excluse 'Properties' and 'Off Balance' from Cates
+    cates=Cate.objects.filter(~Q(cate__exact = 'Properties') & ~Q(cate__exact = 'Off Balance'))
+    
+    # Loop up keywords whose types in filtered types and cates
+    keywords=Keyword.objects.filter(Q(type__in = types) & Q(cate__in = cates))
+    
+    # ------------------------ MONTHLY VIEW ------------------------ 
+    monthly_total = Transaction.objects \
+                    .filter(Q(keyword__in = keywords)) \
+                    .extra(select={'YYYY-MM':"date_format(date,'%%Y-%%m')"}, order_by = ['YYYY-MM']) \
+                    .values('YYYY-MM') \
+                    .annotate(month_total=Sum('amount'))
+    
+    ### Pass as series.data                
+    #monthlyView = [{'drilldown':m['YYYY-MM'],'name':m['YYYY-MM'],'y':m['month_total'] * -1.0} for m in list(monthly_total)]
+    
+    ### Pass as series
+    monthlyView = [{'id': 'Monthly View',
+                    'name': 'Monthly View',
+                    'colorByPoint': True,
+                    'data':[{'drilldown':m['YYYY-MM'],
+                             'name':m['YYYY-MM'],
+                             'y':m['month_total'] * -1.0
+                            } for m in list(monthly_total)]}]
+    
+    
+    # ------------------------ MONTH-CATE DRILL DOWN ------------------------ 
+    cate_dict = {c.id:c.cate for c in Cate.objects.all()}
+    subcate_dict = {c.id:c.sub_cate for c in SubCate.objects.all()}
+    monthly_cate_total=Transaction.objects \
+                    .select_related() \
+                    .filter(Q(keyword__in = keywords)) \
+                    .extra(select={'YYYY-MM':"date_format(date,'%%Y-%%m')"}) \
+                    .values('YYYY-MM','keyword__cate') \
+                    .annotate(month_cate_total=Sum('amount'))
+                    
+    monthlyDrilldown = {}
+    
+    for t in monthly_cate_total:
+        this_level = t['YYYY-MM']
+        next_level = t['YYYY-MM']+":"+cate_dict[t['keyword__cate']]
+        if this_level in monthlyDrilldown.keys():
+            #===================================================================
+            # monthlyDrilldown[t['YYYY-MM']]['data'].append([cate_dict[t['keyword__cate']],t['month_cate_total'] * -1.0])
+            #===================================================================
+            monthlyDrilldown[this_level]['data'].append({'drilldown': next_level,
+                                                         'name':cate_dict[t['keyword__cate']], 
+                                                         'y':t['month_cate_total'] * -1.0
+                                                        })
+        else:
+            #===================================================================
+            # monthlyDrilldown[t['YYYY-MM']] = {'id':t['YYYY-MM'],'name':t['YYYY-MM'],
+            #                                   'data':[[cate_dict[t['keyword__cate']],t['month_cate_total'] * -1.0]]}
+            #===================================================================
+            monthlyDrilldown[this_level] = {'id':this_level,
+                                            'name':this_level,
+                                            'colorByPoint': True,
+                                            'data':[{'drilldown': next_level,
+                                                     'name':cate_dict[t['keyword__cate']], 
+                                                     'y':t['month_cate_total'] * -1.0
+                                                    }]
+                                            }
+
+    #monthlyDrilldown = list(monthlyDrilldown.values())
+    
+    # ------------------------ MONTH-CATE-SUBCATE DRILL DOWN ------------------------ 
+    monthly_cate_subcate_total=Transaction.objects \
+                        .select_related() \
+                        .filter(Q(keyword__in = keywords)) \
+                        .extra(select={'YYYY-MM':"date_format(date,'%%Y-%%m')"}) \
+                        .values('YYYY-MM','keyword__cate','keyword__sub_cate') \
+                        .annotate(month_cate_subcate_total=Sum('amount'))
+                        
+    monthlySubCateDrilldown = {}
+    
+    for t in monthly_cate_subcate_total:
+        this_level = t['YYYY-MM']+":"+cate_dict[t['keyword__cate']]
+        if this_level in monthlySubCateDrilldown.keys():
+            monthlySubCateDrilldown[this_level]['data'].append({'name':subcate_dict[t['keyword__sub_cate']], 
+                                                                'y':t['month_cate_subcate_total'] * -1.0})
+        else:
+            monthlySubCateDrilldown[this_level] = {'id':this_level,
+                                                   'name':this_level,
+                                                   'data':[{'name':subcate_dict[t['keyword__sub_cate']], 
+                                                              'y':t['month_cate_subcate_total'] * -1.0
+                                                           }]
+                                                   }
+    
+    #monthlySubCateDrilldown = list(monthlySubCateDrilldown.values())
+    
+    return [monthlyView, monthlyDrilldown, monthlySubCateDrilldown]

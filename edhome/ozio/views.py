@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib import messages
+from django.utils import simplejson
 
 from ozio.models import *
 from ozio.forms import *
@@ -30,12 +31,27 @@ def ozio_home(request):
         upload_file_form = UploadFileForm()
     
     outstanding_tran_num = Transaction.objects.filter( keyword__isnull = True ).count()
+    
+    # For Pie Chart
+    pie_chart_data = get_pie_chart_data()
+    json_pie_chart_data = simplejson.dumps(pie_chart_data)
+    
+    # For Bar Chart
+    [bar_chart_monthlyView,bar_chart_monthlyDrilldown,bar_chart_monthlySubCateDrilldown] = get_bar_chart_data()
+    json_bar_chart_monthlyView = simplejson.dumps(bar_chart_monthlyView)
+    json_bar_chart_monthlyDrilldown = simplejson.dumps(bar_chart_monthlyDrilldown)
+    json_bar_chart_monthlySubCateDrilldown = simplejson.dumps(bar_chart_monthlySubCateDrilldown)
+    
     context = {'upload_file_form': upload_file_form,
-               'outstanding_tran_num': outstanding_tran_num,}
+               'outstanding_tran_num': outstanding_tran_num,
+               'json_pie_chart_data': json_pie_chart_data,
+               'json_bar_chart_monthlyView': json_bar_chart_monthlyView,
+               'json_bar_chart_monthlyDrilldown': json_bar_chart_monthlyDrilldown,
+               'json_bar_chart_monthlySubCateDrilldown': json_bar_chart_monthlySubCateDrilldown,}
     return render(request, 'ozio/ozio_home.html', context)
 
 def ozio_test(request):
-    return render(request, 'ozio/ozio_dialog_configs.html')
+    return render(request, 'ozio/ozio_test.html')
 
 def ozio_map_transaction(request):
     map_transactions()

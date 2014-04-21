@@ -1,36 +1,23 @@
-<!doctype html>
-<html lang="en">
-<head>
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" />
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
-  
-<script>
-$(function() {
-    $( "#dialog" ).dialog({
-      autoOpen: false,
-      show: {
-        effect: "blind",
-        duration: 1000
-      },
-      hide: {
-        effect: "explode",
-        duration: 1000
-      }
-    });
- 
-    $( "#opener" ).click(function() {
-      $( "#dialog" ).dialog( "open" );
-    });
-  });
-</script>
-</head>
+{% load staticfiles %}
+<html>
+    <head>
+        <title>django-chartjs line chart demo</title>
+        <!--[if lte IE 8]>
+            <script src="{% static 'js/excanvas.js' %}"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <h1>Some Line Charts loaded in Ajax!</h1>
 
-<body>
-<div id="dialog">
-  <p>IT WORKSAAA!!!</p>
-</div>
- 
-<button id="opener">Open Dialog</button>
-</body>
+        <canvas id="lineChart" width="500" height="400"></canvas>
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
+        <script type="text/javascript">
+            $.get('{% url "ozio:line_chart_json" %}', function(data) {
+                var ctx = $("#lineChart").get(0).getContext("2d");
+                new Chart(ctx).Line(data);
+            });
+        </script>
+    </body>
 </html>
