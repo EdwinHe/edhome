@@ -4,13 +4,14 @@
 {% block navbar %}
 <ul class="nav navbar-nav">
 	<li><a href="{% url 'ozio:home' %}">OZIO</a></li>
-	<li><a href="{% url 'ozio:test' %}">TEST</a></li>
+	<li><a href="{% url 'ozio:transaction' %}">TRANSACTION</a></li>
+	<li><a href="{% url 'ozio:config' %}">CONFIG</a></li>
 	<li class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="about_us">DropDown<span class="caret"></span></a>
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#" id="about_us">TEST<span class="caret"></span></a>
 		<ul class="dropdown-menu" aria-labelledby="about_us">
-			<li><a href="#">Op1</a></li>
+			<li><a href="{% url 'ozio:test' %}">TEST1</a></li>
 			<li class="divider"></li>
-			<li><a href="#">Op2</a></li>
+			<li><a href="#">TEST2</a></li>
 		</ul>
 	</li>
 </ul>

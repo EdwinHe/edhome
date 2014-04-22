@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, include, url
 
-from ozio import views, views_for_models
+from ozio import views
 
 urlpatterns = patterns('',
     url(r'^$', views.ozio_home, name = 'home'),
@@ -11,5 +11,5 @@ urlpatterns = patterns('',
     url(r'^add_manual_csv/(?P<file_name>[^/]+)/$', views.ozio_add_manual_csv, name = 'add_manual_csv'),
     
     ###
-    url(r'^add_or_edit/(?P<obj_type>[^/]+)/(?P<obj_id>[^/]+)/$', views_for_models.ozio_add_or_edit, name = 'add_or_edit'),
+    url(r'^add_or_edit/(?P<obj_type>[^/]+)/(?P<obj_id>[^/]+)/$', views.ozio_add_or_edit, name = 'add_or_edit'),
 )
