@@ -92,7 +92,7 @@ def handle_uploaded_file(file_id, uploaded_file):
                     trans_accept_counter += 1
                     
     logger.info('Finished processing file: ' + uploaded_file.name)
-    msg = "Parsed %s lines into %s transactions. %s Accepted. %s Rejected." \
+    msg = uploaded_file.name + ": Parsed %s lines into %s transactions. %s Accepted. %s Rejected." \
             % (line_counter, transaction_counter, trans_accept_counter, trans_reject_counter)
     return(msg)
             

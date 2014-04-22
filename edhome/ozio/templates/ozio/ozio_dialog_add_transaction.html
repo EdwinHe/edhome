@@ -1,0 +1,76 @@
+<div id="new_transaction_dialog">
+	<div id="add_transaction_message" class="alert alert-dismissable alert-warning" style="display:none">
+	</div>
+	<form method="POST" class="form-horizontal" id="add_new_transaction_form">
+		{% csrf_token %}
+		<fieldset>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<table>
+						<tbody>
+							<tr>
+								<th><label for="id_transaction-date">Date:</label></th>
+								<td colspan="2"><input class="form-control input-sm" 
+													   id="id_transaction-date" 
+													   name="transaction-date" 
+													   type="date"
+													   onchange="on_AddTran_Change_Date(this.value)">
+								</td>
+							</tr>
+							<tr>
+								<th><label for="id_transaction-amount">Amount:</label></th>
+								<td colspan="2"><input class="form-control input-sm" 
+								                       id="id_transaction-amount" 
+								                       name="transaction-amount" 
+								                       step="any" 
+								                       type="number"
+								                       placeholder="-20.00">
+								</td>
+							</tr>
+							<tr>
+								<th><label for="id_transaction-info">Info:</label></th>
+								<td>
+									<select class="form-control input-sm" id="id_info-keyword" 
+											name="info-keyword" title="Select existing keyword for manual input, or use new keyword."
+											onchange="on_AddTran_Change_Info()">
+										<option value="" selected="selected">---------</option>
+										<option value="1">A</option>
+										<option value="2">B</option>
+									</select>
+								</td>
+								<td><input class="form-control input-sm" 
+										   id="id_transaction-info" 
+										   maxlength="100" 
+										   name="transaction-info" 
+										   type="text"
+										   onchange="on_AddTran_Change_Info()">
+								</td>
+							</tr>
+							<tr>
+								<th><label>Info Preview:</label></th>
+								<td><p style='margin-left:10px' class="text-success" id='add_tran_info_preview'></p></th>
+							</tr>
+							<tr>
+								<th><label for="id_transaction-source_file">Source file:</label></th>
+								<td colspan="2"><input class="form-control input-sm" 
+													   id="id_transaction-source_file" 
+													   maxlength="100" 
+													   name="transaction-source_file" 
+													   type="text"
+										   			   disabled 
+										   			   value="Manual.2014.Q1.csv">
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<div class="form-group">
+				<div class="col-lg-12">
+					<button type="button" class="btn btn-default" onclick="on_AddTran_Click_Cancel()">Cancel</button>
+					<button type="button" class="btn btn-primary" onclick="on_AddTran_Click_Add()">Add</button>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</div>

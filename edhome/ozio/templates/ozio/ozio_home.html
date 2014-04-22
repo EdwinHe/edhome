@@ -18,34 +18,49 @@
 
 <!--------------------- BLOCK content1 --------------------->
 {% block content1 %}
-<!----------- MESSAGES ----------->
-{% if messages %}
-	{% for msg in messages %}
-	<div class="alert alert-dismissable alert-{{msg.tags}}">
-	  <button type="button" class="close" data-dismiss="alert">×</button>
-	  <strong>MESSAGE:</strong> <span>&nbsp;&nbsp;&nbsp;</span> {{ msg }}
-	</div>
-	{% endfor %}
-{% endif %}
-<!----------- /MESSAGE ----------->
-
+<!-------- BLOCK content1 LEFT COL-LG-6 -------->
 <div class="col-lg-6">
+
+	<!----------- MESSAGES ----------->
+	<!-- csv import msg -->
+	{% if messages %}
+		{% for msg in messages %}
+		<div class="alert alert-dismissable alert-{{msg.tags}}">
+		  <button type="button" class="close" data-dismiss="alert">×</button>
+		  {{ msg }}
+		</div>
+		{% endfor %}
+	{% endif %}
+	
+	<!-- add tran msg -->
+	<div id="ozio_home_add_tran_message" class="alert alert-dismissable alert-success" style="display:none">
+		  <button type="button" class="close" data-dismiss="alert">×</button>
+		  <p id="ozio_home_add_tran_message_text">PLACE HOLDER</p>
+	</div>
+	<!----------- /MESSAGE ----------->
+
 	<!-- 
 	<h1>OZIO</h1>  
 	<p class="lead">Ed & Co's Money Managing App</p> 
 	-->
+	<!----------- CHART ----------->
 	<div id="bar_chart_container" style="min-width: 350px; height: 350px; margin: 0 auto"></div>
 	<div id="pie_chart_container" style="min-width: 350px; height: 350px; margin: 0 auto; display: none"></div>
+	<!----------- /CHART ----------->
 </div>
+<!-------- /BLOCK content1 LEFT COL-LG-6 -------->
+
+<!-------- BLOCK content1 RIGHT COL-LG-4 -------->
 <div class="col-lg-4 pull-right">
 	<div class="list-group">
 		<a class="list-group-item active"> Functionalities</a>
-		<a href="#" class="list-group-item" id="new_transaction">New Transaction (Manual)</a>
+		<a href="#" class="list-group-item" id="add_new_transaction">New Transaction (Manual)</a>
 		<a href="#" class="list-group-item" id="import_cba_csv">Import CommBank CSV</a>
 		<a href="{% url 'ozio:transaction' %}" class="list-group-item" id="transactions">Transactions<span class="badge">{{outstanding_tran_num}}</span></a>
 		<a href="{% url 'ozio:config' %}" class="list-group-item" id="configurations">Configurations</a>
 	</div>
 </div>
+<!-------- /BLOCK content1 RIGHT COL-LG-4 -------->
 {% endblock %}
 <!--------------------- /BLOCK content1 --------------------->
 
@@ -64,8 +79,9 @@
 {% block body_js %}
 <script src="{% static 'ozio/js/ozio_dialog_import_csv.js' %}"></script>
 <script src="{% static 'ozio/js/ozio_dialog_transaction_breakdown.js' %}"></script>
+<script src="{% static 'ozio/js/ozio_dialog_add_transaction.js' %}"></script>
 
-<!-- ------------------- CHART ------------------- -->
+<!-- ---------------- CHART ---------------- -->
 <script src="{% static 'js/highcharts.js' %}"></script>
 <script src="{% static 'js/modules/exporting.js' %}"></script>
 <script src="{% static 'js/modules/data.js' %}"></script>
@@ -82,13 +98,14 @@
 <script> var json_pie_chart_data = {{ json_pie_chart_data | safe }} </script>
 <script type="text/javascript" src="{% static 'ozio/js/pie_chart.js' %}"></script>
 <!-- ------- /pie chart -------- -->
-<!-- ------------------- /CHART ------------------- -->
+<!-- ---------------- /CHART ---------------- -->
 {% endblock %}
 <!--------------------- /BLOCK body_js --------------------->
 
 <!--------------------- BLOCK content_raw --------------------->
 {% block content_raw %}
 {% include "ozio/ozio_dialog_import_csv.html" %}
+{% include "ozio/ozio_dialog_add_transaction.html" %}
 <div id="transaction_breakdown_dialog"></div>
 {% endblock %}
 <!--------------------- /BLOCK content_raw --------------------->

@@ -37,9 +37,9 @@ class Keyword(models.Model):
 		return self.keyword
 
 class SourceFile(models.Model):
-	file_name = models.CharField('File Name', max_length = 100)
+	file_name = models.CharField('File Name', max_length = 100, unique=True)
 	import_time = models.DateTimeField('Import Time', auto_now_add = True)
-	local_link = models.FileField(upload_to="ozio/uploaded_files/%Y/%m")
+	local_link = models.FileField(upload_to="ozio/uploaded_files/%Y")
 	
 	def __str__(self):
 		return self.file_name

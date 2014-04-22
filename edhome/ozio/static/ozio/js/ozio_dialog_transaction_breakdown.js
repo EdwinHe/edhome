@@ -18,7 +18,7 @@ function build_transaction_list(date_cate_subcate) {
 	
 	cate = cate.replace('&','%26');
 	subcate = subcate.replace('&','%26');
-	url = '/API/transaction/?yyyymm=' + yyyymm + '&cate=' + cate + '&subcate=' + subcate
+	url = '/API/transaction/?yyyymm=' + yyyymm + '&cate=' + cate + '&subcate=' + subcate;
 	
 	$.ajax(
 			{	type: "GET", 

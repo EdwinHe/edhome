@@ -99,55 +99,57 @@ STATICFILES_DIRS  = (os.path.join(BASE_DIR, 'edhome/static'),)
 
 
 # Logging setup
-from datetime import datetime
-log_file_name = os.path.join(BASE_DIR, 'logs', 'EdCo.' + datetime.now().strftime('%Y%m%d_%H') + '.log')
-db_log_file_name = os.path.join(BASE_DIR, 'logs', 'EdCo.db.' + datetime.now().strftime('%Y%m%d_%H') + '.log')
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
-            'datefmt' : "%d/%b/%Y %H:%M:%S"
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-    },
-    'handlers': {
-        'file_log': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': log_file_name,
-            'formatter': 'verbose'
-        },
-        'db_log': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': db_log_file_name,
-            'formatter': 'verbose'
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers':['file_log'],
-            'propagate' : False,
-            'level':'DEBUG',
-        },
-        'django.db': {
-            'handlers':['db_log'],
-            'propagate' : False,
-            'level':'DEBUG',
-        },
-        'edhome': {
-            'handlers': ['file_log'],
-            'propagate' : False,
-            'level': 'DEBUG',
-        },
-        'ozio': {
-            'handlers': ['file_log'],
-            'level': 'DEBUG',
-        },
-    }
-}
+#===============================================================================
+# from datetime import datetime
+# log_file_name = os.path.join(BASE_DIR, 'logs', 'EdCo.' + datetime.now().strftime('%Y%m%d_%H') + '.log')
+# db_log_file_name = os.path.join(BASE_DIR, 'logs', 'EdCo.db.' + datetime.now().strftime('%Y%m%d_%H') + '.log')
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'verbose': {
+#             'format' : "[%(asctime)s] %(levelname)s [%(name)s:%(lineno)s] %(message)s",
+#             'datefmt' : "%d/%b/%Y %H:%M:%S"
+#         },
+#         'simple': {
+#             'format': '%(levelname)s %(message)s'
+#         },
+#     },
+#     'handlers': {
+#         'file_log': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': log_file_name,
+#             'formatter': 'verbose'
+#         },
+#         'db_log': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': db_log_file_name,
+#             'formatter': 'verbose'
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers':['file_log'],
+#             'propagate' : False,
+#             'level':'DEBUG',
+#         },
+#         'django.db': {
+#             'handlers':['db_log'],
+#             'propagate' : False,
+#             'level':'DEBUG',
+#         },
+#         'edhome': {
+#             'handlers': ['file_log'],
+#             'propagate' : False,
+#             'level': 'DEBUG',
+#         },
+#         'ozio': {
+#             'handlers': ['file_log'],
+#             'level': 'DEBUG',
+#         },
+#     }
+# }
+#===============================================================================
 

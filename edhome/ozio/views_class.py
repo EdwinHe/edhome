@@ -20,11 +20,29 @@ class SubCateViewSet(viewsets.ModelViewSet):
     
 class KeywordViewSet(viewsets.ModelViewSet):
     queryset = Keyword.objects.all()
-    serializer_class = KeywordSerializer   
+    serializer_class = KeywordSerializer
+    
+    def get_queryset(self):
+        queryset = Keyword.objects.all()
+        keyword_like = self.request.QUERY_PARAMS.get('keyword_like', None)
+        
+        if keyword_like:
+            queryset = queryset.filter(keyword__icontains = keyword_like)
+        
+        return queryset
     
 class SourceFileViewSet(viewsets.ModelViewSet):
     queryset = SourceFile.objects.all()
     serializer_class = SourceFileSerializer   
+    
+    def get_queryset(self):
+        queryset = SourceFile.objects.all()
+        file_name = self.request.QUERY_PARAMS.get('file_name', None)
+        
+        if file_name:
+            queryset = queryset.filter(file_name__exact = file_name)
+        
+        return queryset
     
 class TransactionViewSet(viewsets.ModelViewSet):
     queryset = Transaction.objects.all()

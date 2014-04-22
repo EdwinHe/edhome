@@ -1,23 +1,41 @@
+{% extends "base.html" %}
 {% load staticfiles %}
-<html>
-    <head>
-        <title>django-chartjs line chart demo</title>
-        <!--[if lte IE 8]>
-            <script src="{% static 'js/excanvas.js' %}"></script>
-        <![endif]-->
-    </head>
-    <body>
-        <h1>Some Line Charts loaded in Ajax!</h1>
 
-        <canvas id="lineChart" width="500" height="400"></canvas>
+{% block navbar %}
+<ul class="nav navbar-nav">
+	<li><a href="{% url 'ozio:home' %}">OZIO</a></li>
+	<li><a href="{% url 'ozio:transaction' %}">TRANSACTION</a></li>
+	<li><a href="{% url 'ozio:config' %}">CONFIG</a></li>
+</ul>
+{% endblock %}
 
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
-        <script type="text/javascript" src="{% static 'js/Chart.min.js' %}"></script>
-        <script type="text/javascript">
-            $.get('{% url "ozio:line_chart_json" %}', function(data) {
-                var ctx = $("#lineChart").get(0).getContext("2d");
-                new Chart(ctx).Line(data);
-            });
-        </script>
-    </body>
-</html>
+<!--------------------- BLOCK content1 --------------------->
+{% block content1 %}
+<div class="col-lg-6">
+	<h1>OZIO</h1>  
+	<p class="lead">Ed & Co's Money Managing App</p>
+</div> 
+{% endblock %}
+
+<!--------------------- BLOCK content2 --------------------->
+{% block content2 %}
+{% endblock %}
+<!--------------------- /BLOCK content2 --------------------->
+
+
+<!--------------------- BLOCK head_js --------------------->
+{% block head_js %}
+{% endblock %}
+<!--------------------- /BLOCK head_js --------------------->
+
+
+<!--------------------- BLOCK body_js --------------------->
+{% block body_js %}
+{% endblock %}
+<!--------------------- /BLOCK body_js --------------------->
+
+
+<!--------------------- BLOCK content_raw --------------------->
+{% block content_raw %}
+{% endblock %}
+<!--------------------- /BLOCK content_raw --------------------->
