@@ -3,7 +3,7 @@ function buildHeader(objs, obj_name){
 	
 	var li_class = '';
 	var div_class = ' class="tab-pane fade"';
-	if ( active_tab == obj_name.toLowerCase() ) {
+	if ( obj_name.toLowerCase() == 'type' ) {
 		li_class = ' class="active"';
 		div_class = ' class="tab-pane fade active in"';
 	}
@@ -193,7 +193,4 @@ for (var iter = 0; iter < objects.length; iter++) {
 	buildHead_caller(objects[iter]);
 	refreshTable_caller(objects[iter]);
 }
-
-if ( open_dialog_name != "" )
-	onClick_Add(open_dialog_name);
 
