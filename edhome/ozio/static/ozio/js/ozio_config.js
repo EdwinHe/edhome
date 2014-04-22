@@ -180,7 +180,7 @@ $( "#configs_dialog_add" ).dialog({
 
 // Objects to show in configuration dialog
 var objects=["type", "cate", "subcate", "keyword", "sourcefile", 
-             "transaction", "transaction_filter", "filter_sql"];
+             "transaction", "transactionfilter", "filtersql"];
 //var objects=["subcate"];
 
 // Clear up HTML object id='config_tabs' and id='config_tabs_content'

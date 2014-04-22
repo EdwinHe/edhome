@@ -166,19 +166,20 @@ def get_pie_chart_data():
     
 def get_bar_chart_data():
     
-    # ------------------------ FILTERS ------------------------  
-    # Excluse 'Off Balance' and 'Income' from Type 
-    types=Type.objects.filter(~Q(type__exact = 'Off Balance') & ~Q(type__exact = 'Income') )
+    ### GET ALL TRANSACTIONS
+    transactions = Transaction.objects.select_related()
     
-    # Excluse 'Properties' and 'Off Balance' from Cates
-    cates=Cate.objects.filter(~Q(cate__exact = 'Properties') & ~Q(cate__exact = 'Off Balance'))
-    
-    # Loop up keywords whose types in filtered types and cates
-    keywords=Keyword.objects.filter(Q(type__in = types) & Q(cate__in = cates))
-    
+    ### APPLY FILTERS
+    filters = FilterSQL.objects.select_related() \
+        .filter(filter__filter_name__exact = 'Bar Chart - MonthlyView') \
+        .values('filter_type','filter_sql')
+
+    for filter in filters:
+        transactions = eval("transactions." + filter['filter_type'] + "(" + filter['filter_sql'] + ")")
+        
+        
     # ------------------------ MONTHLY VIEW ------------------------ 
-    monthly_total = Transaction.objects \
-                    .filter(Q(keyword__in = keywords)) \
+    monthly_total = transactions \
                     .extra(select={'YYYY-MM':"date_format(date,'%%Y-%%m')"}, order_by = ['YYYY-MM']) \
                     .values('YYYY-MM') \
                     .annotate(month_total=Sum('amount'))
@@ -197,26 +198,22 @@ def get_bar_chart_data():
     
     
     # ------------------------ MONTH-CATE DRILL DOWN ------------------------ 
-    cate_dict = {c.id:c.cate for c in Cate.objects.all()}
-    subcate_dict = {c.id:c.sub_cate for c in SubCate.objects.all()}
-    monthly_cate_total=Transaction.objects \
-                    .select_related() \
-                    .filter(Q(keyword__in = keywords)) \
+    monthly_cate_total = transactions \
                     .extra(select={'YYYY-MM':"date_format(date,'%%Y-%%m')"}) \
-                    .values('YYYY-MM','keyword__cate') \
+                    .values('YYYY-MM','keyword__cate__cate') \
                     .annotate(month_cate_total=Sum('amount'))
                     
     monthlyDrilldown = {}
     
     for t in monthly_cate_total:
         this_level = t['YYYY-MM']
-        next_level = t['YYYY-MM']+":"+cate_dict[t['keyword__cate']]
+        next_level = t['YYYY-MM']+":"+t['keyword__cate__cate']
         if this_level in monthlyDrilldown.keys():
             #===================================================================
             # monthlyDrilldown[t['YYYY-MM']]['data'].append([cate_dict[t['keyword__cate']],t['month_cate_total'] * -1.0])
             #===================================================================
             monthlyDrilldown[this_level]['data'].append({'drilldown': next_level,
-                                                         'name':cate_dict[t['keyword__cate']], 
+                                                         'name': t['keyword__cate__cate'], 
                                                          'y':t['month_cate_total'] * -1.0
                                                         })
         else:
@@ -228,7 +225,7 @@ def get_bar_chart_data():
                                             'name':this_level,
                                             'colorByPoint': True,
                                             'data':[{'drilldown': next_level,
-                                                     'name':cate_dict[t['keyword__cate']], 
+                                                     'name':t['keyword__cate__cate'], 
                                                      'y':t['month_cate_total'] * -1.0
                                                     }]
                                             }
@@ -236,24 +233,22 @@ def get_bar_chart_data():
     #monthlyDrilldown = list(monthlyDrilldown.values())
     
     # ------------------------ MONTH-CATE-SUBCATE DRILL DOWN ------------------------ 
-    monthly_cate_subcate_total=Transaction.objects \
-                        .select_related() \
-                        .filter(Q(keyword__in = keywords)) \
+    monthly_cate_subcate_total= transactions \
                         .extra(select={'YYYY-MM':"date_format(date,'%%Y-%%m')"}) \
-                        .values('YYYY-MM','keyword__cate','keyword__sub_cate') \
+                        .values('YYYY-MM','keyword__cate__cate','keyword__sub_cate__sub_cate') \
                         .annotate(month_cate_subcate_total=Sum('amount'))
                         
     monthlySubCateDrilldown = {}
     
     for t in monthly_cate_subcate_total:
-        this_level = t['YYYY-MM']+":"+cate_dict[t['keyword__cate']]
+        this_level = t['YYYY-MM']+":"+t['keyword__cate__cate']
         if this_level in monthlySubCateDrilldown.keys():
-            monthlySubCateDrilldown[this_level]['data'].append({'name':subcate_dict[t['keyword__sub_cate']], 
+            monthlySubCateDrilldown[this_level]['data'].append({'name':t['keyword__sub_cate__sub_cate'], 
                                                                 'y':t['month_cate_subcate_total'] * -1.0})
         else:
             monthlySubCateDrilldown[this_level] = {'id':this_level,
                                                    'name':this_level,
-                                                   'data':[{'name':subcate_dict[t['keyword__sub_cate']], 
+                                                   'data':[{'name':t['keyword__sub_cate__sub_cate'], 
                                                               'y':t['month_cate_subcate_total'] * -1.0
                                                            }]
                                                    }

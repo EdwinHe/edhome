@@ -65,7 +65,16 @@ class TransactionFilter(models.Model):
 	
 class FilterSQL(models.Model):
 	filter = models.ForeignKey(TransactionFilter)
-	filter_sql = models.CharField('Filter Name', max_length = 100)
+
+	FILTER = 'filter'
+	EXCLUDE = 'exclude'
+	TYPES = (
+        (FILTER, FILTER),
+        (EXCLUDE, EXCLUDE),
+    )
+	filter_type =  models.CharField('Filter Type', max_length = 60, choices=TYPES, default=FILTER)
+	
+	filter_sql = models.CharField('Filter SQL', max_length = 100)
 	
 	def __str__(self):
 		return self.filter_sql

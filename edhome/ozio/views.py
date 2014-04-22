@@ -97,9 +97,9 @@ def ozio_add_or_edit(request, obj_type, obj_id):
         obj_class_name = 'SourceFile'
     elif obj_type == 'transaction':
         obj_class_name = 'Transaction'
-    elif obj_type == 'transaction_filter':
+    elif obj_type == 'transactionfilter':
         obj_class_name = 'TransactionFilter'
-    elif obj_type == 'filter_sql':
+    elif obj_type == 'filtersql':
         obj_class_name = 'FilterSQL'
         
     #import pdb;pdb.set_trace()

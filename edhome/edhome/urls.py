@@ -15,8 +15,8 @@ router.register('subcate', views_class.SubCateViewSet)
 router.register('keyword', views_class.KeywordViewSet)
 router.register('sourcefile', views_class.SourceFileViewSet)
 router.register('transaction', views_class.TransactionViewSet)
-router.register('transaction_filter', views_class.TransactionFilterViewSet)
-router.register('filter_sql', views_class.FilterSQLViewSet)
+router.register('transactionfilter', views_class.TransactionFilterViewSet)
+router.register('filtersql', views_class.FilterSQLViewSet)
 # REST Framework ===========
 
 urlpatterns = patterns('',
