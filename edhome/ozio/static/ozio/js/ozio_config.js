@@ -100,7 +100,18 @@ function onClick_Delete(obj_type, obj_id) {
 }
 
 function onClick_Change(obj_type, obj_id) {
-	
+	$.ajax(
+			{	type: "GET", 
+				async: false, 
+				url: "/ozio/add_or_edit/" + obj_type + "/" + obj_id + "/",
+				success: function(rendered_form_html) {
+					$('#configs_dialog_add_edit').empty();
+					$('#configs_dialog_add_edit').append(rendered_form_html);
+					$('#configs_dialog_add_edit').dialog("open");
+					bind_submit_event();
+				},
+			}
+	);
 }
 
 function onClick_Add(obj_type) {

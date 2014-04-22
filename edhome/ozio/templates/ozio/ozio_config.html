@@ -49,6 +49,7 @@
 <script>var active_tab="{{active_tab}}";</script>
 <script src="{% static 'ozio/js/ozio_config.js' %}"></script>
 <script src="{% static 'ozio/js/ozio_dialog_configs_add.js' %}"></script>
+<script src="{% static 'ozio/js/ozio_dialog_configs_add_or_edit.js' %}"></script>
 {% endblock %}
 <!--------------------- /BLOCK body_js --------------------->
 
@@ -56,5 +57,6 @@
 <!--------------------- BLOCK content_raw --------------------->
 {% block content_raw %}
 {% include "ozio/ozio_dialog_configs_add.html" %}
+<div id="configs_dialog_add_edit"></div>
 {% endblock %}
 <!--------------------- /BLOCK content_raw --------------------->
