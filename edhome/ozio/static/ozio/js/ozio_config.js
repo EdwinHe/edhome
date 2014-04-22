@@ -21,7 +21,7 @@ function buildHeader(objs, obj_name){
 	tab_content += '<div' + div_class + ' id="' + obj_name.toLowerCase() + '">';
 	tab_content += '<div>';
 	tab_content += '<button type="button" class="btn btn-danger pull-right" \
-					 onclick="onClick_Add(\''+ obj_name + '\')" \
+					 onclick="on_Config_Click_Add(\''+ obj_name + '\')" \
 					>ADD ' + obj_name.toUpperCase() + '</button>'; // Add button
 	tab_content += '</div>';
 	tab_content += '<div>';
@@ -73,10 +73,10 @@ function refreshTable(objs, obj_name){
 			} );
 			// === Add buttons for delete and modify ===
 			tab_records += '<td><a href="#" class="deletelink" \
-								 onclick="onClick_Delete(\''+ obj_name + '\', ' + obj.id + ')"> \
+								 onclick="on_Config_Click_Delete(\''+ obj_name + '\', ' + obj.id + ')"> \
 								 </a></td>'
 			tab_records += '<td><a href="#" class="changelink" \
-				 				 onclick="onClick_Change(\''+ obj_name + '\', ' + obj.id + ')"> \
+				 				 onclick="on_Config_Click_Change(\''+ obj_name + '\', ' + obj.id + ')"> \
 				 				 </a></td>'
 			tab_records += '</tr>';
 		}
@@ -89,7 +89,7 @@ function refreshTable(objs, obj_name){
 
 
 //------- On Click Handlers ----------------------- 
-function onClick_Delete(obj_type, obj_id) {	
+function on_Config_Click_Delete(obj_type, obj_id) {	
 	$.ajax(
 			{	type: "DELETE", 
 				async: false, 
@@ -99,7 +99,7 @@ function onClick_Delete(obj_type, obj_id) {
 	refreshTable_caller(obj_type);
 }
 
-function onClick_Change(obj_type, obj_id) {
+function on_Config_Click_Change(obj_type, obj_id) {
 	$.ajax(
 			{	type: "GET", 
 				async: false, 
@@ -114,7 +114,22 @@ function onClick_Change(obj_type, obj_id) {
 	);
 }
 
-function onClick_Add(obj_type) {
+function on_Config_Click_Add(obj_type) {
+	$.ajax(
+			{	type: "GET", 
+				async: false, 
+				url: "/ozio/add_or_edit/" + obj_type + "/-1/", //Set id to -1 means Add new, see view.py
+				success: function(rendered_form_html) {
+					$('#configs_dialog_add_edit').empty();
+					$('#configs_dialog_add_edit').append(rendered_form_html);
+					$('#configs_dialog_add_edit').dialog("open");
+					bind_submit_event();
+				},
+			}
+	);
+}
+
+function on_Click_Add(obj_type) {
 	$('form.form-horizontal').css("display", "none");
 	$("#" + obj_type + "_add_form").css("display", "block");
 	$("#configs_dialog_add").dialog( "open" );

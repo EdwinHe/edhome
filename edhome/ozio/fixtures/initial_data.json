@@ -1,96 +1,230 @@
 [
 {
     "fields": {
+        "app_label": "admin", 
+        "name": "log entry", 
+        "model": "logentry"
+    }, 
+    "model": "contenttypes.contenttype", 
+    "pk": 1
+},
+{
+    "fields": {
+        "app_label": "auth", 
+        "name": "permission", 
+        "model": "permission"
+    }, 
+    "model": "contenttypes.contenttype", 
+    "pk": 2
+},
+{
+    "fields": {
+        "app_label": "auth", 
+        "name": "group", 
+        "model": "group"
+    }, 
+    "model": "contenttypes.contenttype", 
+    "pk": 3
+},
+{
+    "fields": {
+        "app_label": "auth", 
+        "name": "user", 
+        "model": "user"
+    }, 
+    "model": "contenttypes.contenttype", 
+    "pk": 4
+},
+{
+    "fields": {
+        "app_label": "contenttypes", 
+        "name": "content type", 
+        "model": "contenttype"
+    }, 
+    "model": "contenttypes.contenttype", 
+    "pk": 5
+},
+{
+    "fields": {
+        "app_label": "sessions", 
+        "name": "session", 
+        "model": "session"
+    }, 
+    "model": "contenttypes.contenttype", 
+    "pk": 6
+},
+{
+    "fields": {
+        "app_label": "ozio", 
+        "name": "type", 
+        "model": "type"
+    }, 
+    "model": "contenttypes.contenttype", 
+    "pk": 7
+},
+{
+    "fields": {
+        "app_label": "ozio", 
+        "name": "cate", 
+        "model": "cate"
+    }, 
+    "model": "contenttypes.contenttype", 
+    "pk": 8
+},
+{
+    "fields": {
+        "app_label": "ozio", 
+        "name": "sub cate", 
+        "model": "subcate"
+    }, 
+    "model": "contenttypes.contenttype", 
+    "pk": 9
+},
+{
+    "fields": {
+        "app_label": "ozio", 
+        "name": "keyword", 
+        "model": "keyword"
+    }, 
+    "model": "contenttypes.contenttype", 
+    "pk": 10
+},
+{
+    "fields": {
+        "app_label": "ozio", 
+        "name": "source file", 
+        "model": "sourcefile"
+    }, 
+    "model": "contenttypes.contenttype", 
+    "pk": 11
+},
+{
+    "fields": {
+        "app_label": "ozio", 
+        "name": "transaction", 
+        "model": "transaction"
+    }, 
+    "model": "contenttypes.contenttype", 
+    "pk": 12
+},
+{
+    "fields": {
+        "app_label": "ozio", 
+        "name": "transaction filter", 
+        "model": "transactionfilter"
+    }, 
+    "model": "contenttypes.contenttype", 
+    "pk": 13
+},
+{
+    "fields": {
+        "app_label": "ozio", 
+        "name": "filter sql", 
+        "model": "filtersql"
+    }, 
+    "model": "contenttypes.contenttype", 
+    "pk": 14
+},
+{
+    "fields": {
+        "session_data": "YTFmYjM4YTMwMGJhYTdhMjczOTkzMTRlNWQyMzY4YjM3YjI3YjM3NDp7fQ==", 
+        "expire_date": "2014-05-06T05:50:17Z"
+    }, 
+    "model": "sessions.session", 
+    "pk": "mrqqnc8e5yh5zwprb1769tf7aafwl1d4"
+},
+{
+    "fields": {
+        "span_days": 0, 
         "description": "Off Balance Expense", 
-        "type": "Off Balance", 
-        "span_days": 0
+        "type": "Off Balance"
     }, 
-    "pk": 1, 
-    "model": "ozio.type"
+    "model": "ozio.type", 
+    "pk": 1
 },
 {
     "fields": {
+        "span_days": 0, 
         "description": "One Off Expense", 
-        "type": "One Off", 
-        "span_days": 0
+        "type": "One Off"
     }, 
-    "pk": 2, 
-    "model": "ozio.type"
+    "model": "ozio.type", 
+    "pk": 2
 },
 {
     "fields": {
+        "span_days": 365, 
         "description": "Annual Expense", 
-        "type": "Annual", 
-        "span_days": 365
+        "type": "Annual"
     }, 
-    "pk": 3, 
-    "model": "ozio.type"
+    "model": "ozio.type", 
+    "pk": 3
 },
 {
     "fields": {
+        "span_days": 30, 
         "description": "Monthly Expense", 
-        "type": "Monthly", 
-        "span_days": 30
+        "type": "Monthly"
     }, 
-    "pk": 4, 
-    "model": "ozio.type"
+    "model": "ozio.type", 
+    "pk": 4
 },
 {
     "fields": {
-        "description": "", 
-        "type": "Income", 
-        "span_days": 0
+        "span_days": 0, 
+        "description": "Salary, Interest, etc.", 
+        "type": "Income"
     }, 
-    "pk": 5, 
-    "model": "ozio.type"
+    "model": "ozio.type", 
+    "pk": 5
 },
 {
     "fields": {
         "cate": "Living", 
         "description": "Must Spent To Stay Alive"
     }, 
-    "pk": 1, 
-    "model": "ozio.cate"
+    "model": "ozio.cate", 
+    "pk": 1
 },
 {
     "fields": {
         "cate": "Luxury", 
         "description": "Enjoy living"
     }, 
-    "pk": 2, 
-    "model": "ozio.cate"
+    "model": "ozio.cate", 
+    "pk": 2
 },
 {
     "fields": {
         "cate": "Properties", 
         "description": "Something last very long"
     }, 
-    "pk": 3, 
-    "model": "ozio.cate"
+    "model": "ozio.cate", 
+    "pk": 3
 },
 {
     "fields": {
         "cate": "Off Balance", 
         "description": "Off Balance Expense, e.g. internal transfer"
     }, 
-    "pk": 4, 
-    "model": "ozio.cate"
+    "model": "ozio.cate", 
+    "pk": 4
 },
 {
     "fields": {
         "cate": "Income", 
-        "description": ""
+        "description": "Salary, Interest, etc."
     }, 
-    "pk": 5, 
-    "model": "ozio.cate"
+    "model": "ozio.cate", 
+    "pk": 5
 },
 {
     "fields": {
         "cate": "Leisure", 
         "description": "Spent for enjoying life"
     }, 
-    "pk": 6, 
-    "model": "ozio.cate"
+    "model": "ozio.cate", 
+    "pk": 6
 },
 {
     "fields": {
@@ -98,8 +232,8 @@
         "sub_cate": "Food & Drink", 
         "description": ""
     }, 
-    "pk": 1, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 1
 },
 {
     "fields": {
@@ -107,8 +241,8 @@
         "sub_cate": "Clothes & Shoes", 
         "description": ""
     }, 
-    "pk": 2, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 2
 },
 {
     "fields": {
@@ -116,8 +250,8 @@
         "sub_cate": "Wine", 
         "description": ""
     }, 
-    "pk": 3, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 3
 },
 {
     "fields": {
@@ -125,8 +259,8 @@
         "sub_cate": "Car", 
         "description": ""
     }, 
-    "pk": 4, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 4
 },
 {
     "fields": {
@@ -134,8 +268,8 @@
         "sub_cate": "Houseware", 
         "description": ""
     }, 
-    "pk": 5, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 5
 },
 {
     "fields": {
@@ -143,8 +277,8 @@
         "sub_cate": "N/A", 
         "description": ""
     }, 
-    "pk": 6, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 6
 },
 {
     "fields": {
@@ -152,8 +286,8 @@
         "sub_cate": "Mobile", 
         "description": "Mobile Phone"
     }, 
-    "pk": 7, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 7
 },
 {
     "fields": {
@@ -161,8 +295,8 @@
         "sub_cate": "Transport", 
         "description": "Train, Bus, Petrol, Toll Road, etc."
     }, 
-    "pk": 8, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 8
 },
 {
     "fields": {
@@ -170,8 +304,8 @@
         "sub_cate": "Cash Out", 
         "description": "Cash Out should be recorded manually"
     }, 
-    "pk": 9, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 9
 },
 {
     "fields": {
@@ -179,8 +313,8 @@
         "sub_cate": "Body Care", 
         "description": "Shower Gel, Shampoo, etc."
     }, 
-    "pk": 10, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 10
 },
 {
     "fields": {
@@ -188,8 +322,8 @@
         "sub_cate": "Credit Interest", 
         "description": ""
     }, 
-    "pk": 11, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 11
 },
 {
     "fields": {
@@ -197,8 +331,8 @@
         "sub_cate": "Salary", 
         "description": ""
     }, 
-    "pk": 12, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 12
 },
 {
     "fields": {
@@ -206,8 +340,8 @@
         "sub_cate": "Tax", 
         "description": ""
     }, 
-    "pk": 13, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 13
 },
 {
     "fields": {
@@ -215,8 +349,8 @@
         "sub_cate": "Home Rent", 
         "description": ""
     }, 
-    "pk": 14, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 14
 },
 {
     "fields": {
@@ -224,8 +358,8 @@
         "sub_cate": "Insurance", 
         "description": "Car, Life Insurance, etc."
     }, 
-    "pk": 15, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 15
 },
 {
     "fields": {
@@ -233,8 +367,8 @@
         "sub_cate": "RMB", 
         "description": "Money from China"
     }, 
-    "pk": 16, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 16
 },
 {
     "fields": {
@@ -242,8 +376,8 @@
         "sub_cate": "Travel", 
         "description": ""
     }, 
-    "pk": 17, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 17
 },
 {
     "fields": {
@@ -251,871 +385,1267 @@
         "sub_cate": "Leisure:Food & Drink", 
         "description": ""
     }, 
-    "pk": 18, 
-    "model": "ozio.subcate"
+    "model": "ozio.subcate", 
+    "pk": 18
 },
 {
     "fields": {
-        "cate": 1, 
-        "sub_cate": 1, 
+        "type": 2, 
         "keyword": "COLES", 
-        "priority": 4, 
-        "description": "", 
-        "type": 2
-    }, 
-    "pk": 1, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
         "cate": 1, 
         "sub_cate": 1, 
+        "description": "", 
+        "priority": 4
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 1
+},
+{
+    "fields": {
+        "type": 2, 
         "keyword": "WOOLWORTHS", 
-        "priority": 4, 
+        "cate": 1, 
+        "sub_cate": 1, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 2, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 2
 },
 {
     "fields": {
-        "cate": 1, 
-        "sub_cate": 5, 
+        "type": 2, 
         "keyword": "KMART", 
-        "priority": 4, 
-        "description": "", 
-        "type": 2
-    }, 
-    "pk": 3, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
         "cate": 1, 
         "sub_cate": 5, 
-        "keyword": "TARGET", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 4, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 3
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "TARGET", 
+        "cate": 1, 
+        "sub_cate": 5, 
+        "description": "", 
+        "priority": 4
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 4
+},
+{
+    "fields": {
+        "type": 1, 
+        "keyword": "INTERNALS", 
         "cate": 4, 
         "sub_cate": 6, 
-        "keyword": "INTERNALS", 
-        "priority": 10, 
         "description": "Internal Money Transfer", 
-        "type": 1
+        "priority": 10
     }, 
-    "pk": 5, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 5
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "NEW BALANCE", 
         "cate": 1, 
         "sub_cate": 2, 
-        "keyword": "NEW BALANCE", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 6, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 6
 },
 {
     "fields": {
-        "cate": 4, 
-        "sub_cate": 6, 
+        "type": 1, 
         "keyword": "TRANSFER TO XX4978", 
-        "priority": 4, 
-        "description": "", 
-        "type": 1
+        "cate": 4, 
+        "sub_cate": 6, 
+        "description": "Internal", 
+        "priority": 4
     }, 
-    "pk": 7, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 7
 },
 {
     "fields": {
-        "cate": 4, 
-        "sub_cate": 6, 
+        "type": 1, 
         "keyword": "TRANSFER FROM XX4978", 
-        "priority": 4, 
-        "description": "", 
-        "type": 1
+        "cate": 4, 
+        "sub_cate": 6, 
+        "description": "Internal", 
+        "priority": 4
     }, 
-    "pk": 8, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 8
 },
 {
     "fields": {
-        "cate": 4, 
-        "sub_cate": 6, 
+        "type": 1, 
         "keyword": "TRANSFER FROM XX8088", 
-        "priority": 4, 
-        "description": "", 
-        "type": 1
+        "cate": 4, 
+        "sub_cate": 6, 
+        "description": "Internal", 
+        "priority": 4
     }, 
-    "pk": 9, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 9
 },
 {
     "fields": {
-        "cate": 4, 
-        "sub_cate": 6, 
+        "type": 1, 
         "keyword": "TRANSFER TO XX8088", 
-        "priority": 4, 
-        "description": "", 
-        "type": 1
+        "cate": 4, 
+        "sub_cate": 6, 
+        "description": "Internal", 
+        "priority": 4
     }, 
-    "pk": 10, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 10
 },
 {
     "fields": {
-        "cate": 4, 
-        "sub_cate": 6, 
+        "type": 1, 
         "keyword": "TRANSFER TO XX8096", 
-        "priority": 4, 
-        "description": "", 
-        "type": 1
-    }, 
-    "pk": 11, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
         "cate": 4, 
         "sub_cate": 6, 
-        "keyword": "TRANSFER FROM XX8096", 
-        "priority": 4, 
-        "description": "", 
-        "type": 1
+        "description": "Internal", 
+        "priority": 4
     }, 
-    "pk": 12, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 11
 },
 {
     "fields": {
+        "type": 1, 
+        "keyword": "TRANSFER FROM XX8096", 
+        "cate": 4, 
+        "sub_cate": 6, 
+        "description": "Internal", 
+        "priority": 4
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 12
+},
+{
+    "fields": {
+        "type": 4, 
+        "keyword": "VODAFONE", 
         "cate": 1, 
         "sub_cate": 7, 
-        "keyword": "VODAFONE", 
-        "priority": 4, 
         "description": "", 
-        "type": 4
+        "priority": 4
     }, 
-    "pk": 13, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 13
 },
 {
     "fields": {
+        "type": 1, 
+        "keyword": "CASH OUT", 
         "cate": 4, 
         "sub_cate": 9, 
-        "keyword": "CASH OUT", 
-        "priority": 10, 
         "description": "", 
-        "type": 1
+        "priority": 10
     }, 
-    "pk": 14, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 14
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "HANDYWAY RAIL", 
         "cate": 1, 
         "sub_cate": 8, 
-        "keyword": "HANDYWAY RAIL", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 15, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 15
 },
 {
     "fields": {
-        "cate": 1, 
-        "sub_cate": 5, 
+        "type": 2, 
         "keyword": "DAISO", 
-        "priority": 4, 
-        "description": "", 
-        "type": 2
-    }, 
-    "pk": 16, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
         "cate": 1, 
         "sub_cate": 5, 
-        "keyword": "PAYPAL", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 17, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 16
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "PAYPAL", 
+        "cate": 1, 
+        "sub_cate": 5, 
+        "description": "", 
+        "priority": 4
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 17
+},
+{
+    "fields": {
+        "type": 2, 
+        "keyword": "TONG LI", 
         "cate": 1, 
         "sub_cate": 1, 
-        "keyword": "TONG LI", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 18, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 18
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "MR LIQUOR", 
         "cate": 2, 
         "sub_cate": 3, 
-        "keyword": "MR LIQUOR", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 19, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 19
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "BUNNINGS", 
         "cate": 1, 
         "sub_cate": 5, 
-        "keyword": "BUNNINGS", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 20, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 20
 },
 {
     "fields": {
-        "cate": 4, 
-        "sub_cate": 6, 
+        "type": 1, 
         "keyword": "TRANSFER TO XX7456", 
-        "priority": 10, 
-        "description": "", 
-        "type": 1
-    }, 
-    "pk": 21, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
         "cate": 4, 
         "sub_cate": 6, 
-        "keyword": "TRANSFER FROM XX7456", 
-        "priority": 10, 
-        "description": "", 
-        "type": 1
+        "description": "Internal", 
+        "priority": 10
     }, 
-    "pk": 22, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 21
 },
 {
     "fields": {
+        "type": 1, 
+        "keyword": "TRANSFER FROM XX7456", 
+        "cate": 4, 
+        "sub_cate": 6, 
+        "description": "Internal", 
+        "priority": 10
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 22
+},
+{
+    "fields": {
+        "type": 2, 
+        "keyword": "SOUQ FRESH", 
         "cate": 1, 
         "sub_cate": 1, 
-        "keyword": "SOUQ FRESH", 
-        "priority": 4, 
-        "description": "", 
-        "type": 2
+        "description": "Vegi Store at Burwood Westfield", 
+        "priority": 4
     }, 
-    "pk": 23, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 23
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "COTTON ON", 
         "cate": 1, 
         "sub_cate": 2, 
-        "keyword": "COTTON ON", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 24, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 24
 },
 {
     "fields": {
+        "type": 4, 
+        "keyword": "TELSTRA", 
         "cate": 1, 
         "sub_cate": 7, 
-        "keyword": "TELSTRA", 
-        "priority": 4, 
         "description": "", 
-        "type": 4
+        "priority": 4
     }, 
-    "pk": 25, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 25
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "CHEMIST WAREHOUSE", 
         "cate": 1, 
         "sub_cate": 10, 
-        "keyword": "CHEMIST WAREHOUSE", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 26, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 26
 },
 {
     "fields": {
+        "type": 5, 
+        "keyword": "CREDIT INTEREST", 
         "cate": 5, 
         "sub_cate": 11, 
-        "keyword": "CREDIT INTEREST", 
-        "priority": 10, 
         "description": "", 
-        "type": 5
+        "priority": 10
     }, 
-    "pk": 27, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 27
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "HOME AND KITCHEN", 
         "cate": 1, 
         "sub_cate": 5, 
-        "keyword": "HOME AND KITCHEN", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 28, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 28
 },
 {
     "fields": {
-        "cate": 1, 
-        "sub_cate": 8, 
+        "type": 2, 
         "keyword": "PETROL", 
-        "priority": 4, 
-        "description": "", 
-        "type": 2
-    }, 
-    "pk": 29, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
-        "cate": 1, 
-        "sub_cate": 1, 
-        "keyword": "COUNTRY GROWERS", 
-        "priority": 4, 
-        "description": "", 
-        "type": 2
-    }, 
-    "pk": 30, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
-        "cate": 4, 
-        "sub_cate": 6, 
-        "keyword": "FROM A/C XX8088", 
-        "priority": 10, 
-        "description": "", 
-        "type": 1
-    }, 
-    "pk": 31, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
-        "cate": 4, 
-        "sub_cate": 6, 
-        "keyword": "TO A/C XX8088", 
-        "priority": 10, 
-        "description": "", 
-        "type": 1
-    }, 
-    "pk": 32, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
-        "cate": 4, 
-        "sub_cate": 6, 
-        "keyword": "FROM A/C XX4978", 
-        "priority": 10, 
-        "description": "", 
-        "type": 1
-    }, 
-    "pk": 33, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
-        "cate": 4, 
-        "sub_cate": 6, 
-        "keyword": "TO A/C XX4978", 
-        "priority": 10, 
-        "description": "", 
-        "type": 1
-    }, 
-    "pk": 34, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
         "cate": 1, 
         "sub_cate": 8, 
-        "keyword": "SYDNEY TRAINS", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 35, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 29
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "COUNTRY GROWERS", 
         "cate": 1, 
         "sub_cate": 1, 
-        "keyword": "SUBWAY SANDWICHES", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 36, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 30
 },
 {
     "fields": {
+        "type": 1, 
+        "keyword": "FROM A/C XX8088", 
+        "cate": 4, 
+        "sub_cate": 6, 
+        "description": "Internal", 
+        "priority": 10
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 31
+},
+{
+    "fields": {
+        "type": 1, 
+        "keyword": "TO A/C XX8088", 
+        "cate": 4, 
+        "sub_cate": 6, 
+        "description": "Internal", 
+        "priority": 10
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 32
+},
+{
+    "fields": {
+        "type": 1, 
+        "keyword": "FROM A/C XX4978", 
+        "cate": 4, 
+        "sub_cate": 6, 
+        "description": "Internal", 
+        "priority": 10
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 33
+},
+{
+    "fields": {
+        "type": 1, 
+        "keyword": "TO A/C XX4978", 
+        "cate": 4, 
+        "sub_cate": 6, 
+        "description": "Internal", 
+        "priority": 10
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 34
+},
+{
+    "fields": {
+        "type": 2, 
+        "keyword": "SYDNEY TRAINS", 
+        "cate": 1, 
+        "sub_cate": 8, 
+        "description": "", 
+        "priority": 4
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 35
+},
+{
+    "fields": {
+        "type": 2, 
+        "keyword": "SUBWAY SANDWICHES", 
+        "cate": 1, 
+        "sub_cate": 1, 
+        "description": "", 
+        "priority": 4
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 36
+},
+{
+    "fields": {
+        "type": 1, 
+        "keyword": "WDL ATM CBA ATM", 
         "cate": 4, 
         "sub_cate": 9, 
-        "keyword": "WDL ATM CBA ATM", 
-        "priority": 10, 
         "description": "ATM Withdraw", 
-        "type": 1
+        "priority": 10
     }, 
-    "pk": 37, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 37
 },
 {
     "fields": {
-        "cate": 3, 
-        "sub_cate": 4, 
+        "type": 2, 
         "keyword": "WDL BRANCH 116 BURWOOD RD", 
-        "priority": 10, 
-        "description": "Mazda 3 - Bank Check", 
-        "type": 2
-    }, 
-    "pk": 38, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
         "cate": 3, 
         "sub_cate": 4, 
-        "keyword": "ROCKDALE MAZDA ARNCLIFFE NS AUS CARD XX1940", 
-        "priority": 10, 
-        "description": "Mazda 3 - 1000 Bond", 
-        "type": 2
+        "description": "Mazda 3 - Bank Check", 
+        "priority": 10
     }, 
-    "pk": 39, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 38
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "ROCKDALE MAZDA ARNCLIFFE NS AUS CARD XX1940", 
+        "cate": 3, 
+        "sub_cate": 4, 
+        "description": "Mazda 3 - 1000 Bond", 
+        "priority": 10
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 39
+},
+{
+    "fields": {
+        "type": 1, 
+        "keyword": "TRANSFER FROM XX4986", 
         "cate": 4, 
         "sub_cate": 6, 
-        "keyword": "TRANSFER FROM XX4986", 
-        "priority": 10, 
-        "description": "", 
-        "type": 1
+        "description": "Internal", 
+        "priority": 10
     }, 
-    "pk": 40, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 40
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "TFN WITHHOLDING TAX", 
         "cate": 1, 
         "sub_cate": 13, 
-        "keyword": "TFN WITHHOLDING TAX", 
-        "priority": 4, 
-        "description": "", 
-        "type": 2
+        "description": "Tax applied to interest before TFN", 
+        "priority": 4
     }, 
-    "pk": 41, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 41
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "TONGLI SUPER", 
         "cate": 1, 
         "sub_cate": 1, 
-        "keyword": "TONGLI SUPER", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 42, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 42
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "RENT FEE", 
         "cate": 1, 
         "sub_cate": 14, 
-        "keyword": "RENT FEE", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 43, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 43
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "TEMPUS TWO", 
         "cate": 2, 
         "sub_cate": 3, 
-        "keyword": "TEMPUS TWO", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 44, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 44
 },
 {
     "fields": {
-        "cate": 4, 
-        "sub_cate": 6, 
+        "type": 1, 
         "keyword": "FROM A/C XX7456", 
-        "priority": 10, 
-        "description": "", 
-        "type": 1
+        "cate": 4, 
+        "sub_cate": 6, 
+        "description": "Internal", 
+        "priority": 10
     }, 
-    "pk": 45, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 45
 },
 {
     "fields": {
-        "cate": 4, 
-        "sub_cate": 6, 
+        "type": 1, 
         "keyword": "TO A/C XX7456", 
-        "priority": 10, 
-        "description": "", 
-        "type": 1
+        "cate": 4, 
+        "sub_cate": 6, 
+        "description": "Internal", 
+        "priority": 10
     }, 
-    "pk": 46, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 46
 },
 {
     "fields": {
-        "cate": 4, 
-        "sub_cate": 6, 
+        "type": 1, 
         "keyword": "FROM A/C XX4986", 
-        "priority": 10, 
-        "description": "", 
-        "type": 1
-    }, 
-    "pk": 47, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
         "cate": 4, 
         "sub_cate": 6, 
-        "keyword": "TO A/C XX4986", 
-        "priority": 10, 
-        "description": "", 
-        "type": 1
+        "description": "Internal", 
+        "priority": 10
     }, 
-    "pk": 48, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 47
 },
 {
     "fields": {
+        "type": 1, 
+        "keyword": "TO A/C XX4986", 
+        "cate": 4, 
+        "sub_cate": 6, 
+        "description": "Internal", 
+        "priority": 10
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 48
+},
+{
+    "fields": {
+        "type": 2, 
+        "keyword": "PARKING", 
         "cate": 1, 
         "sub_cate": 8, 
-        "keyword": "PARKING", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 49, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 49
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "LUNCH FEE", 
         "cate": 1, 
         "sub_cate": 1, 
-        "keyword": "LUNCH FEE", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 50, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 50
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "MD AUBURN 132 AUBURN NS", 
         "cate": 1, 
         "sub_cate": 2, 
-        "keyword": "MD AUBURN 132 AUBURN NS", 
-        "priority": 4, 
         "description": "Auburn Outlet", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 51, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 51
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "HANSANG TRADING", 
         "cate": 1, 
         "sub_cate": 5, 
-        "keyword": "HANSANG TRADING", 
-        "priority": 4, 
         "description": "Korean Store at Lidcombe", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 52, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 52
 },
 {
     "fields": {
+        "type": 3, 
+        "keyword": "N R M A", 
         "cate": 1, 
         "sub_cate": 15, 
-        "keyword": "N R M A", 
-        "priority": 4, 
-        "description": "", 
-        "type": 3
+        "description": "NRMA", 
+        "priority": 4
     }, 
-    "pk": 53, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 53
 },
 {
     "fields": {
+        "type": 1, 
+        "keyword": "TRANSFER TO XX4986", 
         "cate": 4, 
         "sub_cate": 6, 
-        "keyword": "TRANSFER TO XX4986", 
-        "priority": 10, 
-        "description": "", 
-        "type": 1
+        "description": "Internal", 
+        "priority": 10
     }, 
-    "pk": 54, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 54
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "COMMUNITY RELATIONS", 
         "cate": 1, 
         "sub_cate": 8, 
-        "keyword": "COMMUNITY RELATIONS", 
-        "priority": 4, 
         "description": "CRC-License Translation", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 55, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 55
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "CELLARBRATIONS", 
         "cate": 2, 
         "sub_cate": 3, 
-        "keyword": "CELLARBRATIONS", 
-        "priority": 4, 
         "description": "Wine Store at Strathfield", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 56, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 56
 },
 {
     "fields": {
-        "cate": 1, 
-        "sub_cate": 5, 
+        "type": 2, 
         "keyword": "DAVID JONES", 
-        "priority": 4, 
+        "cate": 1, 
+        "sub_cate": 5, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 57, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 57
 },
 {
     "fields": {
-        "cate": 1, 
-        "sub_cate": 5, 
+        "type": 2, 
         "keyword": "HANDYWAY WORLD KITC", 
-        "priority": 4, 
-        "description": "Houseware Store at BikenHead Point", 
-        "type": 2
-    }, 
-    "pk": 58, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
-        "cate": 1, 
-        "sub_cate": 8, 
-        "keyword": "ETOLLRTB", 
-        "priority": 4, 
-        "description": "E-TOLL", 
-        "type": 2
-    }, 
-    "pk": 59, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
-        "cate": 1, 
-        "sub_cate": 8, 
-        "keyword": "RTA", 
-        "priority": 4, 
-        "description": "RTA related. licensing, etc.", 
-        "type": 2
-    }, 
-    "pk": 60, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
-        "cate": 1, 
-        "sub_cate": 8, 
-        "keyword": "TRANSPORT FOR NSW", 
-        "priority": 4, 
-        "description": "OPAL", 
-        "type": 2
-    }, 
-    "pk": 61, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
         "cate": 1, 
         "sub_cate": 5, 
-        "keyword": "DICK SMITH", 
-        "priority": 4, 
-        "description": "", 
-        "type": 2
+        "description": "Houseware Store at BikenHead Point", 
+        "priority": 4
     }, 
-    "pk": 62, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 58
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "ETOLLRTB", 
+        "cate": 1, 
+        "sub_cate": 8, 
+        "description": "E-TOLL", 
+        "priority": 4
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 59
+},
+{
+    "fields": {
+        "type": 2, 
+        "keyword": "RTA", 
+        "cate": 1, 
+        "sub_cate": 8, 
+        "description": "RTA related. licensing, etc.", 
+        "priority": 4
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 60
+},
+{
+    "fields": {
+        "type": 2, 
+        "keyword": "TRANSPORT FOR NSW", 
+        "cate": 1, 
+        "sub_cate": 8, 
+        "description": "OPAL", 
+        "priority": 4
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 61
+},
+{
+    "fields": {
+        "type": 2, 
+        "keyword": "DICK SMITH", 
+        "cate": 1, 
+        "sub_cate": 5, 
+        "description": "", 
+        "priority": 4
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 62
+},
+{
+    "fields": {
+        "type": 2, 
+        "keyword": "REBEL SPORT", 
         "cate": 1, 
         "sub_cate": 2, 
-        "keyword": "REBEL SPORT", 
-        "priority": 4, 
         "description": "", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 63, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 63
 },
 {
     "fields": {
-        "cate": 4, 
-        "sub_cate": 16, 
+        "type": 1, 
         "keyword": "LIVING EXPENSE", 
-        "priority": 10, 
+        "cate": 4, 
+        "sub_cate": 16, 
         "description": "Money from China", 
-        "type": 1
+        "priority": 10
     }, 
-    "pk": 64, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 64
 },
 {
     "fields": {
-        "cate": 4, 
-        "sub_cate": 16, 
+        "type": 1, 
         "keyword": "MR WENZHEN HE REF 131120011759", 
-        "priority": 10, 
-        "description": "Money from UK Account", 
-        "type": 1
-    }, 
-    "pk": 65, 
-    "model": "ozio.keyword"
-},
-{
-    "fields": {
         "cate": 4, 
         "sub_cate": 16, 
-        "keyword": "WENZHEN REF: CASH DEPOSIT CBA ATM STRATHFIELD A NSW 225601 AUS", 
-        "priority": 10, 
-        "description": "Money from China", 
-        "type": 1
+        "description": "Money from UK Account", 
+        "priority": 10
     }, 
-    "pk": 66, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 65
 },
 {
     "fields": {
+        "type": 1, 
+        "keyword": "WENZHEN REF: CASH DEPOSIT CBA ATM STRATHFIELD A NSW 225601 AUS", 
+        "cate": 4, 
+        "sub_cate": 16, 
+        "description": "Money from China", 
+        "priority": 10
+    }, 
+    "model": "ozio.keyword", 
+    "pk": 66
+},
+{
+    "fields": {
+        "type": 2, 
+        "keyword": "GENERAL FOOD", 
         "cate": 1, 
         "sub_cate": 1, 
-        "keyword": "GENERAL FOOD", 
-        "priority": 5, 
-        "description": "", 
-        "type": 2
+        "description": "Manual Input Food", 
+        "priority": 5
     }, 
-    "pk": 69, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 69
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "SEAFOOD BUYFOOD", 
         "cate": 6, 
         "sub_cate": 18, 
-        "keyword": "SEAFOOD BUYFOOD", 
-        "priority": 4, 
         "description": "Fish Market Seafood", 
-        "type": 2
+        "priority": 4
     }, 
-    "pk": 70, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 70
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "GENERAL TRANSPORT", 
         "cate": 1, 
         "sub_cate": 8, 
-        "keyword": "GENERAL TRANSPORT", 
-        "priority": 5, 
         "description": "Manual Input Transport", 
-        "type": 2
+        "priority": 5
     }, 
-    "pk": 71, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 71
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "GENERAL SOCIAL", 
         "cate": 6, 
         "sub_cate": 18, 
-        "keyword": "GENERAL SOCIAL", 
-        "priority": 5, 
         "description": "Manual Input Social", 
-        "type": 2
+        "priority": 5
     }, 
-    "pk": 72, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 72
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "GENERAL TRAVEL", 
         "cate": 6, 
         "sub_cate": 17, 
-        "keyword": "GENERAL TRAVEL", 
-        "priority": 5, 
         "description": "Manual Input Travel", 
-        "type": 2
+        "priority": 5
     }, 
-    "pk": 73, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 73
 },
 {
     "fields": {
+        "type": 2, 
+        "keyword": "DRIVING LESSON", 
         "cate": 1, 
         "sub_cate": 8, 
-        "keyword": "DRIVING LESSON", 
-        "priority": 5, 
         "description": "Manual Input Driving Lesson", 
-        "type": 2
+        "priority": 5
     }, 
-    "pk": 74, 
-    "model": "ozio.keyword"
+    "model": "ozio.keyword", 
+    "pk": 74
+},
+{
+    "fields": {
+        "content_type": 1, 
+        "name": "Can add log entry", 
+        "codename": "add_logentry"
+    }, 
+    "model": "auth.permission", 
+    "pk": 1
+},
+{
+    "fields": {
+        "content_type": 1, 
+        "name": "Can change log entry", 
+        "codename": "change_logentry"
+    }, 
+    "model": "auth.permission", 
+    "pk": 2
+},
+{
+    "fields": {
+        "content_type": 1, 
+        "name": "Can delete log entry", 
+        "codename": "delete_logentry"
+    }, 
+    "model": "auth.permission", 
+    "pk": 3
+},
+{
+    "fields": {
+        "content_type": 2, 
+        "name": "Can add permission", 
+        "codename": "add_permission"
+    }, 
+    "model": "auth.permission", 
+    "pk": 4
+},
+{
+    "fields": {
+        "content_type": 2, 
+        "name": "Can change permission", 
+        "codename": "change_permission"
+    }, 
+    "model": "auth.permission", 
+    "pk": 5
+},
+{
+    "fields": {
+        "content_type": 2, 
+        "name": "Can delete permission", 
+        "codename": "delete_permission"
+    }, 
+    "model": "auth.permission", 
+    "pk": 6
+},
+{
+    "fields": {
+        "content_type": 3, 
+        "name": "Can add group", 
+        "codename": "add_group"
+    }, 
+    "model": "auth.permission", 
+    "pk": 7
+},
+{
+    "fields": {
+        "content_type": 3, 
+        "name": "Can change group", 
+        "codename": "change_group"
+    }, 
+    "model": "auth.permission", 
+    "pk": 8
+},
+{
+    "fields": {
+        "content_type": 3, 
+        "name": "Can delete group", 
+        "codename": "delete_group"
+    }, 
+    "model": "auth.permission", 
+    "pk": 9
+},
+{
+    "fields": {
+        "content_type": 4, 
+        "name": "Can add user", 
+        "codename": "add_user"
+    }, 
+    "model": "auth.permission", 
+    "pk": 10
+},
+{
+    "fields": {
+        "content_type": 4, 
+        "name": "Can change user", 
+        "codename": "change_user"
+    }, 
+    "model": "auth.permission", 
+    "pk": 11
+},
+{
+    "fields": {
+        "content_type": 4, 
+        "name": "Can delete user", 
+        "codename": "delete_user"
+    }, 
+    "model": "auth.permission", 
+    "pk": 12
+},
+{
+    "fields": {
+        "content_type": 5, 
+        "name": "Can add content type", 
+        "codename": "add_contenttype"
+    }, 
+    "model": "auth.permission", 
+    "pk": 13
+},
+{
+    "fields": {
+        "content_type": 5, 
+        "name": "Can change content type", 
+        "codename": "change_contenttype"
+    }, 
+    "model": "auth.permission", 
+    "pk": 14
+},
+{
+    "fields": {
+        "content_type": 5, 
+        "name": "Can delete content type", 
+        "codename": "delete_contenttype"
+    }, 
+    "model": "auth.permission", 
+    "pk": 15
+},
+{
+    "fields": {
+        "content_type": 6, 
+        "name": "Can add session", 
+        "codename": "add_session"
+    }, 
+    "model": "auth.permission", 
+    "pk": 16
+},
+{
+    "fields": {
+        "content_type": 6, 
+        "name": "Can change session", 
+        "codename": "change_session"
+    }, 
+    "model": "auth.permission", 
+    "pk": 17
+},
+{
+    "fields": {
+        "content_type": 6, 
+        "name": "Can delete session", 
+        "codename": "delete_session"
+    }, 
+    "model": "auth.permission", 
+    "pk": 18
+},
+{
+    "fields": {
+        "content_type": 7, 
+        "name": "Can add type", 
+        "codename": "add_type"
+    }, 
+    "model": "auth.permission", 
+    "pk": 19
+},
+{
+    "fields": {
+        "content_type": 7, 
+        "name": "Can change type", 
+        "codename": "change_type"
+    }, 
+    "model": "auth.permission", 
+    "pk": 20
+},
+{
+    "fields": {
+        "content_type": 7, 
+        "name": "Can delete type", 
+        "codename": "delete_type"
+    }, 
+    "model": "auth.permission", 
+    "pk": 21
+},
+{
+    "fields": {
+        "content_type": 8, 
+        "name": "Can add cate", 
+        "codename": "add_cate"
+    }, 
+    "model": "auth.permission", 
+    "pk": 22
+},
+{
+    "fields": {
+        "content_type": 8, 
+        "name": "Can change cate", 
+        "codename": "change_cate"
+    }, 
+    "model": "auth.permission", 
+    "pk": 23
+},
+{
+    "fields": {
+        "content_type": 8, 
+        "name": "Can delete cate", 
+        "codename": "delete_cate"
+    }, 
+    "model": "auth.permission", 
+    "pk": 24
+},
+{
+    "fields": {
+        "content_type": 9, 
+        "name": "Can add sub cate", 
+        "codename": "add_subcate"
+    }, 
+    "model": "auth.permission", 
+    "pk": 25
+},
+{
+    "fields": {
+        "content_type": 9, 
+        "name": "Can change sub cate", 
+        "codename": "change_subcate"
+    }, 
+    "model": "auth.permission", 
+    "pk": 26
+},
+{
+    "fields": {
+        "content_type": 9, 
+        "name": "Can delete sub cate", 
+        "codename": "delete_subcate"
+    }, 
+    "model": "auth.permission", 
+    "pk": 27
+},
+{
+    "fields": {
+        "content_type": 10, 
+        "name": "Can add keyword", 
+        "codename": "add_keyword"
+    }, 
+    "model": "auth.permission", 
+    "pk": 28
+},
+{
+    "fields": {
+        "content_type": 10, 
+        "name": "Can change keyword", 
+        "codename": "change_keyword"
+    }, 
+    "model": "auth.permission", 
+    "pk": 29
+},
+{
+    "fields": {
+        "content_type": 10, 
+        "name": "Can delete keyword", 
+        "codename": "delete_keyword"
+    }, 
+    "model": "auth.permission", 
+    "pk": 30
+},
+{
+    "fields": {
+        "content_type": 11, 
+        "name": "Can add source file", 
+        "codename": "add_sourcefile"
+    }, 
+    "model": "auth.permission", 
+    "pk": 31
+},
+{
+    "fields": {
+        "content_type": 11, 
+        "name": "Can change source file", 
+        "codename": "change_sourcefile"
+    }, 
+    "model": "auth.permission", 
+    "pk": 32
+},
+{
+    "fields": {
+        "content_type": 11, 
+        "name": "Can delete source file", 
+        "codename": "delete_sourcefile"
+    }, 
+    "model": "auth.permission", 
+    "pk": 33
+},
+{
+    "fields": {
+        "content_type": 12, 
+        "name": "Can add transaction", 
+        "codename": "add_transaction"
+    }, 
+    "model": "auth.permission", 
+    "pk": 34
+},
+{
+    "fields": {
+        "content_type": 12, 
+        "name": "Can change transaction", 
+        "codename": "change_transaction"
+    }, 
+    "model": "auth.permission", 
+    "pk": 35
+},
+{
+    "fields": {
+        "content_type": 12, 
+        "name": "Can delete transaction", 
+        "codename": "delete_transaction"
+    }, 
+    "model": "auth.permission", 
+    "pk": 36
+},
+{
+    "fields": {
+        "content_type": 13, 
+        "name": "Can add transaction filter", 
+        "codename": "add_transactionfilter"
+    }, 
+    "model": "auth.permission", 
+    "pk": 37
+},
+{
+    "fields": {
+        "content_type": 13, 
+        "name": "Can change transaction filter", 
+        "codename": "change_transactionfilter"
+    }, 
+    "model": "auth.permission", 
+    "pk": 38
+},
+{
+    "fields": {
+        "content_type": 13, 
+        "name": "Can delete transaction filter", 
+        "codename": "delete_transactionfilter"
+    }, 
+    "model": "auth.permission", 
+    "pk": 39
+},
+{
+    "fields": {
+        "content_type": 14, 
+        "name": "Can add filter sql", 
+        "codename": "add_filtersql"
+    }, 
+    "model": "auth.permission", 
+    "pk": 40
+},
+{
+    "fields": {
+        "content_type": 14, 
+        "name": "Can change filter sql", 
+        "codename": "change_filtersql"
+    }, 
+    "model": "auth.permission", 
+    "pk": 41
+},
+{
+    "fields": {
+        "content_type": 14, 
+        "name": "Can delete filter sql", 
+        "codename": "delete_filtersql"
+    }, 
+    "model": "auth.permission", 
+    "pk": 42
+},
+{
+    "fields": {
+        "date_joined": "2014-04-22T05:49:56Z", 
+        "email": "", 
+        "password": "pbkdf2_sha256$12000$CEByEK8osv7n$3WXBziglOUrc84UoZuCWG6OHtP/7Kci2soxR24D45/g=", 
+        "user_permissions": [], 
+        "groups": [], 
+        "last_login": "2014-04-22T05:49:56Z", 
+        "is_staff": true, 
+        "is_superuser": true, 
+        "is_active": true, 
+        "last_name": "", 
+        "first_name": "", 
+        "username": "admin"
+    }, 
+    "model": "auth.user", 
+    "pk": 1
 }
 ]

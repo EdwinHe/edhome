@@ -10,9 +10,7 @@ from ozio.forms import *
 from ozio.ozioUtils import *
 
 def ozio_add_or_edit(request, obj_type, obj_id):
-    
-    #import pdb;pdb.set_trace()
-    
+        
     if obj_type == 'type':
         obj_class_name = 'Type'
     elif obj_type == 'cate':
@@ -30,8 +28,12 @@ def ozio_add_or_edit(request, obj_type, obj_id):
     elif obj_type == 'filter_sql':
         obj_class_name = 'FilterSQL'
         
-    instance = eval(obj_class_name + '.objects.get(id=' + obj_id + ')')
-    form = eval(obj_class_name + 'Form(request.POST or None, instance = instance)')
+    #import pdb;pdb.set_trace()
+    try: ### Modify 
+        instance = eval(obj_class_name + '.objects.get(id=' + obj_id + ')')
+        form = eval(obj_class_name + 'Form(request.POST or None, instance = instance)')
+    except: ### Add
+        form = eval(obj_class_name + 'Form(request.POST or None)')
         
     if form.is_valid():
         form.save()
