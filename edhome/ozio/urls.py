@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     url(r'^transaction/', views.ozio_transaction, name = 'transaction'),
     url(r'^map_transaction/', views.ozio_map_transaction, name = 'map_transaction'),
     url(r'^add_manual_csv/(?P<file_name>[^/]+)/$', views.ozio_add_manual_csv, name = 'add_manual_csv'),
-    
+    url(r'^split_transaction/', views.ozio_split_transaction, name = 'split_transaction'),
     ###
     url(r'^add_or_edit/(?P<obj_type>[^/]+)/(?P<obj_id>[^/]+)/$', views.ozio_add_or_edit, name = 'add_or_edit'),
 )

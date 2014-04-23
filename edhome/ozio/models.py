@@ -4,7 +4,7 @@ from django.db.models import Q
 # Create your models here.
 class Type(models.Model):
 	type = models.CharField('Type', max_length = 40)
-	span_days = models.PositiveIntegerField('Span Days')
+	span_months = models.PositiveIntegerField('Span Months')
 	description = models.CharField('Description', max_length = 60, blank = True)
 	
 	def __str__(self):
@@ -50,6 +50,7 @@ class Transaction(models.Model):
 	info = models.CharField('Info', max_length = 100)
 	original_info = models.CharField('Raw Info', max_length = 100)
 	source_file = models.ForeignKey(SourceFile)
+	span_status = models.CharField('Span Status', max_length = 1, default='-')
 	keyword = models.ForeignKey(Keyword, blank = True, null = True, on_delete=models.SET_NULL)
 	
 	def __str__(self):

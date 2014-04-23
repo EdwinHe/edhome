@@ -20,11 +20,6 @@ function buildHeader(objs, obj_name){
 	var tab_content = '';
 	tab_content += '<div' + div_class + ' id="' + obj_name.toLowerCase() + '">';
 	tab_content += '<div>';
-	tab_content += '<button type="button" class="btn btn-danger pull-right" \
-					 onclick="on_Config_Click_Add(\''+ obj_name + '\')" \
-					>ADD ' + obj_name.toUpperCase() + '</button>'; // Add button
-	tab_content += '</div>';
-	tab_content += '<div>';
 	tab_content += '<table class="table table-striped table-hover">';
 	tab_content += '<thead>';
 	tab_content += '<tr class="success">';
@@ -48,7 +43,7 @@ function buildHeader(objs, obj_name){
 	tab_content += '</div>';
 	tab_content += '</div>';
 	
-	$('div#config_tabs_content').append(tab_content);
+	$('div#id_div_config_tabs_content').append(tab_content);
 
 }
 
@@ -105,24 +100,29 @@ function on_Config_Click_Change(obj_type, obj_id) {
 				async: false, 
 				url: "/ozio/add_or_edit/" + obj_type + "/" + obj_id + "/",
 				success: function(rendered_form_html) {
-					$('#configs_dialog_add_edit').empty();
-					$('#configs_dialog_add_edit').append(rendered_form_html);
-					$('#configs_dialog_add_edit').dialog("open");
+					$('#id_div_configs_dialog_add_edit').empty();
+					$('#id_div_configs_dialog_add_edit').append(rendered_form_html);
+					$('#id_div_configs_dialog_add_edit').dialog("open");
 					bind_submit_event();
 				},
 			}
 	);
 }
 
-function on_Config_Click_Add(obj_type) {
+function on_Config_Click_Add() {
+	var obj_type = $('#config_tabs li.active a').attr('href').split('#')[1];
+	var obj_name = $('#config_tabs li.active a').text();
+	
+	$('#id_div_configs_dialog_add_edit').dialog('option', 'title', 'Add ' + obj_name);
+	
 	$.ajax(
 			{	type: "GET", 
 				async: false, 
 				url: "/ozio/add_or_edit/" + obj_type + "/-1/", //Set id to -1 means Add new, see view.py
 				success: function(rendered_form_html) {
-					$('#configs_dialog_add_edit').empty();
-					$('#configs_dialog_add_edit').append(rendered_form_html);
-					$('#configs_dialog_add_edit').dialog("open");
+					$('#id_div_configs_dialog_add_edit').empty();
+					$('#id_div_configs_dialog_add_edit').append(rendered_form_html);
+					$('#id_div_configs_dialog_add_edit').dialog("open");
 					bind_submit_event();
 				},
 			}
@@ -132,7 +132,7 @@ function on_Config_Click_Add(obj_type) {
 function on_Click_Add(obj_type) {
 	$('form.form-horizontal').css("display", "none");
 	$("#" + obj_type + "_add_form").css("display", "block");
-	$("#configs_dialog_add").dialog( "open" );
+	$("#id_div_configs_dialog_add").dialog( "open" );
 }
 //-------------------------------------------------
 
@@ -165,7 +165,7 @@ function refreshTable_caller(obj_name) {
 //----------------------------------------------------------------------
 
 //--- Set add dialog properties ---
-$( "#configs_dialog_add" ).dialog({
+$( "#id_div_configs_dialog_add" ).dialog({
 	autoOpen: false,
 	title: 'ADD',
 	dialogClass: 'ed-dialog-flatly',
@@ -183,10 +183,10 @@ var objects=["type", "cate", "subcate", "keyword", "sourcefile",
              "transaction", "transactionfilter", "filtersql"];
 //var objects=["subcate"];
 
-// Clear up HTML object id='config_tabs' and id='config_tabs_content'
+// Clear up HTML object id='config_tabs' and id='id_div_config_tabs_content'
 // in ozio_dialog_configs.html
 $('ul#config_tabs').empty();
-$('div#config_tabs_content').empty();
+$('div#id_div_config_tabs_content').empty();
 
 // For each object, build tab and the table
 for (var iter = 0; iter < objects.length; iter++) {	

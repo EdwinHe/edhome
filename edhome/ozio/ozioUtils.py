@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.db.models import Q
 from django.db.models import Sum
 
@@ -6,6 +8,57 @@ from ozio.models import *
 import logging, re
 logger = logging.getLogger(__name__)
 
+def new_tran(tran, shift):
+    assert(shift >= 0)
+    
+    month = tran.date.month
+    year = tran.date.year
+    
+    month = tran.date.month + shift
+    year_adj = (month-1) // 12
+    year += year_adj
+    month = (month-1) % 12 + 1
+    
+    Transaction.objects.create(
+        date = date(year, month, 1),
+        amount = tran.amount / tran.keyword.type.span_months,
+        info = tran.info,
+        original_info = tran.id,
+        source_file = tran.source_file,
+        span_status = 'C'
+    )
+    
+    
+
+def split_transactions():
+    
+    span_tran = Transaction.objects.filter(span_status__exact = 'N')
+    
+    import pdb;pdb.set_trace()
+    for tran in span_tran:
+        span_months = tran.keyword.type.span_months
+        
+        for i in range(span_months):
+            new_tran(tran, i)
+        
+        tran.keyword = Keyword.objects.get(keyword__exact = 'SPLITTED SPAN TRANSACTIONS')
+        tran.span_status = 'Y'
+        tran.save()
+         
+def update_span_status():
+    '''
+    Span Status = {
+        -: Freshly Imported
+        N: Await For Spliting
+        Y: Splitted Original Record
+        C: Splitted Child Record
+    }
+    '''
+    ### Get transactions whose span_months > 1 and span_status = '-'
+    span_tran = Transaction.objects.select_related() \
+                    .filter(keyword__type__span_months__gt = 1) \
+                    .filter(span_status__exact = '-')
+    span_tran.update(span_status = 'N')
 
 def map_transactions():
     '''

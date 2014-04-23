@@ -6,7 +6,7 @@ from ozio.models import *
 class TypeSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = Type
-		fields = ('id', 'type', 'span_days', 'description') 
+		fields = ('id', 'type', 'span_months', 'description') 
 	
 class CateSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
@@ -77,7 +77,7 @@ class SourceFileSerializer(serializers.HyperlinkedModelSerializer):
 class TransactionSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = Transaction
-		fields = ('id', 'date', 'amount', 'info', 'original_info', 'source_file', 'keyword')
+		fields = ('id', 'date', 'amount', 'info', 'original_info', 'source_file', 'span_status', 'keyword')
 		
 	source_file = serializers.PrimaryKeyRelatedField(label = 'Source File')
 	#source_file = serializers.RelatedField(source = 'source_file', label = 'Source File')

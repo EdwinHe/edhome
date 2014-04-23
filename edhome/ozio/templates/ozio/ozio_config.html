@@ -11,21 +11,25 @@
 
 <!--------------------- BLOCK content1 --------------------->
 {% block content1 %}
-<div id="configs_dialog">
+<div id="id_div_configs_dialog">
 	<div class="bs-component">
 		<!-- ----------- TABS ------------- -->
+		<div class="input-group col-lg-3 pull-right has-error">
+			<input class="form-control" id="id_input_config_filter" placeholder="Filter..." type="text">
+			 <span class="input-group-btn">
+			<button type="button" class="btn btn-danger" onclick="on_Config_Click_Add()">Add</button>
+			</span>
+		</div>
 		<ul id = "config_tabs" class="nav nav-tabs" style="margin-bottom: 15px;">
 			<!-- tabs built by ozio_config.js -->
 		</ul>
 		<!-- ----------- /TABS ------------- -->
 		
 		<!-- ----------- TABS CONTENT ------------- -->
-		<div id="config_tabs_content" class="tab-content">
+		<div id="id_div_config_tabs_content" class="tab-content">
 			<!-- tabs content built by ozio_config.js -->
 		</div>
 		<!-- ----------- /TABS CONTENT ------------- -->
-		<div id="source-button" class="btn btn-primary btn-xs"
-			style="display: none;">&lt; &gt;</div>
 	</div>
 </div>
 {% endblock %}
@@ -53,6 +57,6 @@
 
 <!--------------------- BLOCK content_raw --------------------->
 {% block content_raw %}
-<div id="configs_dialog_add_edit"></div>
+<div id="id_div_configs_dialog_add_edit"></div>
 {% endblock %}
 <!--------------------- /BLOCK content_raw --------------------->

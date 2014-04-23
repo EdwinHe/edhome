@@ -63,18 +63,30 @@ def ozio_add_manual_csv(request, file_name):
 
 def ozio_map_transaction(request):
     map_transactions()
+    update_span_status()
+    return ozio_transaction(request)
+
+def ozio_split_transaction(request):
+    split_transactions()
     return ozio_transaction(request)
 
 def ozio_transaction(request):
-    transactions = Transaction.objects.all().order_by('date')
     outstanding_transactions = Transaction.objects.filter(keyword__isnull = True).order_by('date')
+    span_transactions = Transaction.objects.select_related() \
+        .exclude(keyword__isnull = True) \
+        .filter(span_status__exact = 'N')
+    transactions = Transaction.objects.all().order_by('date')
     
-    outstanding_tran_num = Transaction.objects.filter( keyword__isnull = True ).count()
-    tran_num = Transaction.objects.all().count()
-
-    context = { 'transactions': transactions, 
-                'outstanding_transactions': outstanding_transactions,
-                'outstanding_tran_num': outstanding_tran_num, 
+    outstanding_tran_num = outstanding_transactions.count()
+    span_tran_num = span_transactions.count()
+    tran_num = transactions.count()
+    
+    
+    context = { 'outstanding_transactions': outstanding_transactions,
+                'outstanding_tran_num': outstanding_tran_num,
+                'span_transactions': span_transactions,
+                'span_tran_num': span_tran_num,
+                'transactions': transactions,
                 'tran_num': tran_num,
                 }
     return render(request, 'ozio/ozio_transaction.html', context)
