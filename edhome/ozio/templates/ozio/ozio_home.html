@@ -46,7 +46,7 @@
 	-->
 	<!----------- CHART ----------->
 	<div id="bar_chart_container" style="min-width: 300px; height: 300px; margin: 0 auto"></div>
-	<div id="pie_chart_container" style="min-width: 300px; height: 300px; margin: 0 auto; display: none"></div>
+	<div id="mix_chart_container" style="min-width: 300px; height: 300px; margin: 0 auto"></div>
 	<!----------- /CHART ----------->
 </div>
 <!-------- /BLOCK content1 LEFT COL-LG-6 -------->
@@ -57,7 +57,7 @@
 		<a class="list-group-item active"> Functionalities</a>
 		<a href="#" class="list-group-item" id="add_new_transaction">New Transaction (Manual)</a>
 		<a href="#" class="list-group-item" id="import_cba_csv">Import CommBank CSV</a>
-		<a href="{% url 'ozio:transaction' %}" class="list-group-item" id="transactions">Transactions<span class="badge">{{outstanding_tran_num}}</span></a>
+		<a href="{% url 'ozio:transaction' %}" class="list-group-item" id="transactions">Transactions<span class="badge">{{span_tran_num}}</span><span class="badge">{{outstanding_tran_num}}</span></a>
 		<a href="{% url 'ozio:config' %}" class="list-group-item" id="configurations">Configurations</a>
 	</div>
 </div>
@@ -95,10 +95,10 @@
 <script type="text/javascript" src="{% static 'ozio/js/bar_chart.js' %}"></script>
 <!-- ------- /bar chart -------- -->
 
-<!-- ------- pie chart -------- -->
-<script> var json_pie_chart_data = {{ json_pie_chart_data | safe }} </script>
-<script type="text/javascript" src="{% static 'ozio/js/pie_chart.js' %}"></script>
-<!-- ------- /pie chart -------- -->
+<!-- ------- mix chart -------- -->
+<script> var json_mix_chart_data = {{ json_mix_chart_data | safe }} </script>
+<script type="text/javascript" src="{% static 'ozio/js/mix_chart.js' %}"></script>
+<!-- ------- /mix chart -------- -->
 <!-- ---------------- /CHART ---------------- -->
 {% endblock %}
 <!--------------------- /BLOCK body_js --------------------->

@@ -73,10 +73,28 @@ class FilterSQL(models.Model):
         (FILTER, FILTER),
         (EXCLUDE, EXCLUDE),
     )
-	filter_type =  models.CharField('Filter Type', max_length = 60, choices=TYPES, default=FILTER)
+	filter_type =  models.CharField('Filter Type', max_length = 10, choices=TYPES, default=FILTER)
 	
 	filter_sql = models.CharField('Filter SQL', max_length = 100)
 	
+	ENABLED = 'enabled'
+	DISABLED = 'disabled'
+	ONOFF = (
+	    (ENABLED, ENABLED),
+	    (DISABLED, DISABLED),
+	)
+	filter_onoff =  models.CharField('Filter On/Off', max_length = 10, choices=ONOFF, default=ENABLED)
+	
+	PENDING = 'pending'
+	FAILED = 'failed'
+	SUCCESS = 'passed'
+	STATUS = (
+		(PENDING,PENDING),
+	    (FAILED, FAILED),
+	    (SUCCESS, SUCCESS),
+	)
+	filter_status =  models.CharField('Filter Status', max_length = 10, choices=STATUS, default=PENDING)
+	 
 	def __str__(self):
 		return self.filter_sql
 

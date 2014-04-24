@@ -113,7 +113,7 @@ class TransactionFilterSerializer(serializers.HyperlinkedModelSerializer):
 class FilterSQLSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = FilterSQL
-		fields = ('id', 'filter', 'filter_type', 'filter_sql')
+		fields = ('id', 'filter', 'filter_type', 'filter_sql', 'filter_onoff', 'filter_status')
 		
 	filter = serializers.PrimaryKeyRelatedField(label = 'Filter')
 	#===========================================================================

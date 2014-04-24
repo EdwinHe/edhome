@@ -34,11 +34,8 @@ def ozio_home(request):
     else:
         upload_file_form = UploadFileForm()
     
-    outstanding_tran_num = Transaction.objects.filter( keyword__isnull = True ).count()
-    
-    # For Pie Chart
-    pie_chart_data = get_pie_chart_data()
-    json_pie_chart_data = simplejson.dumps(pie_chart_data)
+    outstanding_tran_num = get_filtered_transactions('Outstanding Transactions').count()
+    span_tran_num = get_filtered_transactions('Span Transactions').count()
     
     # For Bar Chart
     [bar_chart_monthlyView,bar_chart_monthlyDrilldown,bar_chart_monthlySubCateDrilldown] = get_bar_chart_data()
@@ -46,12 +43,20 @@ def ozio_home(request):
     json_bar_chart_monthlyDrilldown = simplejson.dumps(bar_chart_monthlyDrilldown)
     json_bar_chart_monthlySubCateDrilldown = simplejson.dumps(bar_chart_monthlySubCateDrilldown)
     
+    # For Mix Chart
+    mix_chart_data = get_mix_chart_data()
+    json_mix_chart_data = simplejson.dumps(mix_chart_data)
+    
     context = {'upload_file_form': upload_file_form,
                'outstanding_tran_num': outstanding_tran_num,
-               'json_pie_chart_data': json_pie_chart_data,
+               'span_tran_num': span_tran_num,
+               # Bar Chart
                'json_bar_chart_monthlyView': json_bar_chart_monthlyView,
                'json_bar_chart_monthlyDrilldown': json_bar_chart_monthlyDrilldown,
-               'json_bar_chart_monthlySubCateDrilldown': json_bar_chart_monthlySubCateDrilldown,}
+               'json_bar_chart_monthlySubCateDrilldown': json_bar_chart_monthlySubCateDrilldown,
+               # Mix Chart
+               'json_mix_chart_data': json_mix_chart_data,
+               }
     return render(request, 'ozio/ozio_home.html', context)
 
 def ozio_test(request):
@@ -71,10 +76,8 @@ def ozio_split_transaction(request):
     return ozio_transaction(request)
 
 def ozio_transaction(request):
-    outstanding_transactions = Transaction.objects.filter(keyword__isnull = True).order_by('date')
-    span_transactions = Transaction.objects.select_related() \
-        .exclude(keyword__isnull = True) \
-        .filter(span_status__exact = 'N')
+    outstanding_transactions = get_filtered_transactions('Outstanding Transactions').order_by('date')
+    span_transactions = get_filtered_transactions('Span Transactions')
     transactions = Transaction.objects.all().order_by('date')
     
     outstanding_tran_num = outstanding_transactions.count()

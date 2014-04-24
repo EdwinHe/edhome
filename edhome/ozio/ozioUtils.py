@@ -1,7 +1,7 @@
 from datetime import date
 
 from django.db.models import Q
-from django.db.models import Sum
+from django.db.models import Sum, Min, Max
 
 from ozio.models import *
 
@@ -34,7 +34,7 @@ def split_transactions():
     
     span_tran = Transaction.objects.filter(span_status__exact = 'N')
     
-    import pdb;pdb.set_trace()
+    #import pdb;pdb.set_trace()
     for tran in span_tran:
         span_months = tran.keyword.type.span_months
         
@@ -194,42 +194,86 @@ def parse_transaction(line):
     
     return transactions
 
+#################################################################
+########################## FOR CHARTS ###########################
+#################################################################
+def get_filtered_transactions(filter_name, transactions=None):
+    ### GET ALL TRANSACTIONS
+    #import pdb;pdb.set_trace()
+    if transactions == None:
+        transactions = Transaction.objects.select_related()
+    
+    ### GET FILTERS
+    filters = FilterSQL.objects.select_related() \
+        .filter(filter__filter_name__exact = filter_name) \
+        .filter(filter_onoff__exact = 'enabled') \
+        .values('filter_type','filter_sql')
+    
+    ### APPLY FILTERS
+    for filter in filters:
+        transactions = eval("transactions." + filter['filter_type'] + "(" + filter['filter_sql'] + ")")
+        
+    return transactions
 
-### FOR CHARTS ###
-
-def get_pie_chart_data():
-    # Excluse 'Off Balance' and 'Income' from Type 
-    types=Type.objects.filter(~Q(type__exact = 'Off Balance') & ~Q(type__exact = 'Income') )
+def get_mix_chart_data():
     
-    # Excluse 'Properties' and 'Off Balance' from Cates
-    cates=Cate.objects.filter(~Q(cate__exact = 'Properties') & ~Q(cate__exact = 'Off Balance'))
+    transactions = get_filtered_transactions('Mix Chart - MonthlyBalance')
+    mix_chart_series = []
     
-    # Loop up keywords whose types in filtered types and cates
-    keywords=Keyword.objects.filter(Q(type__in = types) & Q(cate__in = cates))
+    # ------------------------ MONTHLY BALANCE LINE DATA ------------------------
+    monthly_total = transactions \
+                    .extra(select={'YYYY-MM':"date_format(date,'%%Y-%%m')"}, order_by = ['YYYY-MM']) \
+                    .values('YYYY-MM') \
+                    .annotate(month_total=Sum('amount'))
     
-    monthly_total = Transaction.objects \
-                    .filter(Q(keyword__in = keywords)) \
+    month_name_in_list = [m['YYYY-MM'] for m in monthly_total]                
+    monthly_IO_in_list = [m['month_total'] for m in monthly_total]
+    
+    monthly_balance = { 'type': 'spline',
+                        'name': 'Balance',
+                        'yAxis': 1,
+                        'data': [
+                               {'name':month_name_in_list[i],
+                                'y':round(sum(monthly_IO_in_list[:i+1]),2)
+                                }  for i in range(len(month_name_in_list)) 
+                           ],
+                         'tooltip': { 'valueSuffix': ' AU$' }
+                       }
+    
+    # ------------------------ MONTHLY I/O BAR DATA ------------------------
+    monthly_income_tran = get_filtered_transactions('Mix Chart - MonthlyBalance - Income', transactions=transactions)
+    monthly_income = monthly_income_tran \
                     .extra(select={'YYYY-MM':"date_format(date,'%%Y-%%m')"}, order_by = ['YYYY-MM']) \
                     .values('YYYY-MM') \
                     .annotate(month_total=Sum('amount'))
                     
-    #return [ ['Firefox',  45.0], ['IE',    26.8], ['Safari',  8.5], ['Opera',   6.2],['Others',  0.7]]
-    return [[m['YYYY-MM'],m['month_total'] * -1.0] for m in list(monthly_total)]
-
+    monthly_income_for_chart = {
+                    'type': 'column',
+                    'name': 'Income',
+                    'data':[{'name':m['YYYY-MM'],
+                             'y':round(m['month_total'], 2)
+                            } for m in list(monthly_income)]}
+                    
+    monthly_expense_tran = get_filtered_transactions('Mix Chart - MonthlyBalance - Expense', transactions=transactions)
+    monthly_expense = monthly_expense_tran \
+                    .extra(select={'YYYY-MM':"date_format(date,'%%Y-%%m')"}, order_by = ['YYYY-MM']) \
+                    .values('YYYY-MM') \
+                    .annotate(month_total=Sum('amount'))
+                    
+    monthly_expense_for_chart = {
+                    'type': 'column',
+                    'name': 'Expense',
+                    'data':[{'name':m['YYYY-MM'],
+                             'y':round(m['month_total'] * -1.0 , 2)
+                            } for m in list(monthly_expense)]}
+                    
+                    
     
+    return [monthly_income_for_chart, monthly_expense_for_chart, monthly_balance]
+
 def get_bar_chart_data():
     
-    ### GET ALL TRANSACTIONS
-    transactions = Transaction.objects.select_related()
-    
-    ### APPLY FILTERS
-    filters = FilterSQL.objects.select_related() \
-        .filter(filter__filter_name__exact = 'Bar Chart - MonthlyView') \
-        .values('filter_type','filter_sql')
-
-    for filter in filters:
-        transactions = eval("transactions." + filter['filter_type'] + "(" + filter['filter_sql'] + ")")
-        
+    transactions = get_filtered_transactions('Bar Chart - MonthlyView')
         
     # ------------------------ MONTHLY VIEW ------------------------ 
     monthly_total = transactions \
@@ -246,7 +290,7 @@ def get_bar_chart_data():
                     'colorByPoint': True,
                     'data':[{'drilldown':m['YYYY-MM'],
                              'name':m['YYYY-MM'],
-                             'y':m['month_total'] * -1.0
+                             'y':round(m['month_total'] * -1.0 , 2)
                             } for m in list(monthly_total)]}]
     
     
@@ -267,7 +311,7 @@ def get_bar_chart_data():
             #===================================================================
             monthlyDrilldown[this_level]['data'].append({'drilldown': next_level,
                                                          'name': t['keyword__cate__cate'], 
-                                                         'y':t['month_cate_total'] * -1.0
+                                                         'y':round(t['month_cate_total'] * -1.0, 2)
                                                         })
         else:
             #===================================================================
@@ -279,7 +323,7 @@ def get_bar_chart_data():
                                             'colorByPoint': True,
                                             'data':[{'drilldown': next_level,
                                                      'name':t['keyword__cate__cate'], 
-                                                     'y':t['month_cate_total'] * -1.0
+                                                     'y':round(t['month_cate_total'] * -1.0, 2)
                                                     }]
                                             }
 
@@ -297,12 +341,13 @@ def get_bar_chart_data():
         this_level = t['YYYY-MM']+":"+t['keyword__cate__cate']
         if this_level in monthlySubCateDrilldown.keys():
             monthlySubCateDrilldown[this_level]['data'].append({'name':t['keyword__sub_cate__sub_cate'], 
-                                                                'y':t['month_cate_subcate_total'] * -1.0})
+                                                                'y':round(t['month_cate_subcate_total'] * -1.0, 2)
+                                                                })
         else:
             monthlySubCateDrilldown[this_level] = {'id':this_level,
                                                    'name':this_level,
                                                    'data':[{'name':t['keyword__sub_cate__sub_cate'], 
-                                                              'y':t['month_cate_subcate_total'] * -1.0
+                                                              'y':round(t['month_cate_subcate_total'] * -1.0, 2)
                                                            }]
                                                    }
     
