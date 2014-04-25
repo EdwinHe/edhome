@@ -1,43 +1,30 @@
 // Function to Build Tabs and Table Header
-function buildHeader(objs, obj_name){
+function buildTabs(obj_name, obj_display_name){
 	
 	var li_class = '';
 	var div_class = ' class="tab-pane fade"';
-	if ( obj_name.toLowerCase() == 'type' ) {
+	if ( obj_name == 'type' ) {
 		li_class = ' class="active"';
 		div_class = ' class="tab-pane fade active in"';
 	}
 		
-	// ============= Set Tabs ============= 
-	var rest_obj_name = objs.name.replace(" List","");
+	// ============= Build Tabs ============= 
 	
 	//Add list item: <li class="active"><a href="#type" data-toggle="tab">Types</a></li>
-	$('ul#config_tabs').append('<li' + li_class + ' id="' + obj_name.toLowerCase() + '_tab"><a href="#' + obj_name.toLowerCase() + 
-			'" data-toggle="tab">' + rest_obj_name + '</a></li>');
+	$('ul#config_tabs').append('<li' + li_class + ' id="' + obj_name + '_tab"><a href="#' + obj_name + 
+			'" data-toggle="tab">' + obj_display_name + '</a></li>');
 	
 	// Add <div class="tab-pane fade active in" id="type">
 	// id should be the same as href above
 	var tab_content = '';
-	tab_content += '<div' + div_class + ' id="' + obj_name.toLowerCase() + '">';
+	tab_content += '<div' + div_class + ' id="' + obj_name + '">';
 	tab_content += '<div>';
 	tab_content += '<table class="table table-striped table-hover">';
-	tab_content += '<thead>';
-	tab_content += '<tr class="success">';
-	
-	// ============= Set Table Header ==============
-	$.each( objs.actions.POST, 
-		function( key, value ) {
-			// Add <th>COLUMN_NAME</th>
-			tab_content += '<th>' + value.label + '</th>';
-		}
-	);
-	// === Add two more columns for delete and change ===
-	tab_content += '<th></th>';
-	tab_content += '<th></th>';
-	
-	tab_content += '</tr>';
+	// Build Empty Table Header
+	tab_content += '<thead id="' + obj_name + '">';
 	tab_content += '</thead>';
-	tab_content += '<tbody id="' + obj_name.toLowerCase() + '">';
+	// Build Empty Table Body
+	tab_content += '<tbody id="' + obj_name + '">';
 	tab_content += '</tbody>';
 	tab_content += '</table>';
 	tab_content += '</div>';
@@ -47,122 +34,28 @@ function buildHeader(objs, obj_name){
 
 }
 
-// ------- Function to Build Table Content ------- 
-function refreshTable(objs, obj_name){
-	
-	var tab_records = '';
-	
-	// Clear up the table body 
-	$('tbody#' + obj_name).empty();
-	
-	// Below code build this structure
-	//<tr> <td>COL1</td> <td>COL2</td> <td>COL3</td> </tr>
-	$.each( objs, 
-		function( obj_id, obj ) {
-			tab_records += '<tr>';
-			$.each( obj, function(attr, value) {
-				if ( $.type( value) == 'object' )
-					tab_records += '<td>' + value.text + '</td>';
-				else
-					tab_records += '<td>' + value + '</td>';
-			} );
-			// === Add buttons for delete and modify ===
-			tab_records += '<td><a href="#" class="deletelink" \
-								 onclick="on_Config_Click_Delete(\''+ obj_name + '\', ' + obj.id + ')"> \
-								 </a></td>'
-			tab_records += '<td><a href="#" class="changelink" \
-				 				 onclick="on_Config_Click_Change(\''+ obj_name + '\', ' + obj.id + ')"> \
-				 				 </a></td>'
-			tab_records += '</tr>';
-		}
-	);
-	
-	$('tbody#' + obj_name).append(tab_records);
-
-}
-// -------------------------------------------------
-
-
-//------- On Click Handlers ----------------------- 
-function on_Config_Click_Delete(obj_type, obj_id) {	
-	$.ajax(
-			{	type: "DELETE", 
-				async: false, 
-				url: "/API/" + obj_type + "/" + obj_id + "/", 
-			}
-		);
-	refreshTable_caller(obj_type);
-}
-
-function on_Config_Click_Change(obj_type, obj_id) {
-	$.ajax(
-			{	type: "GET", 
-				async: false, 
-				url: "/ozio/add_or_edit/" + obj_type + "/" + obj_id + "/",
-				success: function(rendered_form_html) {
-					$('#id_div_configs_dialog_add_edit').empty();
-					$('#id_div_configs_dialog_add_edit').append(rendered_form_html);
-					$('#id_div_configs_dialog_add_edit').dialog("open");
-					bind_submit_event();
-				},
-			}
-	);
-}
 
 function on_Config_Click_Add() {
-	var obj_type = $('#config_tabs li.active a').attr('href').split('#')[1];
-	var obj_name = $('#config_tabs li.active a').text();
+	var obj_name = $('#config_tabs li.active a').attr('href').split('#')[1];
+	var obj_display_name = $('#config_tabs li.active a').text();
 	
-	$('#id_div_configs_dialog_add_edit').dialog('option', 'title', 'Add ' + obj_name);
+	$('#id_div_configs_dialog_add_edit').dialog('option', 'title', 'Add ' + obj_display_name);
 	
 	$.ajax(
 			{	type: "GET", 
 				async: false, 
-				url: "/ozio/add_or_edit/" + obj_type + "/-1/", //Set id to -1 means Add new, see view.py
+				url: "/ozio/add_or_edit/" + obj_name + "/-1/", //Set id to -1 means Add new, see view.py
 				success: function(rendered_form_html) {
 					$('#id_div_configs_dialog_add_edit').empty();
 					$('#id_div_configs_dialog_add_edit').append(rendered_form_html);
 					$('#id_div_configs_dialog_add_edit').dialog("open");
-					bind_submit_event();
+					bind_submit_event('/API/'+obj_name+'/', obj_name);
 				},
 			}
 	);
 }
 
-function on_Click_Add(obj_type) {
-	$('form.form-horizontal').css("display", "none");
-	$("#" + obj_type + "_add_form").css("display", "block");
-	$("#id_div_configs_dialog_add").dialog( "open" );
-}
-//-------------------------------------------------
 
-
-// ------- Two callers -------------------------------------------- 
-// Created for one reason: Passing obj_name into buildHeader and refreshTable
-function buildHead_caller(obj_name) {
-	$.ajax(
-		{	type: "OPTIONS", 
-			async: false, 
-			url: "/API/" + obj_name + "/", 
-			success: function(objs) {
-				buildHeader(objs, obj_name)
-			}
-		}
-	);
-}
-
-function refreshTable_caller(obj_name) {
-	$.ajax(
-		{	type: "GET", 
-			async: false, 
-			url: "/API/" + obj_name + "/", 
-			success: function(objs) {
-				refreshTable(objs, obj_name)
-			}
-		}
-	);
-}
-//----------------------------------------------------------------------
 
 //--- Set add dialog properties ---
 $( "#id_div_configs_dialog_add" ).dialog({
@@ -177,20 +70,34 @@ $( "#id_div_configs_dialog_add" ).dialog({
 	},
 });
 
-
-// Objects to show in configuration dialog
-var objects=["type", "cate", "subcate", "keyword", "sourcefile", 
-             "transaction", "transactionfilter", "filtersql"];
-//var objects=["subcate"];
-
-// Clear up HTML object id='config_tabs' and id='id_div_config_tabs_content'
-// in ozio_dialog_configs.html
-$('ul#config_tabs').empty();
-$('div#id_div_config_tabs_content').empty();
-
-// For each object, build tab and the table
-for (var iter = 0; iter < objects.length; iter++) {	
-	buildHead_caller(objects[iter]);
-	refreshTable_caller(objects[iter]);
+///////////////////////////////////////////////////////////
+// RUN THESE CODE ONLY WHEN IT IS ON CONFIG PAGE
+///////////////////////////////////////////////////////////
+if ( $('#id_div_page_ozio_config').length == 1 ) {
+	// Objects to show in configuration dialog
+	var objects=[['type','Type'], ['cate','Category'], ['subcate','Sub Category'], 
+	             ['keyword','Keyword'], ['sourcefile','Source File'], 
+	             ['transaction','Transaction'], ['transactionfilter', 'Transaction Filter'], ['filtersql','Filter SQL']
+	];
+	
+	// Clear up HTML object id='config_tabs' and id='id_div_config_tabs_content'
+	// in ozio_dialog_configs.html
+	$('ul#config_tabs').empty();
+	$('div#id_div_config_tabs_content').empty();
+	
+	// For each object, build tab and the table
+	for (var iter = 0; iter < objects.length; iter++) {	
+		obj_name = objects[iter][0];
+		obj_display_name = objects[iter][1];
+		
+		buildTabs(obj_name,obj_display_name);
+		buildTableHead_caller(obj_name, 'thead#' + obj_name); //ozio_utils.js
+		refreshTableContent_caller("/API/" + obj_name + "/", obj_name, 'tbody#' + obj_name); //ozio_utils.js
+		/*
+		hide_table_columns('thead#' + obj_name, 
+						   'tbody#' + obj_name, 
+						   json_exclude_cols['#'+obj_name]
+		);*/
+	}
 }
 

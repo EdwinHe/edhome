@@ -11,7 +11,7 @@
 
 <!--------------------- BLOCK content1 --------------------->
 {% block content1 %}
-<div id="transaction">
+<div id="id_div_page_ozio_transaction">
 	<form action="{% url 'ozio:map_transaction' %}">
 		<button type="submit" class="btn btn-danger pull-right">Map</button>
 	</form>
@@ -26,78 +26,26 @@
 	<div class="tab-content">
 		<div class="tab-pane fade active in" id="outstanding">
 			<table class="table table-striped table-hover">
-				<thead>
-					<tr class="success">
-						<th>Date</th>
-						<th>Amount</th>
-						<th>Info</th>
-						<th>Source File</th>
-						<th>Keyword</th>
-					</tr>
+				<thead id='id_thead_outstanding_tran'>
 				</thead>
-				<tbody>
-				{% for tran in outstanding_transactions %}
-					<tr>
-						<td>{{ tran.date | date:"Y-m-d" }}</td>
-						<td>{{ tran.amount }}</td>
-						<td>{{ tran.info }}</td>
-						<td>{{ tran.source_file }}</td>
-						<td>{{ tran.keyword }}</td>
-					</tr>
+				<tbody id='id_tbody_outstanding_tran'>
 				</tbody>
-				{% endfor %}
 			</table>
 		</div>
 		<div class="tab-pane fade" id="span">
 			<table class="table table-striped table-hover">
-				<thead>
-					<tr class="success">
-						<th>Date</th>
-						<th>Amount</th>
-						<th>Info</th>
-						<th>Source File</th>
-						<th>Keyword</th>
-						<th>Type</th>
-						<th>Span Months</th>
-					</tr>
+				<thead id='id_thead_span_tran'>
 				</thead>
-				<tbody>
-				{% for tran in span_transactions %}
-					<tr>
-						<td>{{ tran.date | date:"Y-m-d" }}</td>
-						<td>{{ tran.amount }}</td>
-						<td>{{ tran.info }}</td>
-						<td>{{ tran.source_file }}</td>
-						<td>{{ tran.keyword }}</td>
-						<td>{{ tran.keyword.type }}</td>
-						<td>{{ tran.keyword.type.span_months }}</td>
-					</tr>
+				<tbody id='id_tbody_span_tran'>
 				</tbody>
-				{% endfor %}
 			</table>
 		</div>
 		<div class="tab-pane fade" id="all">
 			<table class="table table-striped table-hover">
-				<thead>
-					<tr class="success">
-						<th>Date</th>
-						<th>Amount</th>
-						<th>Info</th>
-						<th>Source File</th>
-						<th>Keyword</th>
-					</tr>
+				<thead id='id_thead_tran'>
 				</thead>
-				<tbody>
-				{% for tran in transactions %}
-					<tr>
-						<td>{{ tran.date | date:"Y-m-d" }}</td>
-						<td>{{ tran.amount }}</td>
-						<td>{{ tran.info }}</td>
-						<td>{{ tran.source_file }}</td>
-						<td>{{ tran.keyword }}</td>
-					</tr>
+				<tbody id='id_tbody_tran'>
 				</tbody>
-				{% endfor %}
 			</table>
 		</div>
 	</div>
@@ -121,12 +69,16 @@
 
 <!--------------------- BLOCK body_js --------------------->
 {% block body_js %}
+<script src="{% static 'ozio/js/ozio_utils.js' %}"></script>
 <script src="{% static 'ozio/js/ozio_transaction.js' %}"></script>
+<script src="{% static 'ozio/js/ozio_config.js' %}"></script>
+<script src="{% static 'ozio/js/ozio_dialog_configs_add_or_edit.js' %}"></script>
 {% endblock %}
 <!--------------------- /BLOCK body_js --------------------->
 
 
 <!--------------------- BLOCK content_raw --------------------->
 {% block content_raw %}
+{% include "ozio/ozio_utils.html" %}
 {% endblock %}
 <!--------------------- /BLOCK content_raw --------------------->

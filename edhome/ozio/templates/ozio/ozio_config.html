@@ -11,7 +11,7 @@
 
 <!--------------------- BLOCK content1 --------------------->
 {% block content1 %}
-<div id="id_div_configs_dialog">
+<div id="id_div_page_ozio_config">
 	<div class="bs-component">
 		<!-- ----------- TABS ------------- -->
 		<div class="input-group col-lg-3 pull-right has-error">
@@ -49,6 +49,7 @@
 
 <!--------------------- BLOCK body_js --------------------->
 {% block body_js %}
+<script src="{% static 'ozio/js/ozio_utils.js' %}"></script>
 <script src="{% static 'ozio/js/ozio_config.js' %}"></script>
 <script src="{% static 'ozio/js/ozio_dialog_configs_add_or_edit.js' %}"></script>
 {% endblock %}
@@ -57,6 +58,6 @@
 
 <!--------------------- BLOCK content_raw --------------------->
 {% block content_raw %}
-<div id="id_div_configs_dialog_add_edit"></div>
+{% include "ozio/ozio_utils.html" %}
 {% endblock %}
 <!--------------------- /BLOCK content_raw --------------------->

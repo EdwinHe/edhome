@@ -74,7 +74,7 @@ function on_AddTran_Click_Add(){
 	
 	// If Manual.yyyy.Q[1-4].csv not exist. Create!
 	if (! source_file_id) {
-		url = 'http://edwinmac.local:8000/ozio/add_manual_csv/' + source_file + '/'
+		url = '/ozio/add_manual_csv/' + source_file + '/'
 		$.ajax(
 				{	type: "GET", 
 					async: false, 
@@ -97,8 +97,11 @@ function on_AddTran_Click_Add(){
 				data: {"date":date, "amount":amount, "info":info, "original_info": original_info, "source_file": source_file_id},
 				success: function(objs) {
 					on_AddTran_Click_Cancel();
-					$("#ozio_home_add_tran_message").css("display", "block");
-					$("#ozio_home_add_tran_message_text").text("Transaction added!");
+					$("#id_div_home_add_tran_message").css("display", "block");
+					//$("#ozio_home_add_tran_message_text").text("Transaction added!");
+					$('#id_div_home_add_tran_message').empty();
+					$('#id_div_home_add_tran_message').append("<p>Transaction added!</p>");
+					obj_fade_out('#id_div_home_add_tran_message');
 				},
 				error: function(objs) {
 					$("#add_transaction_message").empty();

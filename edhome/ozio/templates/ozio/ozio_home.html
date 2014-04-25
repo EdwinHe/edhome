@@ -19,46 +19,46 @@
 
 <!--------------------- BLOCK content1 --------------------->
 {% block content1 %}
-<!-------- BLOCK content1 LEFT COL-LG-6 -------->
-<div class="col-lg-6">
-
-	<!----------- MESSAGES ----------->
-	<!-- csv import msg -->
-	{% if messages %}
-		{% for msg in messages %}
-		<div class="alert alert-dismissable alert-{{msg.tags}}">
-		  <button type="button" class="close" data-dismiss="alert">×</button>
-		  {{ msg }}
-		</div>
-		{% endfor %}
-	{% endif %}
+<div id="id_div_page_ozio_home">
+	<!-------- BLOCK content1 LEFT COL-LG-6 -------->
+	<div class="col-lg-6">
 	
-	<!-- add tran msg -->
-	<div id="ozio_home_add_tran_message" class="alert alert-dismissable alert-success" style="display:none">
-		  <button type="button" class="close" data-dismiss="alert">×</button>
-		  <p id="ozio_home_add_tran_message_text">PLACE HOLDER</p>
+		<!----------- MESSAGES ----------->
+		<!-- csv import msg -->
+		{% if messages %}
+			{% for msg in messages %}
+			<div class="alert alert-dismissable alert-{{msg.tags}}">
+			  <button type="button" class="close" data-dismiss="alert">×</button>
+			  {{ msg }}
+			</div>
+			{% endfor %}
+		{% endif %}
+		
+		<!-- add tran msg -->
+		<div id="id_div_home_add_tran_message" class="alert alert-dismissable alert-success" style="display:none">  
+		</div>
+		<!----------- /MESSAGE ----------->
+	
+		<!-- 
+		<h1>OZIO</h1>  
+		<p class="lead">Ed & Co's Money Managing App</p> 
+		-->
+		<!----------- CHART ----------->
+		<div id="bar_chart_container" style="min-width: 300px; height: 300px; margin: 0 auto"></div>
+		<div id="mix_chart_container" style="min-width: 300px; height: 300px; margin: 0 auto"></div>
+		<!----------- /CHART ----------->
 	</div>
-	<!----------- /MESSAGE ----------->
-
-	<!-- 
-	<h1>OZIO</h1>  
-	<p class="lead">Ed & Co's Money Managing App</p> 
-	-->
-	<!----------- CHART ----------->
-	<div id="bar_chart_container" style="min-width: 300px; height: 300px; margin: 0 auto"></div>
-	<div id="mix_chart_container" style="min-width: 300px; height: 300px; margin: 0 auto"></div>
-	<!----------- /CHART ----------->
-</div>
-<!-------- /BLOCK content1 LEFT COL-LG-6 -------->
-
-<!-------- BLOCK content1 RIGHT COL-LG-4 -------->
-<div class="col-lg-4 pull-right">
-	<div class="list-group">
-		<a class="list-group-item active"> Functionalities</a>
-		<a href="#" class="list-group-item" id="add_new_transaction">New Transaction (Manual)</a>
-		<a href="#" class="list-group-item" id="import_cba_csv">Import CommBank CSV</a>
-		<a href="{% url 'ozio:transaction' %}" class="list-group-item" id="transactions">Transactions<span class="badge">{{span_tran_num}}</span><span class="badge">{{outstanding_tran_num}}</span></a>
-		<a href="{% url 'ozio:config' %}" class="list-group-item" id="configurations">Configurations</a>
+	<!-------- /BLOCK content1 LEFT COL-LG-6 -------->
+	
+	<!-------- BLOCK content1 RIGHT COL-LG-4 -------->
+	<div class="col-lg-3 pull-right">
+		<div class="list-group">
+			<a class="list-group-item active"> Functionalities</a>
+			<a href="#" class="list-group-item" id="add_new_transaction">New Transaction (Manual)</a>
+			<a href="#" class="list-group-item" id="import_cba_csv">Import CommBank CSV</a>
+			<a href="{% url 'ozio:transaction' %}" class="list-group-item" id="transactions">Transactions<span class="badge">{{span_tran_num}}</span><span class="badge">{{outstanding_tran_num}}</span></a>
+			<a href="{% url 'ozio:config' %}" class="list-group-item" id="configurations">Configurations</a>
+		</div>
 	</div>
 </div>
 <!-------- /BLOCK content1 RIGHT COL-LG-4 -------->
@@ -81,6 +81,7 @@
 <script src="{% static 'ozio/js/ozio_dialog_import_csv.js' %}"></script>
 <script src="{% static 'ozio/js/ozio_dialog_transaction_breakdown.js' %}"></script>
 <script src="{% static 'ozio/js/ozio_dialog_add_transaction.js' %}"></script>
+<script src="{% static 'ozio/js/ozio_utils.js' %}"></script>
 
 <!-- ---------------- CHART ---------------- -->
 <script src="{% static 'js/highcharts.js' %}"></script>

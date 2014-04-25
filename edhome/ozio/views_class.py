@@ -1,8 +1,12 @@
 from ozio.models import *
+from ozio.serializers import *
 
 from rest_framework import viewsets
 from rest_framework import serializers
-from ozio.serializers import *
+from rest_framework.response import Response
+
+from django.shortcuts import get_object_or_404
+
 
 # WHOLE FILE IS FOR REST FRAMEWORK 
 
@@ -18,6 +22,9 @@ class SubCateViewSet(viewsets.ModelViewSet):
     queryset = SubCate.objects.all()
     serializer_class = SubCateSerializer    
     
+    def list(self, request):
+        return Response(SubCateListSerializer(SubCate.objects.all()).data)
+    
 class KeywordViewSet(viewsets.ModelViewSet):
     queryset = Keyword.objects.all()
     serializer_class = KeywordSerializer
@@ -30,6 +37,9 @@ class KeywordViewSet(viewsets.ModelViewSet):
             queryset = queryset.filter(keyword__icontains = keyword_like)
         
         return queryset
+    
+    def list(self, request):
+        return Response(KeywordListSerializer(self.get_queryset()).data)
     
 class SourceFileViewSet(viewsets.ModelViewSet):
     queryset = SourceFile.objects.all()
@@ -56,6 +66,8 @@ class TransactionViewSet(viewsets.ModelViewSet):
         yyyymm = self.request.QUERY_PARAMS.get('yyyymm', None)
         cate = self.request.QUERY_PARAMS.get('cate', None)
         subcate = self.request.QUERY_PARAMS.get('subcate', None)
+        keyword = self.request.QUERY_PARAMS.get('keyword', None)
+        span_status = self.request.QUERY_PARAMS.get('span_status', None)
         
         #import pdb;pdb.set_trace()
         if yyyymm:
@@ -69,38 +81,32 @@ class TransactionViewSet(viewsets.ModelViewSet):
         if subcate:
             queryset = queryset.filter(keyword__sub_cate__sub_cate = subcate)
         
+        if keyword != None:
+            if keyword == '':
+                queryset = queryset.filter(keyword__isnull = True)
+            else:
+                queryset = queryset.filter(keyword__keyword__exact = keyword)
+        
+        if span_status:
+            queryset = queryset.filter(span_status__exact = span_status)
+        
+        
         return queryset
+    
+    def list(self, request):
+        return Response(TransactionListSerializer(self.get_queryset()).data)
+    
     
 class TransactionFilterViewSet(viewsets.ModelViewSet):
     queryset = TransactionFilter.objects.all()
-    serializer_class = TransactionFilterSerializer   
+    serializer_class = TransactionFilterSerializer
+    
     
 class FilterSQLViewSet(viewsets.ModelViewSet):
     queryset = FilterSQL.objects.all()
     serializer_class = FilterSQLSerializer   
 
-#===============================================================================
-# class LineItemViewSet(viewsets.ModelViewSet):
-#  
-#     model = LineItem
-#     #queryset = LineItem.objects.all()
-#     serializer_class = LineItemSerializer
-#      
-#     def get_queryset(self):
-#         #import pdb;pdb.set_trace()
-#         # Ideally, cart is linked with user and user is retrieved by self.request.user
-#         queryset = LineItem.objects.all()
-#            
-#         cartid = self.request.QUERY_PARAMS.get('cartid', None)
-#         productid = self.request.QUERY_PARAMS.get('productid', None)
-#          
-#         if cartid and productid:
-#             queryset = LineItem.objects.filter(Q(cart__exact = cartid) & Q(product__exact = productid))
-#         elif cartid:
-#             queryset = LineItem.objects.filter(cart__exact = cartid)
-#         elif productid:
-#             queryset = LineItem.objects.filter(cart__exact = productid)
-#          
-#         return queryset
-#===============================================================================
+    def list(self, request):
+            return Response(FilterSQLListSerializer(FilterSQL.objects.all()).data)
+
     

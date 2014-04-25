@@ -76,6 +76,13 @@ def ozio_split_transaction(request):
     return ozio_transaction(request)
 
 def ozio_transaction(request):
+    # Exclude some columns from config
+    tran_exclude_cols = {'#id_thead_outstanding_tran':['id', 'span_status', 'keyword', 'type', 'span_months', 'cate', 'subcate'],
+                         '#id_thead_span_tran':['id', 'original_info', 'span_status'],
+                         '#id_thead_tran':['id', 'span_status', 'span_months'],
+                         };
+    json_tran_exclude_cols = simplejson.dumps(tran_exclude_cols)
+    
     outstanding_transactions = get_filtered_transactions('Outstanding Transactions').order_by('date')
     span_transactions = get_filtered_transactions('Span Transactions')
     transactions = Transaction.objects.all().order_by('date')
@@ -84,19 +91,35 @@ def ozio_transaction(request):
     span_tran_num = span_transactions.count()
     tran_num = transactions.count()
     
-    
     context = { 'outstanding_transactions': outstanding_transactions,
                 'outstanding_tran_num': outstanding_tran_num,
                 'span_transactions': span_transactions,
                 'span_tran_num': span_tran_num,
                 'transactions': transactions,
                 'tran_num': tran_num,
+                'json_tran_exclude_cols' : json_tran_exclude_cols,
                 }
     return render(request, 'ozio/ozio_transaction.html', context)
 
 
 def ozio_config(request):
-    return render(request, 'ozio/ozio_config.html')
+    
+    # Exclude some columns from config
+    config_exclude_cols = {'type':['id'],
+                           'cate':['id'],
+                           'subcate':['id'],
+                           'keyword': ['id'],
+                           'sourcefile':['id'],
+                           'transaction':['id', 'span_status'],
+                           'transactionfilter':['id'],
+                           'filtersql':['id'],
+                           };
+    json_config_exclude_cols = simplejson.dumps(config_exclude_cols)
+    
+    context = {'json_config_exclude_cols' : json_config_exclude_cols,
+               }
+    
+    return render(request, 'ozio/ozio_config.html', context)
 
 def ozio_add_or_edit(request, obj_type, obj_id):
         

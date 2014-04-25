@@ -50,7 +50,20 @@ class Transaction(models.Model):
 	info = models.CharField('Info', max_length = 100)
 	original_info = models.CharField('Raw Info', max_length = 100)
 	source_file = models.ForeignKey(SourceFile)
-	span_status = models.CharField('Span Status', max_length = 1, default='-')
+	
+	NA = '-'
+	PENDING = 'N'
+	SPLITTED = 'Y'
+	CHILD = 'C'
+	SPAN_STATUS = (
+        (NA, 'N/A'),
+        (PENDING, 'Pending'),
+        (SPLITTED, 'Splitted'),
+        (CHILD, 'Child'),
+    )
+	
+	span_status = models.CharField('Span Status', max_length = 10, choices=SPAN_STATUS, default=NA)
+	
 	keyword = models.ForeignKey(Keyword, blank = True, null = True, on_delete=models.SET_NULL)
 	
 	def __str__(self):
@@ -65,6 +78,7 @@ class TransactionFilter(models.Model):
 	
 	
 class FilterSQL(models.Model):
+	
 	filter = models.ForeignKey(TransactionFilter)
 
 	FILTER = 'filter'
@@ -73,9 +87,9 @@ class FilterSQL(models.Model):
         (FILTER, FILTER),
         (EXCLUDE, EXCLUDE),
     )
-	filter_type =  models.CharField('Filter Type', max_length = 10, choices=TYPES, default=FILTER)
+	filter_type =  models.CharField('Type', max_length = 10, choices=TYPES, default=FILTER)
 	
-	filter_sql = models.CharField('Filter SQL', max_length = 100)
+	filter_sql = models.CharField('SQL', max_length = 100)
 	
 	ENABLED = 'enabled'
 	DISABLED = 'disabled'
@@ -83,7 +97,7 @@ class FilterSQL(models.Model):
 	    (ENABLED, ENABLED),
 	    (DISABLED, DISABLED),
 	)
-	filter_onoff =  models.CharField('Filter On/Off', max_length = 10, choices=ONOFF, default=ENABLED)
+	filter_onoff =  models.CharField('On/Off', max_length = 10, choices=ONOFF, default=ENABLED)
 	
 	PENDING = 'pending'
 	FAILED = 'failed'
@@ -93,7 +107,7 @@ class FilterSQL(models.Model):
 	    (FAILED, FAILED),
 	    (SUCCESS, SUCCESS),
 	)
-	filter_status =  models.CharField('Filter Status', max_length = 10, choices=STATUS, default=PENDING)
+	filter_status =  models.CharField('Status', max_length = 10, choices=STATUS, default=PENDING)
 	 
 	def __str__(self):
 		return self.filter_sql

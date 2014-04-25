@@ -1,14 +1,4 @@
-function convertFormToJSON(form){
-    var array = $(form).serializeArray();
-    var json = {};
-    
-    for (i in array) {
-        json[array[i].name] = array[i].value || '';
-    }
-    return json;
-}
-
-function bind_submit_event() {
+function bind_submit_event(url, tbody_element_id) {
 	var form = $('#id_form_add_or_edit');
 	form.submit(function () {
 		$.ajax({
@@ -16,15 +6,20 @@ function bind_submit_event() {
 		    url: form.attr('action'),
 		    data: convertFormToJSON(form),
 		    success: function(rendered_form_html) {
+		    	// rendered_form_html == '' means submition is successful. 
+		    	// check view.ozio_add_or_edit()
 		    	if (rendered_form_html == '') {
 		    		$('#id_div_configs_dialog_add_edit').dialog('close');
-		    		refreshTable_caller(form.attr('action').split('/')[3]);
+		    		var obj_name = form.attr('action').split('/')[3];
+		    		refreshTableContent_caller(url, obj_name, 'tbody#' + tbody_element_id);
 		    		return false;
 		    	}
-		    		
+		    	
+		    	// rendered_form_html != '' means either submitted form is invalid 
+		    	// or it is a new edit request. 
 		    	$('#id_div_configs_dialog_add_edit').empty();
 				$('#id_div_configs_dialog_add_edit').append(rendered_form_html);
-				bind_submit_event();
+				bind_submit_event(url, tbody_element_id);
 		    }
 		 });
 		
@@ -32,28 +27,11 @@ function bind_submit_event() {
 	});
 }
 
-function on_AddOrEdit_Click_Submit(obj_name, obj_id){
-	alert(obj_name + ':' + obj_id);
-	
-	$.ajax(
-			{	type: "POST", 
-				async: false, 
-				url: "/ozio/add_or_edit/" + obj_type + "/" + obj_id + "/",
-				success: function(rendered_form_html) {
-					$('#id_div_configs_dialog_add_edit').empty();
-					$('#id_div_configs_dialog_add_edit').append(rendered_form_html);
-					$('#id_div_configs_dialog_add_edit').dialog("open");
-				},
-			}
-	);
-	
-	return false;
-}
-
 function on_AddOrEdit_Click_Cancel(){
 	$('#id_div_configs_dialog_add_edit').dialog("close");
 	return false;
 }
+
 
 $( "#id_div_configs_dialog_add_edit" ).dialog({
 	autoOpen: false,
