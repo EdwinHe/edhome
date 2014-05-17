@@ -1,0 +1,24 @@
+.ed-dialog-flatly .ui-widget-header {
+    background:rgb(44, 62, 80);
+    border: 0px;;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.ed-scrollable-y400 {
+  max-height: 400px;
+  overflow-y: scroll;
+}
+
+.ed-scrollable-y600 {
+  max-height: 600px;
+  overflow-y: scroll;
+}
+
+
+.ed-scrollable-y80percent {
+  max-height: 80%;
+  overflow-y: scroll;
+}
+
+

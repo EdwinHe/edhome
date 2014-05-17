@@ -91,6 +91,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/Users/edwin/Programming/git-repo/edhome/edhome/static/'
 
 # Setup below two allows main templates and static to be included.
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'edhome/templates')]
@@ -151,4 +152,3 @@ STATICFILES_DIRS  = (os.path.join(BASE_DIR, 'edhome/static'),)
 #     }
 # }
 #===============================================================================
-
