@@ -28,14 +28,13 @@ def ozio_home(request):
                     messages.warning(request, file.name + ": Aborted! It has already been imported.")
             return HttpResponseRedirect(reverse('ozio:home'))
         else:
-            #messages.warning(request, "Please choose a file, and try again!")
             messages.warning(request, upload_file_form.errors)
             
     else:
         upload_file_form = UploadFileForm()
     
-    outstanding_tran_num = get_filtered_transactions('Outstanding Transactions').count()
-    span_tran_num = get_filtered_transactions('Span Transactions').count()
+    outstanding_tran_num = Transaction.objects.filter(keyword__isnull = True).count()
+    span_tran_num = Transaction.objects.filter(span_status__exact = 'N').count()
     
     # For Bar Chart
     [bar_chart_monthlyView,bar_chart_monthlyDrilldown,bar_chart_monthlySubCateDrilldown] = get_bar_chart_data()
@@ -63,8 +62,49 @@ def ozio_test(request):
     return render(request, 'ozio/ozio_test.html')
 
 def ozio_add_manual_csv(request, file_name):
-    SourceFile.objects.create(file_name = file_name,local_link ='TBC')
+    SourceFile.objects.create(file_name = file_name,local_link =None)
     return HttpResponse("Manual CSV " + file_name + " created.")
+
+def ozio_add_manual_transaction(request):
+    
+    
+    if request.method == 'POST':
+        amount = request.POST['amount']
+        date = request.POST['date']
+        info = request.POST['info']
+        original_info = request.POST['original_info']
+        source_file_name = request.POST['source_file_name']
+        
+        try:
+            source_file, created = SourceFile.objects.get_or_create(file_name = source_file_name)
+        except SourceFile.DoesNotExist:
+            source_file, created = SourceFile.objects.create(file_name = source_file_name)
+            if not created:
+                return HttpResponse('Tried to create file ' + source_file_name + ' but failed.')
+        
+        tran_form = TransactionForm({'amount':amount, 
+                               'date': date,
+                               'info': info,
+                               'original_info': original_info,
+                               'source_file': source_file.id})  
+        
+        #import pdb;pdb.set_trace()
+        
+        if tran_form.is_valid():
+            # Save Transaction
+            tran_id = tran_form.save().id
+            
+            # Save record to file
+            saved = append_transaction_to_file(source_file, date, amount, info)
+            
+            if saved:
+                return HttpResponse('Transaction id=' + str(tran_id) + ' saved!', status=200)
+            else:
+                return HttpResponse('Save transaction id=' + str(tran_id) + ' to file failed!', status=500)
+        else:
+            return HttpResponse(simplejson.dumps(tran_form.errors), status=500, content_type="application/json")
+    else:
+        return HttpResponse('Non POST request is not expected!', status=500)
 
 def ozio_map_transaction(request):
     map_transactions()
@@ -75,6 +115,22 @@ def ozio_split_transaction(request):
     split_transactions()
     return ozio_transaction(request)
 
+def ozio_on_object_delete(request, obj_name, obj_id):
+    #import pdb;pdb.set_trace()
+    if (obj_name == 'sourcefile'):
+        try:
+            sf = SourceFile.objects.get(id = obj_id)
+            local_name = sf.local_link.name
+            sf.local_link.delete()
+            if sf.local_link:
+                return HttpResponse('Failed to Delete Local Link of SourceFile id='+str(obj_id), status=500)
+            else:
+                return HttpResponse('Deleted Local Link: ' + local_name +' of SourceFile id='+str(obj_id), status=200)
+        except SourceFile.DoesNotExist:
+            return HttpResponse('SourceFile id=' + str(obj_id) + ' not found!', status=500)
+    else:
+        return HttpResponse(status=200)
+
 def ozio_transaction(request):
     # Exclude some columns from config
     tran_exclude_cols = {'#id_thead_outstanding_tran':['id', 'span_status', 'keyword', 'type', 'span_months', 'cate', 'subcate'],
@@ -83,19 +139,12 @@ def ozio_transaction(request):
                          };
     json_tran_exclude_cols = simplejson.dumps(tran_exclude_cols)
     
-    outstanding_transactions = get_filtered_transactions('Outstanding Transactions').order_by('date')
-    span_transactions = get_filtered_transactions('Span Transactions')
-    transactions = Transaction.objects.all().order_by('date')
+    outstanding_tran_num = Transaction.objects.filter(keyword__isnull = True).count()
+    span_tran_num = Transaction.objects.filter(span_status__exact = 'N').count()
+    tran_num = Transaction.objects.all().count()
     
-    outstanding_tran_num = outstanding_transactions.count()
-    span_tran_num = span_transactions.count()
-    tran_num = transactions.count()
-    
-    context = { 'outstanding_transactions': outstanding_transactions,
-                'outstanding_tran_num': outstanding_tran_num,
-                'span_transactions': span_transactions,
+    context = { 'outstanding_tran_num': outstanding_tran_num,
                 'span_tran_num': span_tran_num,
-                'transactions': transactions,
                 'tran_num': tran_num,
                 'json_tran_exclude_cols' : json_tran_exclude_cols,
                 }

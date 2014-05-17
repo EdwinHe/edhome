@@ -2,11 +2,31 @@ from datetime import date
 
 from django.db.models import Q
 from django.db.models import Sum, Min, Max
+from django.core.files.base import ContentFile
 
 from ozio.models import *
 
 import logging, re
 logger = logging.getLogger(__name__)
+
+
+def append_transaction_to_file(source_file, date, amount, info):
+    tran = ','.join([date,amount,info,'0.00'])
+    # If source_file is newly created and local_link is yet to link to a real file
+    try:
+        if not source_file.local_link:
+            source_file.local_link.save(source_file.file_name, ContentFile(tran+'\n'))
+        else:
+            source_file.local_link.open('a') # Cannot write on the first open
+            source_file.local_link.close()
+            
+            source_file.local_link.open('a')  # Open as append mode
+            source_file.local_link.write(tran+'\n')
+            source_file.local_link.close()
+        return True
+    except:
+        return False
+        
 
 def new_tran(tran, shift):
     assert(shift >= 0)

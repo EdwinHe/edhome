@@ -62,8 +62,8 @@ class SourceFileForm(forms.ModelForm):
 
 class TransactionForm(forms.ModelForm):
     class Meta:
-        model = Transaction    
-        # exclude = [] # uncomment this line and specify any field to exclude it from the form
+        model = Transaction
+        exclude = ['span_status'] # uncomment this line and specify any field to exclude it from the form
 
     def __init__(self, *args, **kwargs):
         super(TransactionForm, self).__init__(*args, **kwargs)

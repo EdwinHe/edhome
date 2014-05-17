@@ -44,8 +44,8 @@
 		<p class="lead">Ed & Co's Money Managing App</p> 
 		-->
 		<!----------- CHART ----------->
-		<div id="bar_chart_container" style="min-width: 300px; height: 300px; margin: 0 auto"></div>
-		<div id="mix_chart_container" style="min-width: 300px; height: 300px; margin: 0 auto"></div>
+		<div id="bar_chart_container" style="min-width: 800px; height: 300px; margin: 0 auto"></div>
+		<div id="mix_chart_container" style="min-width: 800px; height: 300px; margin: 0 auto"></div>
 		<!----------- /CHART ----------->
 	</div>
 	<!-------- /BLOCK content1 LEFT COL-LG-6 -------->
@@ -84,10 +84,10 @@
 <script src="{% static 'ozio/js/ozio_utils.js' %}"></script>
 
 <!-- ---------------- CHART ---------------- -->
-<script src="{% static 'js/highcharts.js' %}"></script>
-<script src="{% static 'js/modules/exporting.js' %}"></script>
-<script src="{% static 'js/modules/data.js' %}"></script>
-<script src="{% static 'js/modules/drilldown.js' %}"></script>
+<script src="{% static 'edhome/js/highcharts.js' %}"></script>
+<script src="{% static 'edhome/js/exporting.js' %}"></script>
+<script src="{% static 'edhome/js/data.js' %}"></script>
+<script src="{% static 'edhome/js/drilldown.js' %}"></script>
 
 <!-- ------- bar chart -------- -->
 <script> var json_bar_chart_monthlyView = {{ json_bar_chart_monthlyView | safe }} </script>

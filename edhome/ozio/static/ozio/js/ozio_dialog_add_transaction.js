@@ -8,7 +8,7 @@ $( "#new_transaction_dialog" ).dialog({
 	show: {
 		duration: 300
 	},
-	beforeClose: function() {$("#add_transaction_message").css("display", "none");},
+	beforeClose: function() {$("#id_div_add_transaction_message").css("display", "none");},
 });
 
 var new_keyword_option_text = '(Use New Keyword)';
@@ -56,62 +56,26 @@ function on_AddTran_Click_Add(){
 	original_info = info;
 	source_file = $('#id_transaction-source_file').val();
 	
-	// Check if Manual.yyyy.Q[1-4].csv exist or not
-	url = '/API/sourcefile/?file_name=' + source_file;
-	var source_file_id;
-	$.ajax(
-			{	type: "GET", 
-				async: false, 
-				url: url, 
-				success: function(objs) {
-					if (objs.length == 0)
-						source_file_id = null;
-					else
-						source_file_id = objs[0].id;
-				},
-			}
-	);
-	
-	// If Manual.yyyy.Q[1-4].csv not exist. Create!
-	if (! source_file_id) {
-		url = '/ozio/add_manual_csv/' + source_file + '/'
-		$.ajax(
-				{	type: "GET", 
-					async: false, 
-					url: url, 
-					success: function(objs) {
-					},
-					error: function(objs) {
-						alert(objs);
-					},
-				}
-		);
- 		return false;
-	}
-	
-	url = '/API/transaction/'
+	url = '/ozio/add_manual_transaction/'
 	$.ajax(
 			{	type: "POST", 
 				async: false, 
 				url: url, 
-				data: {"date":date, "amount":amount, "info":info, "original_info": original_info, "source_file": source_file_id},
+				data: {"date":date, "amount":amount, "info":info, "original_info": original_info, "source_file_name": source_file},
 				success: function(objs) {
-					on_AddTran_Click_Cancel();
-					$("#id_div_home_add_tran_message").css("display", "block");
-					//$("#ozio_home_add_tran_message_text").text("Transaction added!");
-					$('#id_div_home_add_tran_message').empty();
-					$('#id_div_home_add_tran_message').append("<p>Transaction added!</p>");
-					obj_fade_out('#id_div_home_add_tran_message');
+					$("#new_transaction_dialog").dialog("close");
+					var msg = 'Transaction added!';
+					display_msg("#id_div_home_add_tran_message", msg);
 				},
 				error: function(objs) {
-					$("#add_transaction_message").empty();
+					$("#id_div_add_transaction_message").empty();
 					
 					var response = "";
 					for (k in objs.responseJSON)
 						response += k + ":" + objs.responseJSON[k] + '<br>'
 					
-					$("#add_transaction_message").append(response);
-					$("#add_transaction_message").css("display", "block");
+					$("#id_div_add_transaction_message").append(response);
+					$("#id_div_add_transaction_message").css("display", "block");
 				},
 			}
 	);

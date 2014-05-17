@@ -1,0 +1,136 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- ----------------------------- HTML HEAD ----------------------------- -->
+<head> 
+
+	<title>{% block title %} Ed {% endblock %}</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="description" content="Ed's homepage implemented in Django" />
+	<meta name="author" content="Edwin W.Z. HE" />
+	
+	<!-- ---------------- HEAD CSS  ----------------- -->
+	 
+	<link rel="stylesheet" href="{% static 'edhome/css/bootstrap.cyborg.min.css' %}" media="screen">
+	<link rel="stylesheet" href="{% static 'edhome/css/custom.css' %}">
+	<link rel="stylesheet" href="{% static 'edhome/css/site.css' %}">
+	<!-- ---------------- /HEAD CSS  ----------------- -->
+
+	<!-- ---------------- HEAD JAVA SCRIPTS ----------------- -->
+	<script src="{% static 'edhome/js/jquery-2.1.0.js' %}"></script>
+    <script src="{% static 'edhome/js/bootstrap.js' %}"></script>
+    <script src="{% static 'edhome/js/bootswatch.js' %}"></script>
+    
+	<script>
+     var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-23019901-1']);
+      _gaq.push(['_setDomainName', "bootswatch.com"]);
+        _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    </script>
+    
+    <script>
+	    // Adding CSRF  
+	    function csrfSafeMethod(method) {
+		    // these HTTP methods do not require CSRF protection
+		    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+		}
+	
+		$.ajaxSetup({
+		    crossDomain: false, // obviates need for sameOrigin test
+		    beforeSend: function(xhr, settings) {
+		        if (!csrfSafeMethod(settings.type)) {
+		            xhr.setRequestHeader("X-CSRFToken", '{{csrf_token}}');
+		        }
+		    }
+		});
+    </script>
+    
+    {% block head_js %}{% endblock %}
+    <!-- -------------- /HEAD JAVA SCRIPTS ---------------- -->
+</head>
+<!-- ----------------------------- /HTML HEAD ----------------------------- -->
+
+<!-- ----------------------------- HTML BODY ----------------------------- -->
+<body class="collection-type-blog view-list mobile-style-available collection-533d64b0e4b05778b6aa60f8 collection-layout-default blog-sidebar-display-auto layout-style-left page-borders-thin   thumbnails-on-open-page-show-all gallery-page-controls-simple  social-icon-style-normal  product-list-titles-under product-list-alignment-center product-item-size-11-square product-image-auto-crop product-gallery-size-11-square  show-product-price show-product-item-nav product-social-sharing   event-thumbnails event-thumbnail-size-32-standard event-date-label event-date-label-time event-excerpts event-list-date  event-list-address event-icalgcal-links      opentable-style-light newsletter-style-dark small-button-style-solid small-button-shape-square medium-button-style-solid medium-button-shape-square large-button-style-solid large-button-shape-square button-style-default button-corner-style-square native-currency-code-usd logo-image" id="collection-533d64b0e4b05778b6aa60f8">
+	<!-- -------------- BODY NAV BAR ---------------- -->
+	<div id="canvas">
+		<header id="header">
+			<div id="logo" data-content-field="site-title">
+
+				<h1 class="logo" data-shrink-original-spacing="NaN"
+					data-shrink-original-size="22">
+					<a href="/"><img
+						src="//static.squarespace.com/static/533ad9bde4b098d084a846b1/t/533d67bfe4b076ea499204d8/1400034207352/?format=1000w"
+						alt="Kenneth Reitz"></a>
+				</h1>
+			</div>
+			<script>
+				Y.use('squarespace-ui-base', function(Y) {
+					Y.all("#header .logo, #header .logo-subtitle").each(
+							function(text) {
+								text.plug(Y.Squarespace.TextShrink, {
+									parentEl : Y.one('#header'),
+									triggerWidth : 750
+								});
+							});
+				});
+
+				// Show spinner on page load if loading bookmarked url
+				if (window.location.hash && window.location.hash !== '#') {
+					document.querySelector('body').className += ' index-loading';
+				}
+			</script>
+			<div id="topNav">
+				<nav class="main-nav">
+					<ul>
+						<li class="folder-collection"><a>Photo</a>
+							<div class="subnav">
+								<ul>
+									<li class="products-collection"><a href="/photos/prints/">Signed
+											Prints</a></li>
+									<li class="page-collection"><a href="/photos/portfolio/">Portfolio</a>
+									</li>
+									<li class="external-link"><a href="/photos/albums/">Albums</a>
+									</li>
+								</ul>
+							</div></li>
+						<li class="page-collection"><a href="/music/">Music</a></li>
+						<li class="page-collection"><a href="/things/">Things</a></li>
+						<li class="blog-collection active-link"><a href="/essays/">Essays</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+	</div>
+	<!-- -------------- /BODY NAV BAR ---------------- -->
+	
+	<!-- -------------- BODY CONTAINER ---------------- -->
+	<div class="container">
+		<div class="page-header" id="banner">
+	        <div class="row">
+	        	<!--  {% block content2 %} {% endblock %}  -->
+	        </div>
+		</div>
+	</div>
+	<!-- -------------- /BODY CONTAINER ---------------- -->
+	
+	<!-- -------------- BODY EXTRA CONTENT ---------------- -->
+	<!-- -------------- /BODY EXTRA CONTENT ---------------- -->
+	
+	<!-- -------------- BODY EXTRA JS ---------------- -->
+	<!-- -------------- /BODY EXTRA JS ---------------- -->
+	
+	<!-- ----------------------------- /BODY ----------------------------- -->
+</body>
+</html>
+

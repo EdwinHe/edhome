@@ -3,8 +3,10 @@ from django.http import HttpResponse
 
 # Create your views here.
 def edhome(request):
-    #poll = get_object_or_404(Poll, pk=poll_id)
     return render(request, 'edhome.html')
+
+def edhome_new(request):
+    return render(request, 'edhome_new.html')
 
 
 def login(request):

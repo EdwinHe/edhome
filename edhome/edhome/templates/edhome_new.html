@@ -1,0 +1,55 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- ----------------------------- HTML HEAD ----------------------------- -->
+<head> 
+	<title>Ed</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="description" content="Ed's homepage implemented in Django" />
+	<meta name="author" content="Edwin W.Z. HE" />
+	
+	<!-- ---------------- HEAD CSS  ----------------- -->
+	<link rel="stylesheet" href="{% static 'edhome/css/home.css' %}">
+	<!-- ---------------- /HEAD CSS  ----------------- -->
+
+	<!-- ---------------- HEAD JAVA SCRIPTS ----------------- -->
+    <!-- -------------- /HEAD JAVA SCRIPTS ---------------- -->
+</head>
+<!-- ----------------------------- /HTML HEAD ----------------------------- -->
+
+<!-- ----------------------------- HTML BODY ----------------------------- -->
+<!--  <body class="content blur" style="padding-top:0px"> -->
+<body>
+	<!-- -------------- BODY ---------------- -->
+	<div>
+		<div>
+			<a style="font-size:70px">*</a>
+			<a href="{% url 'home' %}" style="font-size:70px">eh</a>
+		</div>
+		<div id="socialLinks" class="social-links">
+			<a href="https://github.com/edwinhe" target="_blank" class="social-github"></a>
+			<a href="http://www.linkedin.com/in/edwinwzhe" target="_blank" class="social-linkedin"></a>
+			<a href="http://instagram.com/heedwin" target="_blank" class="social-instagram"></a>
+			<a href="mailto:edwinwzhe@gmail.com" target="_blank" class="social-email"></a>				
+		</div>
+		<div>
+			<a href="{% url 'ozio:home' %}" class="ozio-icon"></a>
+		</div>
+	</div>
+	<!-- -------------- /BODY ---------------- -->
+	
+	<!-- -------------- BODY CONTAINER ---------------- -->
+	<!-- -------------- /BODY CONTAINER ---------------- -->
+	
+	<!-- -------------- BODY EXTRA CONTENT ---------------- -->
+	<!-- -------------- /BODY EXTRA CONTENT ---------------- -->
+	
+	<!-- -------------- BODY EXTRA JS ---------------- -->
+	<!-- -------------- /BODY EXTRA JS ---------------- -->
+	
+	<!-- ----------------------------- /BODY ----------------------------- -->
+</body>
+</html>
+

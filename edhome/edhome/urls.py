@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^$', views.edhome, name = 'home'),
+    url(r'^new_home/$', views.edhome_new, name = 'home_new'),
     url(r'^login/', views.login, name = 'login'),
     url(r'^logout/', views.logout, name = 'logout'),
     url(r'^admin/', include(admin.site.urls)),

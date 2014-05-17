@@ -1,40 +1,106 @@
-{% extends "base.html" %}
+{% load staticfiles %}
 
-{% block navbar %}
+<!DOCTYPE html>
+<html lang="en">
+<!-- ----------------------------- HTML HEAD ----------------------------- -->
+<head> 
+
+	<title>{% block title %} Ed {% endblock %}</title>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="description" content="Ed's homepage implemented in Django" />
+	<meta name="author" content="Edwin W.Z. HE" />
+	
+	<!-- ---------------- HEAD CSS  ----------------- -->
+	 
+	<link rel="stylesheet" href="{% static 'edhome/css/bootstrap.cyborg.min.css' %}" media="screen">
+	<link rel="stylesheet" href="{% static 'edhome/css/custom.css' %}">
+	<link rel="stylesheet" href="{% static 'edhome/css/home.css' %}">
+	<!-- ---------------- /HEAD CSS  ----------------- -->
+
+	<!-- ---------------- HEAD JAVA SCRIPTS ----------------- -->
+	<script src="{% static 'edhome/js/jquery-2.1.0.js' %}"></script>
+    <script src="{% static 'edhome/js/bootstrap.js' %}"></script>
+    <script src="{% static 'edhome/js/bootswatch.js' %}"></script>
+    
+	<script>
+     var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-23019901-1']);
+      _gaq.push(['_setDomainName', "bootswatch.com"]);
+        _gaq.push(['_setAllowLinker', true]);
+      _gaq.push(['_trackPageview']);
+
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+    </script>
+    
+    <script>
+	    // Adding CSRF  
+	    function csrfSafeMethod(method) {
+		    // these HTTP methods do not require CSRF protection
+		    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+		}
+	
+		$.ajaxSetup({
+		    crossDomain: false, // obviates need for sameOrigin test
+		    beforeSend: function(xhr, settings) {
+		        if (!csrfSafeMethod(settings.type)) {
+		            xhr.setRequestHeader("X-CSRFToken", '{{csrf_token}}');
+		        }
+		    }
+		});
+    </script>
+    
+    {% block head_js %}{% endblock %}
+    <!-- -------------- /HEAD JAVA SCRIPTS ---------------- -->
+</head>
+<!-- ----------------------------- /HTML HEAD ----------------------------- -->
+
+<!-- ----------------------------- HTML BODY ----------------------------- -->
+<body class="content blur" style="padding-top:0px">
+	<!-- -------------- BODY NAV BAR ---------------- -->
+	<div class="navbar navbar-default navbar-fixed-top" style="opacity:0.7;height:120px">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="{% url 'home' %}" class="navbar-brand" style="font-size:70px;padding:50px 0px 0px 12px">eh</a>
+			</div>
+			<div class="navbar-collapse collapse pull-right" id="navbar-main" style="font-size:25px; padding:45px 40px">
 				<ul class="nav navbar-nav">
-					<li><a href="{% url 'ozio:home' %}">OZIO</a></li>
-					<li><a href="http://news.bootswatch.com">Blog</a></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="#" id="about_us">About Us<span class="caret"></span></a>
-						<ul class="dropdown-menu" aria-labelledby="about_us">
-							<li><a href="#">Connie</a></li>
-							<li class="divider"></li>
-							<li><a href="#">Edwin</a></li>
-						</ul>
-					</li>
+					<li><a href="https://github.com/edwinhe" target="_blank" class="social-github" style="margin-left:10px"></a></li>
+					<li><a href="http://www.linkedin.com/in/edwinwzhe" target="_blank" class="social-linkedin" style="margin-left:10px"></a></li>
+					<li><a href="http://instagram.com/heedwin" target="_blank" class="social-instagram" style="margin-left:10px"></a></li>
+					<li><a href="mailto:edwinwzhe@gmail.com" target="_blank" class="social-email" style="margin-left:10px"></a></li>					
 				</ul>
-{% endblock %}
-
-{% block content1 %}
-<div class="col-lg-6">
-	            <h1>Ed & Co.</h1>
-	            <p class="lead">Web Site Under Construction...</p>
-</div>
-<div class="col-lg-6">
-	<blockquote class="pull-right">
-	  <p class="text-info">A good plan today is better than a perfect plan tomorrow.</p>
-	  <small>Latin Proverb<cite title="Source Title"></cite></small>
-	</blockquote>
-	<blockquote class="pull-right">
-	  <p class="text-success">A wise man in times of peace prepares for war.</p>
-	  <small>Horace<cite title="Source Title"></cite></small>
-	</blockquote>
-	<blockquote class="pull-right">
-	  <p class="text-info">The man who runs away will fight again.</p>
-	  <small>Latin Proverb<cite title="Source Title"></cite></small>
-	</blockquote>
-</div>
-{% endblock %}
-
-{% block content2 %} {% endblock %}
+			</div>
+			<div class="navbar-collapse collapse pull-right" id="navbar-main" style="font-size:25px; padding:45px 40px">
+				<ul class="nav navbar-nav">
+					<li><a href="{% url 'ozio:home' %}" class="ozio-icon"></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- -------------- /BODY NAV BAR ---------------- -->
+	
+	<!-- -------------- BODY CONTAINER ---------------- -->
+	<div class="container">
+		<div class="page-header" id="banner">
+	        <div class="row">
+	        	<!--  {% block content2 %} {% endblock %}  -->
+	        </div>
+		</div>
+	</div>
+	<!-- -------------- /BODY CONTAINER ---------------- -->
+	
+	<!-- -------------- BODY EXTRA CONTENT ---------------- -->
+	<!-- -------------- /BODY EXTRA CONTENT ---------------- -->
+	
+	<!-- -------------- BODY EXTRA JS ---------------- -->
+	<!-- -------------- /BODY EXTRA JS ---------------- -->
+	
+	<!-- ----------------------------- /BODY ----------------------------- -->
+</body>
+</html>
 

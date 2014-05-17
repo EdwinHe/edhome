@@ -38,7 +38,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'ozio',
     'rest_framework',  # REST Framework
-    'chartjs', # CHART JS, FOR PLOTTING
 )
 
 MIDDLEWARE_CLASSES = (
